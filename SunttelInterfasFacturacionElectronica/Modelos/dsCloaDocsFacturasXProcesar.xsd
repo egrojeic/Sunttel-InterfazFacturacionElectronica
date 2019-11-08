@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCloaDocsFacturasXProcesar" targetNamespace="http://tempuri.org/dsCloaDocsFacturasXProcesar.xsd" xmlns:mstns="http://tempuri.org/dsCloaDocsFacturasXProcesar.xsd" xmlns="http://tempuri.org/dsCloaDocsFacturasXProcesar.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="POS_INTERFAS_FACTURACION_ELECTRONICAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="POS_INTERFAS_FACTURACION_ELECTRONICAConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SunttelInterfasFacturacionElectronica.My.MySettings.GlobalReference.Default.POS_INTERFAS_FACTURACION_ELECTRONICAConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCloaDocsFacturasXProcesar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCloaDocsFacturasXProcesar" msprop:Generator_UserDSName="dsCloaDocsFacturasXProcesar">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InterfasFacturas" msprop:Generator_TableClassName="InterfasFacturasDataTable" msprop:Generator_TableVarName="tableInterfasFacturas" msprop:Generator_RowChangedName="InterfasFacturasRowChanged" msprop:Generator_TablePropName="InterfasFacturas" msprop:Generator_RowDeletingName="InterfasFacturasRowDeleting" msprop:Generator_RowChangingName="InterfasFacturasRowChanging" msprop:Generator_RowEvHandlerName="InterfasFacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="InterfasFacturasRowDeleted" msprop:Generator_RowClassName="InterfasFacturasRow" msprop:Generator_UserTableName="InterfasFacturas" msprop:Generator_RowEvArgName="InterfasFacturasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="IDVentasFacturas" msprop:Generator_ColumnVarNameInTable="columnIDVentasFacturas" msprop:Generator_ColumnPropNameInRow="IDVentasFacturas" msprop:Generator_ColumnPropNameInTable="IDVentasFacturasColumn" msprop:Generator_UserColumnName="IDVentasFacturas" type="xs:int" minOccurs="0" />
+              <xs:element name="FlagSent" msprop:Generator_ColumnVarNameInTable="columnFlagSent" msprop:Generator_ColumnPropNameInRow="FlagSent" msprop:Generator_ColumnPropNameInTable="FlagSentColumn" msprop:Generator_UserColumnName="FlagSent" type="xs:int" minOccurs="0" />
+              <xs:element name="DesError" msprop:Generator_ColumnVarNameInTable="columnDesError" msprop:Generator_ColumnPropNameInRow="DesError" msprop:Generator_ColumnPropNameInTable="DesErrorColumn" msprop:Generator_UserColumnName="DesError" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StampTimeEnvio" msprop:Generator_ColumnVarNameInTable="columnStampTimeEnvio" msprop:Generator_ColumnPropNameInRow="StampTimeEnvio" msprop:Generator_ColumnPropNameInTable="StampTimeEnvioColumn" msprop:Generator_UserColumnName="StampTimeEnvio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NombreArchivo" msprop:Generator_ColumnVarNameInTable="columnNombreArchivo" msprop:Generator_ColumnPropNameInRow="NombreArchivo" msprop:Generator_ColumnPropNameInTable="NombreArchivoColumn" msprop:Generator_UserColumnName="NombreArchivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IDEmpresaIntermediaria" msprop:Generator_ColumnVarNameInTable="columnIDEmpresaIntermediaria" msprop:Generator_ColumnPropNameInRow="IDEmpresaIntermediaria" msprop:Generator_ColumnPropNameInTable="IDEmpresaIntermediariaColumn" msprop:Generator_UserColumnName="IDEmpresaIntermediaria" type="xs:int" minOccurs="0" />
+              <xs:element name="IDTiposEnvios" msprop:Generator_ColumnVarNameInTable="columnIDTiposEnvios" msprop:Generator_ColumnPropNameInRow="IDTiposEnvios" msprop:Generator_ColumnPropNameInTable="IDTiposEnviosColumn" msprop:Generator_UserColumnName="IDTiposEnvios" type="xs:int" minOccurs="0" />
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="ConsecutivoDocumento" msprop:Generator_ColumnVarNameInTable="columnConsecutivoDocumento" msprop:Generator_ColumnPropNameInRow="ConsecutivoDocumento" msprop:Generator_ColumnPropNameInTable="ConsecutivoDocumentoColumn" msprop:Generator_UserColumnName="ConsecutivoDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="Cufe" msprop:Generator_ColumnVarNameInTable="columnCufe" msprop:Generator_ColumnPropNameInRow="Cufe" msprop:Generator_ColumnPropNameInTable="CufeColumn" msprop:Generator_UserColumnName="Cufe" type="xs:string" minOccurs="0" />
+              <xs:element name="Resultado" msprop:Generator_ColumnVarNameInTable="columnResultado" msprop:Generator_ColumnPropNameInRow="Resultado" msprop:Generator_ColumnPropNameInTable="ResultadoColumn" msprop:Generator_UserColumnName="Resultado" type="xs:string" minOccurs="0" />
+              <xs:element name="CodFactura" msprop:Generator_ColumnVarNameInTable="columnCodFactura" msprop:Generator_ColumnPropNameInRow="CodFactura" msprop:Generator_ColumnPropNameInTable="CodFacturaColumn" msprop:Generator_UserColumnName="CodFactura" type="xs:string" minOccurs="0" />
+              <xs:element name="CodCliente" msprop:Generator_ColumnVarNameInTable="columnCodCliente" msprop:Generator_ColumnPropNameInRow="CodCliente" msprop:Generator_ColumnPropNameInTable="CodClienteColumn" msprop:Generator_UserColumnName="CodCliente" type="xs:string" minOccurs="0" />
+              <xs:element name="NomCliente" msprop:Generator_ColumnVarNameInTable="columnNomCliente" msprop:Generator_ColumnPropNameInRow="NomCliente" msprop:Generator_ColumnPropNameInTable="NomClienteColumn" msprop:Generator_UserColumnName="NomCliente" type="xs:string" minOccurs="0" />
+              <xs:element name="FFactura" msprop:Generator_ColumnVarNameInTable="columnFFactura" msprop:Generator_ColumnPropNameInRow="FFactura" msprop:Generator_ColumnPropNameInTable="FFacturaColumn" msprop:Generator_UserColumnName="FFactura" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InterfasFacturas" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
