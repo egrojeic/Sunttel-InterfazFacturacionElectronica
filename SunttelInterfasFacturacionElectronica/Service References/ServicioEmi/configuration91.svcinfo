@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="qHHHll0CDKtzel2Wx85nNwnQBxc=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="+Vc5Fhn9A4DRzIURk4tzt7NGE4I=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IService3">
       <properties>
@@ -306,7 +306,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpsBinding_IService3" contract="ServicioEmi.IService" bindingType="basicHttpBinding" address="https://demoemision21.thefactoryhka.com.co/ws/v1.0/Service.svc" bindingConfiguration="BasicHttpsBinding_IService3">
+    <endpoint name="BasicHttpsBinding_IService1" contract="ServicioEmi.IService" bindingType="basicHttpBinding" address="https://demoemision21.thefactoryhka.com.co/ws/v1.0/Service.svc" bindingConfiguration="BasicHttpsBinding_IService3">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>https://demoemision21.thefactoryhka.com.co/ws/v1.0/Service.svc</serializedValue>
@@ -381,7 +381,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpsBinding_IService3</serializedValue>
+          <serializedValue>BasicHttpsBinding_IService1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

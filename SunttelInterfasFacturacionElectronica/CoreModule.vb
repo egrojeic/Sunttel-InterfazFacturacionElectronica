@@ -15,7 +15,11 @@ Module CoreModule
 	Public SysPassword As String = ""
 	Public strConeccionDB As String = ""
 
-	Public TiempoInicial As DateTime = Now
+    Public FormatoFecha As String = "yyyy-MM-dd"
+    Public FormatoFechaHora As String = "yyyy-MM-dd HH:mm"
+    Public FormatoDecimal As String = "####0.00"
+
+    Public TiempoInicial As DateTime = Now
 
 
     Public Sub IniciaApp()

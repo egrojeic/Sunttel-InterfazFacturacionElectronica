@@ -12,7 +12,6 @@ Imports System.IO
 Imports System.Xml.Serialization
 Imports SunttelDll2007
 Imports System.Data.SqlClient
-Imports System.Web.Services.Protocols
 
 Public Class cFacturaElectronica
 
@@ -72,9 +71,34 @@ Public Class cFacturaElectronica
         DocFactura.totalProductos = dsFactura.InfoGeneral(0).totalProductos
         DocFactura.totalSinImpuestos = dsFactura.InfoGeneral(0).totalSinImpuestos
 
-        ' Que diferencia hay con el campo Total Anticipos?
 #Region "ANTICIPOS"
-        DocFactura.anticipos = Nothing
+
+        strSQL = "exec GetInfoFactura " & prmID.ToString & ", 7"
+        LlenaDataSetGenerico(dsFactura.InfoAnticipos, "InfoAnticipos", strSQL, strConeccionDB)
+
+        If dsFactura.InfoAnticipos.Rows.Count > 0 Then
+
+            Dim i As Integer = 0
+            Dim CursorAnticipos As dsConsultaFactura.InfoAnticiposRow
+
+            ReDim DocFactura.anticipos(dsFactura.InfoAnticipos.Rows.Count - 1)
+
+            For Each CursorAnticipos In dsFactura.InfoAnticipos
+
+                Dim anticipos As ServicioEmi.Anticipos = New ServicioEmi.Anticipos()
+
+                anticipos.fechaDeRecibido = CDate(CursorAnticipos.fechaDeRecibido).ToString(FormatoFecha)
+                anticipos.fechadePago = CursorAnticipos.fechadePago
+                anticipos.horaDePago = CursorAnticipos.horaDePago
+                anticipos.id = CursorAnticipos.id
+                anticipos.instrucciones = CursorAnticipos.instrucciones
+                anticipos.montoPagado = CDec(CursorAnticipos.montoPagado).ToString(FormatoDecimal)
+                DocFactura.anticipos(i) = anticipos
+
+                i = i + 1
+            Next
+
+        End If
 
 #End Region
 
@@ -97,20 +121,44 @@ Public Class cFacturaElectronica
 
         Dim cliente As New ServicioEmi.Cliente()
 
-        cliente.actividadEconomicaCIIU = "0010"
-        cliente.apellido = Nothing
+        cliente.actividadEconomicaCIIU = "0010" 'TODOS APLICAN EL MISMO CIUU?
+        cliente.apellido = dsFactura.InfoCliente(0).apellido
 
-        cliente.destinatario(1) = New ServicioEmi.Destinatario
-        Dim destinatario1 As New ServicioEmi.Destinatario()
-        destinatario1.canalDeEntrega = "0"
+        'Destinatario
+        strSQL = "exec GetInfoFactura " & prmID.ToString & ", 2, 1"
+        LlenaDataSetGenerico(dsFactura.InfoDestinatario, "InfoDestinatario", strSQL, strConeccionDB)
+
+        If dsFactura.InfoDestinatario.Rows.Count > 1 Then
+
+            Dim i As Integer = 0
+            Dim CursorDestinatario As dsConsultaFactura.InfoDestinatarioRow
+
+            ReDim cliente.destinatario(dsFactura.InfoDestinatario.Rows.Count - 1)
+
+            For Each CursorDestinatario In dsFactura.InfoDestinatario
+
+                Dim destinatario As New ServicioEmi.Destinatario()
+                destinatario.canalDeEntrega = CursorDestinatario.canalDeEntrega
+                destinatario.email = Split(CursorDestinatario.eMail, ",")
+                destinatario.fechaProgramada = CursorDestinatario.fechaProgramada
+                destinatario.mensajePersonalizado = CursorDestinatario.mensajePersonalizado
+                destinatario.nitProveedorReceptor = CursorDestinatario.nitProveedorReceptor
+                destinatario.telefono = CursorDestinatario.telefono
+                cliente.destinatario(i) = destinatario
+
+                i = i + 1
+            Next
+
+
+
+        End If
+
+
+
+
         Dim correoEntrega(1) As String
         correoEntrega(0) = dsFactura.InfoCliente(0).destinatario1Email
-        destinatario1.email = correoEntrega
-        destinatario1.fechaProgramada = dsFactura.InfoCliente(0).destinatario1FechaProgramada
-        destinatario1.mensajePersonalizado = dsFactura.InfoCliente(0).destinatario1MensajePersonalizado
-        destinatario1.nitProveedorReceptor = dsFactura.InfoCliente(0).destinatario1NitProveedorReceptor
-        destinatario1.telefono = dsFactura.InfoCliente(0).destinatario1Telefono
-        cliente.destinatario(0) = destinatario1
+
 
         ' Que es esto de Detalles Tributarios?
         cliente.detallesTributarios(1) = New ServicioEmi.Tributos()
@@ -232,7 +280,7 @@ Public Class cFacturaElectronica
 
                 Dim impuestoGeneral1 As ServicioEmi.FacturaImpuestos = New ServicioEmi.FacturaImpuestos()
 
-                impuestoGeneral1.baseImponibleTOTALImp = CDec(CursorImpuestosGrls.impuestoGeneral1BaseImponibleTOTALImp).ToString("####0.00")
+                impuestoGeneral1.baseImponibleTOTALImp = CDec(CursorImpuestosGrls.impuestoGeneral1BaseImponibleTOTALImp).ToString(FormatoDecimal)
                 impuestoGeneral1.codigoTOTALImp = CursorImpuestosGrls.impuestoGeneral1CodigoTOTALImp
                 impuestoGeneral1.controlInterno = CursorImpuestosGrls.impuestoGeneral1ControlInterno
                 impuestoGeneral1.porcentajeTOTALImp = CursorImpuestosGrls.impuestoGeneral1PorcentajeTOTALImp

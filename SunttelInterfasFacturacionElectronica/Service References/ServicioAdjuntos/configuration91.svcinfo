@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ZSwMaRzcVk4/5v9UxN8+w1aUJMU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="vLBDdA0pT0+feBMlCgsWgJxgxw0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IService2">
       <properties>
@@ -306,7 +306,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpsBinding_IService2" contract="ServicioAdjuntos.IService" bindingType="basicHttpBinding" address="https://demoemision21.thefactoryhka.com.co/ws/adjuntos/Service.svc" bindingConfiguration="BasicHttpsBinding_IService2">
+    <endpoint name="BasicHttpsBinding_IService" contract="ServicioAdjuntos.IService" bindingType="basicHttpBinding" address="https://demoemision21.thefactoryhka.com.co/ws/adjuntos/Service.svc" bindingConfiguration="BasicHttpsBinding_IService2">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>https://demoemision21.thefactoryhka.com.co/ws/adjuntos/Service.svc</serializedValue>
@@ -381,7 +381,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpsBinding_IService2</serializedValue>
+          <serializedValue>BasicHttpsBinding_IService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
