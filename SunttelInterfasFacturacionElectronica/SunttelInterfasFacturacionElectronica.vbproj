@@ -64,7 +64,7 @@
   <ItemGroup>
     <Reference Include="SunttelDll2007, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SUNTTEL_DLLs\SunttelDll2007.dll</HintPath>
+      <HintPath>..\..\..\SUNTTEL_DLLs\SunttelDll2007.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

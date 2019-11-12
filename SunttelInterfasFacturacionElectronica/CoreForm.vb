@@ -166,6 +166,10 @@ ControlaError:
         Dim tmpRutaArchivo As String = ""
         tmpRutaArchivo = RutaArchivosArmellini.Text & "\FE" & prmIDVentasFactura & ".txt"
 
+        If Not System.IO.Directory.Exists(RutaArchivosArmellini.Text) Then
+            System.IO.Directory.CreateDirectory(RutaArchivosArmellini.Text)
+        End If
+
         Dim MyFile As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
         Dim Serializer1 As XmlSerializer = New XmlSerializer(GetType(ServicioEmi.FacturaGeneral))
         Serializer1.Serialize(MyFile, objDocto) ' // Objeto serializado
@@ -176,13 +180,19 @@ ControlaError:
 
         docRespuesta = serviceClientEm.Enviar(Me.tokenLogin.Text.Trim(), Me.tokenPassword.Text.Trim(), objDocto, "0")
 
+        tmpRutaArchivo = RutaArchivosArmellini.Text & "\Response_FE" & prmIDVentasFactura & ".txt"
+        Dim MyFile2 As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
+        Dim Serializer2 As XmlSerializer = New XmlSerializer(GetType(ServicioEmi.DocumentResponse))
+        Serializer2.Serialize(MyFile2, docRespuesta) ' // Objeto serializado
+        MyFile.Close()
+
         Dim tmpCodRespuesta As Integer = 0
         Dim tmpConsecutivo As Integer = 0
         Dim tmpCufe As String = ""
         Dim tmpMensajes As String = ""
         Dim tmpResultado As String = ""
-
-
+        Dim tmpHash As String = ""
+        Dim tmpMensajesValidacion As String = ""
 
         If (docRespuesta.codigo = 200) Then
             tmpCodRespuesta = docRespuesta.codigo
@@ -194,10 +204,16 @@ ControlaError:
             tmpCodRespuesta = docRespuesta.codigo
             tmpMensajes = docRespuesta.mensaje
             tmpResultado = docRespuesta.resultado
+            tmpHash = docRespuesta.hash
+
+
+            For i = 0 To docRespuesta.mensajesValidacion().Count - 1
+                tmpMensajesValidacion = "M.V " & i & " " & docRespuesta.mensajesValidacion(i).ToString()
+            Next
         End If
 
         Dim strSQL As String = ""
-        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & tmpResultado & ": " & tmpMensajes & "'"
+        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & tmpResultado & ": " & tmpMensajes & "', '" & tmpMensajesValidacion & "'"
         Dim objGestionData As New cGestionData
         objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
 
