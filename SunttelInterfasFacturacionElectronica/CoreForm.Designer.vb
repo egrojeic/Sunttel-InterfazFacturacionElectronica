@@ -125,6 +125,10 @@ Partial Class CoreForm
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.dsAux = New System.Data.DataSet()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.PreFijo = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.ConsecutivoDesde = New System.Windows.Forms.NumericUpDown()
         Me.Panel1.SuspendLayout()
         CType(Me.FrecuenciaMins, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -144,11 +148,16 @@ Partial Class CoreForm
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.ConsecutivoDesde)
+        Me.Panel1.Controls.Add(Me.Label15)
+        Me.Panel1.Controls.Add(Me.PreFijo)
+        Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.tokenPassword)
         Me.Panel1.Controls.Add(Me.Label12)
@@ -178,101 +187,90 @@ Partial Class CoreForm
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1528, 265)
+        Me.Panel1.Size = New System.Drawing.Size(1140, 215)
         Me.Panel1.TabIndex = 4
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(89, 177)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(67, 144)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(113, 17)
+        Me.Label13.Size = New System.Drawing.Size(87, 13)
         Me.Label13.TabIndex = 25
         Me.Label13.Text = "Token Password"
         '
         'tokenPassword
         '
-        Me.tokenPassword.Location = New System.Drawing.Point(209, 174)
-        Me.tokenPassword.Margin = New System.Windows.Forms.Padding(4)
+        Me.tokenPassword.Location = New System.Drawing.Point(157, 141)
         Me.tokenPassword.Name = "tokenPassword"
-        Me.tokenPassword.Size = New System.Drawing.Size(639, 22)
+        Me.tokenPassword.Size = New System.Drawing.Size(480, 20)
         Me.tokenPassword.TabIndex = 26
         Me.tokenPassword.Text = "ce2e45d0d5f7479490663d1c113c892434d2da29"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(88, 145)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(66, 118)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(48, 17)
+        Me.Label12.Size = New System.Drawing.Size(38, 13)
         Me.Label12.TabIndex = 23
         Me.Label12.Text = "Token"
         '
         'tokenLogin
         '
-        Me.tokenLogin.Location = New System.Drawing.Point(208, 142)
-        Me.tokenLogin.Margin = New System.Windows.Forms.Padding(4)
+        Me.tokenLogin.Location = New System.Drawing.Point(156, 115)
         Me.tokenLogin.Name = "tokenLogin"
-        Me.tokenLogin.Size = New System.Drawing.Size(639, 22)
+        Me.tokenLogin.Size = New System.Drawing.Size(480, 20)
         Me.tokenLogin.TabIndex = 24
         Me.tokenLogin.Text = "cb310720e02e40c4b3c1dac8f7e271c8b2c2f528"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(732, 11)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(549, 9)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(90, 17)
+        Me.Label9.Size = New System.Drawing.Size(67, 13)
         Me.Label9.TabIndex = 22
         Me.Label9.Text = "Intermediaria"
         '
         'IDEmpresaIntermediaria
         '
         Me.IDEmpresaIntermediaria.FormattingEnabled = True
-        Me.IDEmpresaIntermediaria.Location = New System.Drawing.Point(736, 39)
-        Me.IDEmpresaIntermediaria.Margin = New System.Windows.Forms.Padding(4)
+        Me.IDEmpresaIntermediaria.Location = New System.Drawing.Point(552, 32)
         Me.IDEmpresaIntermediaria.Name = "IDEmpresaIntermediaria"
-        Me.IDEmpresaIntermediaria.Size = New System.Drawing.Size(464, 24)
+        Me.IDEmpresaIntermediaria.Size = New System.Drawing.Size(349, 21)
         Me.IDEmpresaIntermediaria.TabIndex = 21
         '
         'FInicioProduccion
         '
-        Me.FInicioProduccion.Location = New System.Drawing.Point(581, 108)
-        Me.FInicioProduccion.Margin = New System.Windows.Forms.Padding(4)
+        Me.FInicioProduccion.Location = New System.Drawing.Point(436, 88)
         Me.FInicioProduccion.Name = "FInicioProduccion"
-        Me.FInicioProduccion.Size = New System.Drawing.Size(265, 22)
+        Me.FInicioProduccion.Size = New System.Drawing.Size(200, 20)
         Me.FInicioProduccion.TabIndex = 20
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(501, 114)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(376, 93)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(54, 17)
+        Me.Label7.Size = New System.Drawing.Size(41, 13)
         Me.Label7.TabIndex = 19
         Me.Label7.Text = "F. Final"
         '
         'FInicioPruebas
         '
-        Me.FInicioPruebas.Location = New System.Drawing.Point(208, 108)
-        Me.FInicioPruebas.Margin = New System.Windows.Forms.Padding(4)
+        Me.FInicioPruebas.Location = New System.Drawing.Point(156, 88)
         Me.FInicioPruebas.Name = "FInicioPruebas"
-        Me.FInicioPruebas.Size = New System.Drawing.Size(265, 22)
+        Me.FInicioPruebas.Size = New System.Drawing.Size(200, 20)
         Me.FInicioPruebas.TabIndex = 18
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(128, 114)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(96, 93)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 17)
+        Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "F. Inicio"
         '
@@ -280,10 +278,9 @@ Partial Class CoreForm
         '
         Me.lblLastTimeRan.AutoSize = True
         Me.lblLastTimeRan.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLastTimeRan.Location = New System.Drawing.Point(664, 231)
-        Me.lblLastTimeRan.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblLastTimeRan.Location = New System.Drawing.Point(498, 188)
         Me.lblLastTimeRan.Name = "lblLastTimeRan"
-        Me.lblLastTimeRan.Size = New System.Drawing.Size(118, 17)
+        Me.lblLastTimeRan.Size = New System.Drawing.Size(93, 13)
         Me.lblLastTimeRan.TabIndex = 16
         Me.lblLastTimeRan.Text = "Last Time Ran:"
         '
@@ -291,20 +288,18 @@ Partial Class CoreForm
         '
         Me.lblTiempoRestanteNuevoCargue.AutoSize = True
         Me.lblTiempoRestanteNuevoCargue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTiempoRestanteNuevoCargue.Location = New System.Drawing.Point(241, 231)
-        Me.lblTiempoRestanteNuevoCargue.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTiempoRestanteNuevoCargue.Location = New System.Drawing.Point(181, 188)
         Me.lblTiempoRestanteNuevoCargue.Name = "lblTiempoRestanteNuevoCargue"
-        Me.lblTiempoRestanteNuevoCargue.Size = New System.Drawing.Size(302, 17)
+        Me.lblTiempoRestanteNuevoCargue.Size = New System.Drawing.Size(236, 13)
         Me.lblTiempoRestanteNuevoCargue.TabIndex = 15
         Me.lblTiempoRestanteNuevoCargue.Text = "Remaining Time for Next Upload (Mins): "
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 12)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(12, 10)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 17)
+        Me.Label2.Size = New System.Drawing.Size(74, 13)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Login Servicio"
         '
@@ -312,29 +307,26 @@ Partial Class CoreForm
         '
         Me.lblStatus.AutoSize = True
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.Location = New System.Drawing.Point(13, 231)
-        Me.lblStatus.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblStatus.Location = New System.Drawing.Point(10, 188)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(115, 17)
+        Me.lblStatus.Size = New System.Drawing.Size(91, 13)
         Me.lblStatus.TabIndex = 14
         Me.lblStatus.Text = "Status: Stoped"
         '
         'LoinIntermediario
         '
-        Me.LoinIntermediario.Location = New System.Drawing.Point(209, 9)
-        Me.LoinIntermediario.Margin = New System.Windows.Forms.Padding(4)
+        Me.LoinIntermediario.Location = New System.Drawing.Point(157, 7)
         Me.LoinIntermediario.Name = "LoinIntermediario"
-        Me.LoinIntermediario.Size = New System.Drawing.Size(251, 22)
+        Me.LoinIntermediario.Size = New System.Drawing.Size(189, 20)
         Me.LoinIntermediario.TabIndex = 1
         Me.LoinIntermediario.Text = "maribelt@sunttelsoftware.com"
         '
         'btnRegistrar
         '
         Me.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnRegistrar.Location = New System.Drawing.Point(1237, 114)
-        Me.btnRegistrar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnRegistrar.Location = New System.Drawing.Point(928, 93)
         Me.btnRegistrar.Name = "btnRegistrar"
-        Me.btnRegistrar.Size = New System.Drawing.Size(256, 52)
+        Me.btnRegistrar.Size = New System.Drawing.Size(192, 42)
         Me.btnRegistrar.TabIndex = 11
         Me.btnRegistrar.Text = "Save Config"
         Me.btnRegistrar.UseVisualStyleBackColor = True
@@ -343,10 +335,9 @@ Partial Class CoreForm
         '
         Me.btnDEtener.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnDEtener.ImageIndex = 3
-        Me.btnDEtener.Location = New System.Drawing.Point(1237, 59)
-        Me.btnDEtener.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnDEtener.Location = New System.Drawing.Point(928, 48)
         Me.btnDEtener.Name = "btnDEtener"
-        Me.btnDEtener.Size = New System.Drawing.Size(256, 48)
+        Me.btnDEtener.Size = New System.Drawing.Size(192, 39)
         Me.btnDEtener.TabIndex = 13
         Me.btnDEtener.Text = "Stop"
         Me.btnDEtener.UseVisualStyleBackColor = True
@@ -354,10 +345,9 @@ Partial Class CoreForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(521, 12)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(391, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(69, 17)
+        Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Password"
         '
@@ -365,89 +355,80 @@ Partial Class CoreForm
         '
         Me.btnCorrer.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCorrer.ImageIndex = 2
-        Me.btnCorrer.Location = New System.Drawing.Point(1237, 4)
-        Me.btnCorrer.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnCorrer.Location = New System.Drawing.Point(928, 3)
         Me.btnCorrer.Name = "btnCorrer"
-        Me.btnCorrer.Size = New System.Drawing.Size(256, 48)
+        Me.btnCorrer.Size = New System.Drawing.Size(192, 39)
         Me.btnCorrer.TabIndex = 12
         Me.btnCorrer.Text = "Run"
         Me.btnCorrer.UseVisualStyleBackColor = True
         '
         'PasswordIntermediario
         '
-        Me.PasswordIntermediario.Location = New System.Drawing.Point(600, 9)
-        Me.PasswordIntermediario.Margin = New System.Windows.Forms.Padding(4)
+        Me.PasswordIntermediario.Location = New System.Drawing.Point(450, 7)
         Me.PasswordIntermediario.Name = "PasswordIntermediario"
         Me.PasswordIntermediario.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.PasswordIntermediario.Size = New System.Drawing.Size(109, 22)
+        Me.PasswordIntermediario.Size = New System.Drawing.Size(83, 20)
         Me.PasswordIntermediario.TabIndex = 3
         Me.PasswordIntermediario.Text = "1234Asd@"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(16, 44)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(12, 36)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(152, 17)
+        Me.Label4.Size = New System.Drawing.Size(116, 13)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Ruta Archivos a Enviar"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(367, 78)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(275, 63)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(43, 17)
+        Me.Label6.Size = New System.Drawing.Size(34, 13)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Modo"
         '
         'RutaArchivosArmellini
         '
-        Me.RutaArchivosArmellini.Location = New System.Drawing.Point(209, 41)
-        Me.RutaArchivosArmellini.Margin = New System.Windows.Forms.Padding(4)
+        Me.RutaArchivosArmellini.Location = New System.Drawing.Point(157, 33)
         Me.RutaArchivosArmellini.Name = "RutaArchivosArmellini"
-        Me.RutaArchivosArmellini.Size = New System.Drawing.Size(449, 22)
+        Me.RutaArchivosArmellini.Size = New System.Drawing.Size(338, 20)
         Me.RutaArchivosArmellini.TabIndex = 5
         Me.RutaArchivosArmellini.Text = "C:\ArchivosFacturasElectronicas"
         '
         'IDTiposEnvios
         '
         Me.IDTiposEnvios.FormattingEnabled = True
-        Me.IDTiposEnvios.Location = New System.Drawing.Point(417, 75)
-        Me.IDTiposEnvios.Margin = New System.Windows.Forms.Padding(4)
+        Me.IDTiposEnvios.Location = New System.Drawing.Point(313, 61)
         Me.IDTiposEnvios.Name = "IDTiposEnvios"
-        Me.IDTiposEnvios.Size = New System.Drawing.Size(292, 24)
+        Me.IDTiposEnvios.Size = New System.Drawing.Size(220, 21)
         Me.IDTiposEnvios.TabIndex = 9
         '
         'btnSelectFolder
         '
-        Me.btnSelectFolder.Location = New System.Drawing.Point(668, 41)
-        Me.btnSelectFolder.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSelectFolder.Location = New System.Drawing.Point(501, 33)
         Me.btnSelectFolder.Name = "btnSelectFolder"
-        Me.btnSelectFolder.Size = New System.Drawing.Size(43, 25)
+        Me.btnSelectFolder.Size = New System.Drawing.Size(32, 20)
         Me.btnSelectFolder.TabIndex = 6
         Me.btnSelectFolder.UseVisualStyleBackColor = True
         '
         'FrecuenciaMins
         '
-        Me.FrecuenciaMins.Location = New System.Drawing.Point(208, 75)
-        Me.FrecuenciaMins.Margin = New System.Windows.Forms.Padding(4)
+        Me.FrecuenciaMins.Location = New System.Drawing.Point(156, 61)
         Me.FrecuenciaMins.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
         Me.FrecuenciaMins.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.FrecuenciaMins.Name = "FrecuenciaMins"
-        Me.FrecuenciaMins.Size = New System.Drawing.Size(112, 22)
+        Me.FrecuenciaMins.Size = New System.Drawing.Size(84, 20)
         Me.FrecuenciaMins.TabIndex = 8
         Me.FrecuenciaMins.Value = New Decimal(New Integer() {20, 0, 0, 0})
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(16, 78)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(12, 63)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(180, 17)
+        Me.Label5.Size = New System.Drawing.Size(138, 13)
         Me.Label5.TabIndex = 7
         Me.Label5.Text = "Frecuencia de Envío (Mins)"
         '
@@ -456,22 +437,20 @@ Partial Class CoreForm
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 265)
-        Me.TabControl1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 215)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1528, 416)
+        Me.TabControl1.Size = New System.Drawing.Size(1140, 338)
         Me.TabControl1.TabIndex = 5
         '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.TabControl2)
         Me.TabPage1.Controls.Add(Me.Panel2)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage1.Size = New System.Drawing.Size(1520, 387)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1132, 312)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Facturación"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -481,22 +460,20 @@ Partial Class CoreForm
         Me.TabControl2.Controls.Add(Me.TabPage3)
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl2.Location = New System.Drawing.Point(4, 58)
-        Me.TabControl2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabControl2.Location = New System.Drawing.Point(3, 47)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(1512, 325)
+        Me.TabControl2.Size = New System.Drawing.Size(1126, 262)
         Me.TabControl2.TabIndex = 0
         '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.dGridCurrentActivity)
         Me.TabPage3.Controls.Add(Me.Panel3)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage3.Size = New System.Drawing.Size(1504, 296)
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1118, 236)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Transacciones en Cola"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -516,15 +493,14 @@ Partial Class CoreForm
         Me.dGridCurrentActivity.ContextMenuStrip = Me.cMenuCola
         Me.dGridCurrentActivity.DataSource = Me.bsColaDocsFacturas
         Me.dGridCurrentActivity.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dGridCurrentActivity.Location = New System.Drawing.Point(4, 4)
-        Me.dGridCurrentActivity.Margin = New System.Windows.Forms.Padding(4)
+        Me.dGridCurrentActivity.Location = New System.Drawing.Point(3, 3)
         Me.dGridCurrentActivity.Name = "dGridCurrentActivity"
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue
         Me.dGridCurrentActivity.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dGridCurrentActivity.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dGridCurrentActivity.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dGridCurrentActivity.RowTemplate.Height = 24
-        Me.dGridCurrentActivity.Size = New System.Drawing.Size(1496, 258)
+        Me.dGridCurrentActivity.Size = New System.Drawing.Size(1112, 206)
         Me.dGridCurrentActivity.TabIndex = 138
         '
         'CodFacturaDataGridViewTextBoxColumn
@@ -633,12 +609,12 @@ Partial Class CoreForm
         Me.cMenuCola.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cMenuCola.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ForzarEnvíoDeFacturaToolStripMenuItem})
         Me.cMenuCola.Name = "cMenuCola"
-        Me.cMenuCola.Size = New System.Drawing.Size(232, 28)
+        Me.cMenuCola.Size = New System.Drawing.Size(197, 26)
         '
         'ForzarEnvíoDeFacturaToolStripMenuItem
         '
         Me.ForzarEnvíoDeFacturaToolStripMenuItem.Name = "ForzarEnvíoDeFacturaToolStripMenuItem"
-        Me.ForzarEnvíoDeFacturaToolStripMenuItem.Size = New System.Drawing.Size(231, 24)
+        Me.ForzarEnvíoDeFacturaToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.ForzarEnvíoDeFacturaToolStripMenuItem.Text = "Forzar Envío de Factura"
         '
         'bsColaDocsFacturas
@@ -656,20 +632,18 @@ Partial Class CoreForm
         Me.Panel3.BackColor = System.Drawing.Color.Black
         Me.Panel3.Controls.Add(Me.lblRecordsCurrentActivity)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(4, 262)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel3.Location = New System.Drawing.Point(3, 209)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1496, 30)
+        Me.Panel3.Size = New System.Drawing.Size(1112, 24)
         Me.Panel3.TabIndex = 137
         '
         'lblRecordsCurrentActivity
         '
         Me.lblRecordsCurrentActivity.AutoSize = True
         Me.lblRecordsCurrentActivity.ForeColor = System.Drawing.Color.LightBlue
-        Me.lblRecordsCurrentActivity.Location = New System.Drawing.Point(15, 6)
-        Me.lblRecordsCurrentActivity.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblRecordsCurrentActivity.Location = New System.Drawing.Point(11, 5)
         Me.lblRecordsCurrentActivity.Name = "lblRecordsCurrentActivity"
-        Me.lblRecordsCurrentActivity.Size = New System.Drawing.Size(77, 17)
+        Me.lblRecordsCurrentActivity.Size = New System.Drawing.Size(58, 13)
         Me.lblRecordsCurrentActivity.TabIndex = 0
         Me.lblRecordsCurrentActivity.Text = "Registro: 0"
         '
@@ -678,11 +652,10 @@ Partial Class CoreForm
         Me.TabPage4.Controls.Add(Me.dGridHistorial)
         Me.TabPage4.Controls.Add(Me.Panel5)
         Me.TabPage4.Controls.Add(Me.Panel4)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage4.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage4.Size = New System.Drawing.Size(1504, 296)
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(1118, 236)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Historial de Transacciones"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -701,15 +674,14 @@ Partial Class CoreForm
         Me.dGridHistorial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn1, Me.IDVentasFacturasDataGridViewTextBoxColumn1, Me.FlagSentDataGridViewTextBoxColumn1, Me.DesErrorDataGridViewTextBoxColumn1, Me.StampTimeEnvioDataGridViewTextBoxColumn1, Me.NombreArchivoDataGridViewTextBoxColumn1, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1, Me.IDTiposEnviosDataGridViewTextBoxColumn1, Me.CodigoDataGridViewTextBoxColumn1, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1, Me.CufeDataGridViewTextBoxColumn1, Me.ResultadoDataGridViewTextBoxColumn1, Me.CodFacturaDataGridViewTextBoxColumn1, Me.CodClienteDataGridViewTextBoxColumn1, Me.NomClienteDataGridViewTextBoxColumn1, Me.FFacturaDataGridViewTextBoxColumn})
         Me.dGridHistorial.DataSource = Me.bsHistoria
         Me.dGridHistorial.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dGridHistorial.Location = New System.Drawing.Point(4, 47)
-        Me.dGridHistorial.Margin = New System.Windows.Forms.Padding(4)
+        Me.dGridHistorial.Location = New System.Drawing.Point(3, 38)
         Me.dGridHistorial.Name = "dGridHistorial"
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue
         Me.dGridHistorial.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dGridHistorial.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dGridHistorial.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dGridHistorial.RowTemplate.Height = 24
-        Me.dGridHistorial.Size = New System.Drawing.Size(1496, 215)
+        Me.dGridHistorial.Size = New System.Drawing.Size(1112, 171)
         Me.dGridHistorial.TabIndex = 140
         '
         'IDDataGridViewTextBoxColumn1
@@ -827,59 +799,53 @@ Partial Class CoreForm
         Me.Panel5.Controls.Add(Me.DateTimePicker2)
         Me.Panel5.Controls.Add(Me.Label11)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel5.Location = New System.Drawing.Point(4, 4)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel5.Location = New System.Drawing.Point(3, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1496, 43)
+        Me.Panel5.Size = New System.Drawing.Size(1112, 35)
         Me.Panel5.TabIndex = 141
         '
         'btnConsultarHistoria
         '
         Me.btnConsultarHistoria.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnConsultarHistoria.ImageIndex = 2
-        Me.btnConsultarHistoria.Location = New System.Drawing.Point(837, 10)
-        Me.btnConsultarHistoria.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnConsultarHistoria.Location = New System.Drawing.Point(628, 8)
         Me.btnConsultarHistoria.Name = "btnConsultarHistoria"
-        Me.btnConsultarHistoria.Size = New System.Drawing.Size(111, 26)
+        Me.btnConsultarHistoria.Size = New System.Drawing.Size(83, 21)
         Me.btnConsultarHistoria.TabIndex = 25
         Me.btnConsultarHistoria.Text = "Consultar"
         Me.btnConsultarHistoria.UseVisualStyleBackColor = True
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(519, 10)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(389, 8)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(309, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(233, 20)
         Me.DateTimePicker1.TabIndex = 24
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label10.Location = New System.Drawing.Point(449, 15)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(337, 12)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(45, 17)
+        Me.Label10.Size = New System.Drawing.Size(35, 13)
         Me.Label10.TabIndex = 23
         Me.Label10.Text = "Hasta"
         '
         'DateTimePicker2
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(152, 10)
-        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(114, 8)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(265, 22)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker2.TabIndex = 22
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label11.Location = New System.Drawing.Point(33, 15)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(25, 12)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(111, 17)
+        Me.Label11.Size = New System.Drawing.Size(83, 13)
         Me.Label11.TabIndex = 21
         Me.Label11.Text = "Consultar desde"
         '
@@ -888,20 +854,18 @@ Partial Class CoreForm
         Me.Panel4.BackColor = System.Drawing.Color.Black
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(4, 262)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel4.Location = New System.Drawing.Point(3, 209)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1496, 30)
+        Me.Panel4.Size = New System.Drawing.Size(1112, 24)
         Me.Panel4.TabIndex = 139
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.ForeColor = System.Drawing.Color.LightBlue
-        Me.Label8.Location = New System.Drawing.Point(15, 6)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(11, 5)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(77, 17)
+        Me.Label8.Size = New System.Drawing.Size(58, 13)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Registro: 0"
         '
@@ -919,114 +883,102 @@ Partial Class CoreForm
         Me.Panel2.Controls.Add(Me.VF_CodFactura)
         Me.Panel2.Controls.Add(Me.CF_CodFactura)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(4, 4)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1512, 54)
+        Me.Panel2.Size = New System.Drawing.Size(1126, 44)
         Me.Panel2.TabIndex = 1
         '
         'VCF_Error
         '
-        Me.VCF_Error.Location = New System.Drawing.Point(1181, 10)
-        Me.VCF_Error.Margin = New System.Windows.Forms.Padding(4)
+        Me.VCF_Error.Location = New System.Drawing.Point(886, 8)
         Me.VCF_Error.Name = "VCF_Error"
-        Me.VCF_Error.Size = New System.Drawing.Size(187, 22)
+        Me.VCF_Error.Size = New System.Drawing.Size(141, 20)
         Me.VCF_Error.TabIndex = 19
         '
         'CF_Error
         '
         Me.CF_Error.AutoSize = True
-        Me.CF_Error.Location = New System.Drawing.Point(1109, 12)
-        Me.CF_Error.Margin = New System.Windows.Forms.Padding(4)
+        Me.CF_Error.Location = New System.Drawing.Point(832, 10)
         Me.CF_Error.Name = "CF_Error"
-        Me.CF_Error.Size = New System.Drawing.Size(62, 21)
+        Me.CF_Error.Size = New System.Drawing.Size(48, 17)
         Me.CF_Error.TabIndex = 18
         Me.CF_Error.Text = "Error"
         Me.CF_Error.UseVisualStyleBackColor = True
         '
         'VF_IDPOVentas_IDClientes_Nombre
         '
-        Me.VF_IDPOVentas_IDClientes_Nombre.Location = New System.Drawing.Point(843, 10)
-        Me.VF_IDPOVentas_IDClientes_Nombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.VF_IDPOVentas_IDClientes_Nombre.Location = New System.Drawing.Point(632, 8)
         Me.VF_IDPOVentas_IDClientes_Nombre.Name = "VF_IDPOVentas_IDClientes_Nombre"
-        Me.VF_IDPOVentas_IDClientes_Nombre.Size = New System.Drawing.Size(244, 22)
+        Me.VF_IDPOVentas_IDClientes_Nombre.Size = New System.Drawing.Size(184, 20)
         Me.VF_IDPOVentas_IDClientes_Nombre.TabIndex = 17
         '
         'CF_IDPOVentas_IDClientes_Nombre
         '
         Me.CF_IDPOVentas_IDClientes_Nombre.AutoSize = True
-        Me.CF_IDPOVentas_IDClientes_Nombre.Location = New System.Drawing.Point(757, 12)
-        Me.CF_IDPOVentas_IDClientes_Nombre.Margin = New System.Windows.Forms.Padding(4)
+        Me.CF_IDPOVentas_IDClientes_Nombre.Location = New System.Drawing.Point(568, 10)
         Me.CF_IDPOVentas_IDClientes_Nombre.Name = "CF_IDPOVentas_IDClientes_Nombre"
-        Me.CF_IDPOVentas_IDClientes_Nombre.Size = New System.Drawing.Size(73, 21)
+        Me.CF_IDPOVentas_IDClientes_Nombre.Size = New System.Drawing.Size(58, 17)
         Me.CF_IDPOVentas_IDClientes_Nombre.TabIndex = 16
         Me.CF_IDPOVentas_IDClientes_Nombre.Text = "Cliente"
         Me.CF_IDPOVentas_IDClientes_Nombre.UseVisualStyleBackColor = True
         '
         'VF_IDPOVentas_IDClientes_Codigo
         '
-        Me.VF_IDPOVentas_IDClientes_Codigo.Location = New System.Drawing.Point(616, 10)
-        Me.VF_IDPOVentas_IDClientes_Codigo.Margin = New System.Windows.Forms.Padding(4)
+        Me.VF_IDPOVentas_IDClientes_Codigo.Location = New System.Drawing.Point(462, 8)
         Me.VF_IDPOVentas_IDClientes_Codigo.Name = "VF_IDPOVentas_IDClientes_Codigo"
-        Me.VF_IDPOVentas_IDClientes_Codigo.Size = New System.Drawing.Size(132, 22)
+        Me.VF_IDPOVentas_IDClientes_Codigo.Size = New System.Drawing.Size(100, 20)
         Me.VF_IDPOVentas_IDClientes_Codigo.TabIndex = 15
         '
         'CF_IDPOVentas_IDClientes_Codigo
         '
         Me.CF_IDPOVentas_IDClientes_Codigo.AutoSize = True
-        Me.CF_IDPOVentas_IDClientes_Codigo.Location = New System.Drawing.Point(477, 12)
-        Me.CF_IDPOVentas_IDClientes_Codigo.Margin = New System.Windows.Forms.Padding(4)
+        Me.CF_IDPOVentas_IDClientes_Codigo.Location = New System.Drawing.Point(358, 10)
         Me.CF_IDPOVentas_IDClientes_Codigo.Name = "CF_IDPOVentas_IDClientes_Codigo"
-        Me.CF_IDPOVentas_IDClientes_Codigo.Size = New System.Drawing.Size(106, 21)
+        Me.CF_IDPOVentas_IDClientes_Codigo.Size = New System.Drawing.Size(83, 17)
         Me.CF_IDPOVentas_IDClientes_Codigo.TabIndex = 14
         Me.CF_IDPOVentas_IDClientes_Codigo.Text = "Cod. Cliente"
         Me.CF_IDPOVentas_IDClientes_Codigo.UseVisualStyleBackColor = True
         '
         'VF_IDPOVentas_PO
         '
-        Me.VF_IDPOVentas_PO.Location = New System.Drawing.Point(332, 10)
-        Me.VF_IDPOVentas_PO.Margin = New System.Windows.Forms.Padding(4)
+        Me.VF_IDPOVentas_PO.Location = New System.Drawing.Point(249, 8)
         Me.VF_IDPOVentas_PO.Name = "VF_IDPOVentas_PO"
-        Me.VF_IDPOVentas_PO.Size = New System.Drawing.Size(132, 22)
+        Me.VF_IDPOVentas_PO.Size = New System.Drawing.Size(100, 20)
         Me.VF_IDPOVentas_PO.TabIndex = 13
         '
         'CF_IDPOVentas_PO
         '
         Me.CF_IDPOVentas_PO.AutoSize = True
-        Me.CF_IDPOVentas_PO.Location = New System.Drawing.Point(255, 12)
-        Me.CF_IDPOVentas_PO.Margin = New System.Windows.Forms.Padding(4)
+        Me.CF_IDPOVentas_PO.Location = New System.Drawing.Point(191, 10)
         Me.CF_IDPOVentas_PO.Name = "CF_IDPOVentas_PO"
-        Me.CF_IDPOVentas_PO.Size = New System.Drawing.Size(59, 21)
+        Me.CF_IDPOVentas_PO.Size = New System.Drawing.Size(48, 17)
         Me.CF_IDPOVentas_PO.TabIndex = 12
         Me.CF_IDPOVentas_PO.Text = "Cufe"
         Me.CF_IDPOVentas_PO.UseVisualStyleBackColor = True
         '
         'VF_CodFactura
         '
-        Me.VF_CodFactura.Location = New System.Drawing.Point(123, 10)
-        Me.VF_CodFactura.Margin = New System.Windows.Forms.Padding(4)
+        Me.VF_CodFactura.Location = New System.Drawing.Point(92, 8)
         Me.VF_CodFactura.Name = "VF_CodFactura"
-        Me.VF_CodFactura.Size = New System.Drawing.Size(115, 22)
+        Me.VF_CodFactura.Size = New System.Drawing.Size(87, 20)
         Me.VF_CodFactura.TabIndex = 11
         '
         'CF_CodFactura
         '
         Me.CF_CodFactura.AutoSize = True
-        Me.CF_CodFactura.Location = New System.Drawing.Point(15, 12)
-        Me.CF_CodFactura.Margin = New System.Windows.Forms.Padding(4)
+        Me.CF_CodFactura.Location = New System.Drawing.Point(11, 10)
         Me.CF_CodFactura.Name = "CF_CodFactura"
-        Me.CF_CodFactura.Size = New System.Drawing.Size(94, 21)
+        Me.CF_CodFactura.Size = New System.Drawing.Size(75, 17)
         Me.CF_CodFactura.TabIndex = 10
         Me.CF_CodFactura.Text = "Factura  #"
         Me.CF_CodFactura.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Margin = New System.Windows.Forms.Padding(4)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(4)
-        Me.TabPage2.Size = New System.Drawing.Size(1520, 387)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1132, 312)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Devoluciones"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1038,15 +990,50 @@ Partial Class CoreForm
         '
         Me.dsAux.DataSetName = "NewDataSet"
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(549, 63)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(20, 13)
+        Me.Label14.TabIndex = 27
+        Me.Label14.Text = "PF"
+        '
+        'PreFijo
+        '
+        Me.PreFijo.Location = New System.Drawing.Point(575, 61)
+        Me.PreFijo.Name = "PreFijo"
+        Me.PreFijo.Size = New System.Drawing.Size(61, 20)
+        Me.PreFijo.TabIndex = 28
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(642, 64)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(38, 13)
+        Me.Label15.TabIndex = 29
+        Me.Label15.Text = "Desde"
+        '
+        'ConsecutivoDesde
+        '
+        Me.ConsecutivoDesde.Location = New System.Drawing.Point(686, 62)
+        Me.ConsecutivoDesde.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
+        Me.ConsecutivoDesde.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ConsecutivoDesde.Name = "ConsecutivoDesde"
+        Me.ConsecutivoDesde.Size = New System.Drawing.Size(84, 20)
+        Me.ConsecutivoDesde.TabIndex = 30
+        Me.ConsecutivoDesde.UseWaitCursor = True
+        Me.ConsecutivoDesde.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'CoreForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1528, 681)
+        Me.ClientSize = New System.Drawing.Size(1140, 553)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "CoreForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sunttel - Sistema Interfas de Facturación  Electrónica"
@@ -1074,6 +1061,7 @@ Partial Class CoreForm
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1175,4 +1163,8 @@ Partial Class CoreForm
     Friend WithEvents tokenPassword As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents tokenLogin As TextBox
+    Friend WithEvents ConsecutivoDesde As NumericUpDown
+    Friend WithEvents Label15 As Label
+    Friend WithEvents PreFijo As TextBox
+    Friend WithEvents Label14 As Label
 End Class

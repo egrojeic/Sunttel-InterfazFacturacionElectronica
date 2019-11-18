@@ -161,7 +161,7 @@ ControlaError:
         Dim objFacturaElectronica As New cFacturaElectronica
 
 
-        objDocto = objFacturaElectronica.GeneraFileFacturaFactory(prmIDVentasFactura, prmCodigo)
+        objDocto = objFacturaElectronica.GeneraFileFacturaFactory(prmIDVentasFactura, prmCodigo, PreFijo.Text, ConsecutivoDesde.Value)
 
         Dim tmpRutaArchivo As String = ""
         tmpRutaArchivo = RutaArchivosArmellini.Text & "\FE" & prmIDVentasFactura & ".txt"
@@ -207,13 +207,18 @@ ControlaError:
             tmpHash = docRespuesta.hash
 
 
-            For i = 0 To docRespuesta.mensajesValidacion().Count - 1
-                tmpMensajesValidacion = "M.V " & i & " " & docRespuesta.mensajesValidacion(i).ToString()
-            Next
+            If Not IsNothing(docRespuesta.mensajesValidacion()) Then
+                For i = 0 To docRespuesta.mensajesValidacion().Count - 1
+                    tmpMensajesValidacion = tmpMensajesValidacion & " M.V " & i & " " & docRespuesta.mensajesValidacion(i).ToString()
+                Next
+            End If
+
         End If
 
+        tmpMensajesValidacion = Replace(tmpMensajesValidacion, "'", "")
+
         Dim strSQL As String = ""
-        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & tmpResultado & ": " & tmpMensajes & "', '" & tmpMensajesValidacion & "'"
+        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & tmpResultado & ": " & tmpMensajes & "', '" & tmpMensajesValidacion & "', " & CInt(objDocto.consecutivoDocumento)
         Dim objGestionData As New cGestionData
         objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
 

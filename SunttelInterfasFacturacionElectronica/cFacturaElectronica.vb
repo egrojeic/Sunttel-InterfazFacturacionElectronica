@@ -30,14 +30,12 @@ Public Class cFacturaElectronica
 
     End Sub
 
-    Public Function GeneraFileFacturaFactory(prmID As Integer, prmCodConsecutivoDocumento As Integer, Optional prmNumDecimales As Integer = 2) As ServicioEmi.FacturaGeneral
+    Public Function GeneraFileFacturaFactory(prmID As Integer, prmCodConsecutivoDocumento As Integer, prmPrefijo As String, prmConsDesde As Integer, Optional prmNumDecimales As Integer = 2) As ServicioEmi.FacturaGeneral
         Dim tmpstrPath As String = ""
 
         IDDocto = prmID
 
         Dim CodConsecutivoFactura As Integer = prmCodConsecutivoDocumento
-        Dim tmpRangoNumeracion As String = ""
-
         Dim strSQL As String = ""
         Dim dsFactura As New dsConsultaFactura
         On Error Resume Next
@@ -49,7 +47,7 @@ Public Class cFacturaElectronica
         Dim DocFactura As New ServicioEmi.FacturaGeneral
 
         DocFactura.cantidadDecimales = prmNumDecimales
-        DocFactura.consecutivoDocumento = CodConsecutivoFactura
+        DocFactura.consecutivoDocumento = dsFactura.InfoGeneral(0).consecutivoDocumento
         DocFactura.fechaEmision = dsFactura.InfoGeneral(0).fechaEmision
         DocFactura.fechaFinPeriodoFacturacion = dsFactura.InfoGeneral(0).fechaFinPeriodoFacturacion
         DocFactura.fechaInicioPeriodoFacturacion = dsFactura.InfoGeneral(0).fechaInicioPeriodoFacturacion
@@ -108,11 +106,6 @@ Public Class cFacturaElectronica
         DocFactura.autorizado = Nothing
 #End Region
 
-        ' Que diferencia hay con el campo Total totalDescuentos?
-#Region "CARGOS DECUENTOS"
-        DocFactura.cargosDescuentos = Nothing
-#End Region
-
 
 #Region "INFO CLIENTE"
 
@@ -128,7 +121,7 @@ Public Class cFacturaElectronica
         strSQL = "exec GetInfoFactura " & prmID.ToString & ", 2, 1"
         LlenaDataSetGenerico(dsFactura.InfoDestinatario, "InfoDestinatario", strSQL, strConeccionDB)
 
-        If dsFactura.InfoDestinatario.Rows.Count > 1 Then
+        If dsFactura.InfoDestinatario.Rows.Count > 0 Then
 
             Dim i As Integer = 0
             Dim CursorDestinatario As dsConsultaFactura.InfoDestinatarioRow
@@ -139,7 +132,7 @@ Public Class cFacturaElectronica
 
                 Dim destinatario As New ServicioEmi.Destinatario()
                 destinatario.canalDeEntrega = CursorDestinatario.canalDeEntrega
-                destinatario.email = Split(CursorDestinatario.eMail, ",")
+                destinatario.email = Split(Replace(CursorDestinatario.eMail, " ", ""), ",")
                 destinatario.fechaProgramada = CursorDestinatario.fechaProgramada
                 destinatario.mensajePersonalizado = CursorDestinatario.mensajePersonalizado
                 destinatario.nitProveedorReceptor = CursorDestinatario.nitProveedorReceptor
@@ -155,7 +148,7 @@ Public Class cFacturaElectronica
         strSQL = "exec GetInfoFactura " & prmID.ToString & ", 2, 3"
         LlenaDataSetGenerico(dsFactura.DetallesTributarios, "DetallesTributarios", strSQL, strConeccionDB)
 
-        If dsFactura.DetallesTributarios.Rows.Count > 1 Then
+        If dsFactura.DetallesTributarios.Rows.Count > 0 Then
 
             Dim i As Integer = 0
             Dim CursorDetallesTributarios As dsConsultaFactura.DetallesTributariosRow
@@ -232,7 +225,7 @@ Public Class cFacturaElectronica
         strSQL = "exec GetInfoFactura " & prmID.ToString & ", 2, 4"
         LlenaDataSetGenerico(dsFactura.Obligaciones, "Obligaciones", strSQL, strConeccionDB)
 
-        If dsFactura.Obligaciones.Rows.Count > 1 Then
+        If dsFactura.Obligaciones.Rows.Count > 0 Then
 
             Dim i As Integer = 0
             Dim CursorObligaciones As dsConsultaFactura.ObligacionesRow
@@ -306,7 +299,7 @@ Public Class cFacturaElectronica
                 impuestoGeneral1.baseImponibleTOTALImp = CDec(CursorImpuestosGrls.impuestoGeneral1BaseImponibleTOTALImp).ToString(FormatoDecimal)
                 impuestoGeneral1.codigoTOTALImp = CursorImpuestosGrls.impuestoGeneral1CodigoTOTALImp
                 impuestoGeneral1.controlInterno = CursorImpuestosGrls.impuestoGeneral1ControlInterno
-                impuestoGeneral1.porcentajeTOTALImp = CursorImpuestosGrls.impuestoGeneral1PorcentajeTOTALImp
+                impuestoGeneral1.porcentajeTOTALImp = CDec(CursorImpuestosGrls.impuestoGeneral1PorcentajeTOTALImp).ToString(FormatoDecimal)
                 impuestoGeneral1.unidadMedida = CursorImpuestosGrls.impuestoGeneral1UnidadMedida
                 impuestoGeneral1.unidadMedidaTributo = CursorImpuestosGrls.impuestoGeneral1UnidadMedidaTributo
                 impuestoGeneral1.valorTOTALImp = CDec(CursorImpuestosGrls.impuestoGeneral1ValorTOTALImp).ToString(FormatoDecimal)
@@ -423,79 +416,95 @@ Public Class cFacturaElectronica
         strSQL = "exec GetInfoFactura " & prmID.ToString & ", 5"
         LlenaDataSetGenerico(dsFactura.InfoDetallesFactura, "InfoDetallesFactura", strSQL, strConeccionDB)
 
-        Dim CursorDetalles As dsConsultaFactura.InfoDetallesFacturaRow
+        If dsFactura.InfoDetallesFactura.Rows.Count > 0 Then
 
-        For Each CursorDetalles In dsFactura.InfoDetallesFactura
-            Dim tmpLengthArr As Integer = 0
-            tmpLengthArr = DocFactura.detalleDeFactura.Length
+            Dim i As Integer = 0
+            Dim CursorDetalles As dsConsultaFactura.InfoDetallesFacturaRow
 
-            ReDim Preserve DocFactura.detalleDeFactura(tmpLengthArr)
-            DocFactura.detalleDeFactura(DocFactura.detalleDeFactura.Length) = New ServicioEmi.FacturaDetalle
+            ReDim DocFactura.detalleDeFactura(dsFactura.InfoDetallesFactura.Rows.Count - 1)
 
-            Dim producto1 As New ServicioEmi.FacturaDetalle()
-            producto1.cantidadPorEmpaque = CursorDetalles.cantidadPorEmpaque
-            producto1.cantidadReal = CursorDetalles.cantidadReal
-            producto1.cantidadRealUnidadMedida = CursorDetalles.cantidadRealUnidadMedida
-            producto1.cantidadUnidades = CursorDetalles.cantidadUnidades
-            producto1.cargosDescuentos = Nothing
-            producto1.codigoFabricante = CursorDetalles.codigoFabricante 'Nothing
-            producto1.codigoIdentificadorPais = Nothing
-            producto1.codigoProducto = CursorDetalles.codigoProducto
-            producto1.codigoTipoPrecio = CursorDetalles.codigoTipoPrecio ' Nothing
-            producto1.descripcion = CursorDetalles.descripcion
-            producto1.descripcionTecnica = CursorDetalles.descripcionTecnica
-            'producto1.descuento = null; //debe ser eliminado
-            '    producto1.detalleAdicionalNombre = null; //debe ser eliminado
-            '    producto1.detalleAdicionalValor = null; //debe ser eliminado
-            producto1.documentosReferenciados = Nothing
-            producto1.estandarCodigo = CursorDetalles.estandarCodigo
-            producto1.estandarCodigoID = CursorDetalles.estandarCodigoID ' Nothing
-            producto1.estandarCodigoIdentificador = CursorDetalles.estandarCodigoIdentificador ' Nothing
-            producto1.estandarCodigoNombre = CursorDetalles.estandarCodigoNombre
-            producto1.estandarCodigoProducto = CursorDetalles.estandarCodigoProducto
-            producto1.estandarOrganizacion = CursorDetalles.estandarOrganizacion
-            producto1.estandarSubCodigoProducto = CursorDetalles.estandarSubCodigoProducto
+            For Each CursorDetalles In dsFactura.InfoDetallesFactura
 
-            producto1.impuestosDetalles(1) = New ServicioEmi.FacturaImpuestos
-            Dim impuesto1 As ServicioEmi.FacturaImpuestos = New ServicioEmi.FacturaImpuestos()
-            impuesto1.baseImponibleTOTALImp = CursorDetalles.impuesto1_baseImponibleTOTALImp
-            impuesto1.codigoTOTALImp = CursorDetalles.impuesto1_codigoTOTALImp
-            impuesto1.controlInterno = CursorDetalles.impuesto1_controlInterno
-            impuesto1.porcentajeTOTALImp = CursorDetalles.impuesto1_porcentajeTOTALImp
-            impuesto1.unidadMedida = CursorDetalles.impuesto1_unidadMedida
-            impuesto1.unidadMedidaTributo = CursorDetalles.impuesto1_unidadMedidaTributo
-            impuesto1.valorTOTALImp = CDec(CursorDetalles.impuesto1_valorTOTALImp).ToString(FormatoDecimal)
-            impuesto1.valorTributoUnidad = CursorDetalles.impuesto1_valorTributoUnidad
-            producto1.impuestosDetalles(0) = impuesto1
+                Dim producto1 As New ServicioEmi.FacturaDetalle()
+                producto1.cantidadPorEmpaque = CursorDetalles.cantidadPorEmpaque
+                producto1.cantidadReal = CInt(CursorDetalles.cantidadReal)
+                producto1.cantidadRealUnidadMedida = CursorDetalles.cantidadRealUnidadMedida
+                producto1.cantidadUnidades = CInt(CursorDetalles.cantidadUnidades)
+                producto1.codigoFabricante = CursorDetalles.codigoFabricante 'Nothing
+                producto1.codigoIdentificadorPais = Nothing
+                producto1.codigoProducto = CursorDetalles.codigoProducto
+                producto1.codigoTipoPrecio = CursorDetalles.codigoTipoPrecio ' Nothing
+                producto1.descripcion = CursorDetalles.descripcion
+                producto1.descripcionTecnica = CursorDetalles.descripcionTecnica
+                '    producto1.detalleAdicionalNombre = null; //debe ser eliminado
+                '    producto1.detalleAdicionalValor = null; //debe ser eliminado
+                producto1.documentosReferenciados = Nothing
+                producto1.estandarCodigo = CursorDetalles.estandarCodigo
+                producto1.estandarCodigoID = CursorDetalles.estandarCodigoID ' Nothing
+                producto1.estandarCodigoIdentificador = CursorDetalles.estandarCodigoIdentificador ' Nothing
+                producto1.estandarCodigoNombre = CursorDetalles.estandarCodigoNombre
+                producto1.estandarCodigoProducto = CursorDetalles.estandarCodigoProducto
+                producto1.estandarOrganizacion = CursorDetalles.estandarOrganizacion
+                producto1.estandarSubCodigoProducto = CursorDetalles.estandarSubCodigoProducto
 
-            producto1.impuestosTotales(1) = New ServicioEmi.ImpuestosTotales
-            Dim impuestoTOTAL1 As ServicioEmi.ImpuestosTotales = New ServicioEmi.ImpuestosTotales
-            impuestoTOTAL1.codigoTOTALImp = CursorDetalles.impuesto1_codigoTOTALImp
-            impuestoTOTAL1.montoTotal = CursorDetalles.impuesto1_valorTOTALImp
-            producto1.impuestosTotales(0) = impuestoTOTAL1
+                producto1.impuestosDetalles(1) = New ServicioEmi.FacturaImpuestos
+                Dim impuesto1 As ServicioEmi.FacturaImpuestos = New ServicioEmi.FacturaImpuestos()
+                impuesto1.baseImponibleTOTALImp = CursorDetalles.impuesto1_baseImponibleTOTALImp
+                impuesto1.codigoTOTALImp = CursorDetalles.impuesto1_codigoTOTALImp
+                impuesto1.controlInterno = CursorDetalles.impuesto1_controlInterno
+                impuesto1.porcentajeTOTALImp = CDec(CursorDetalles.impuesto1_porcentajeTOTALImp).ToString(FormatoDecimal)
+                impuesto1.unidadMedida = CursorDetalles.impuesto1_unidadMedida
+                impuesto1.unidadMedidaTributo = CursorDetalles.impuesto1_unidadMedidaTributo
+                impuesto1.valorTOTALImp = CDec(CursorDetalles.impuesto1_valorTOTALImp).ToString(FormatoDecimal)
+                impuesto1.valorTributoUnidad = CursorDetalles.impuesto1_valorTributoUnidad
+                producto1.impuestosDetalles(0) = impuesto1
 
-            producto1.informacionAdicional = Nothing
-            producto1.mandatorioNumeroIdentificacion = Nothing
-            producto1.mandatorioNumeroIdentificacionDV = Nothing
-            producto1.mandatorioTipoIdentificacion = Nothing
-            producto1.marca = CursorDetalles.marca
-            producto1.modelo = Nothing
-            producto1.muestraGratis = "0"
-            producto1.nombreFabricante = Nothing
-            producto1.nota = Nothing
-            producto1.precioReferencia = Nothing
-            producto1.precioTotal = CursorDetalles.precioTotal
-            producto1.precioTotalSinImpuestos = CDec(CursorDetalles.precioTotalSinImpuestos).ToString(FormatoDecimal)
-            producto1.precioVentaUnitario = CDec(CursorDetalles.precioVentaUnitario).ToString(FormatoDecimal)
-            producto1.secuencia = CursorDetalles.secuencia
-            producto1.seriales = Nothing
-            producto1.subCodigoFabricante = Nothing
-            producto1.subCodigoProducto = Nothing
-            producto1.tipoAIU = Nothing
-            producto1.unidadMedida = CursorDetalles.unidadMedida
-            DocFactura.detalleDeFactura(tmpLengthArr) = producto1
+                producto1.impuestosTotales(1) = New ServicioEmi.ImpuestosTotales
+                Dim impuestoTOTAL1 As ServicioEmi.ImpuestosTotales = New ServicioEmi.ImpuestosTotales
+                impuestoTOTAL1.codigoTOTALImp = CursorDetalles.impuesto1_codigoTOTALImp
+                impuestoTOTAL1.montoTotal = CursorDetalles.impuesto1_valorTOTALImp
+                producto1.impuestosTotales(0) = impuestoTOTAL1
 
-        Next
+                producto1.informacionAdicional = Nothing
+                producto1.mandatorioNumeroIdentificacion = Nothing
+                producto1.mandatorioNumeroIdentificacionDV = Nothing
+                producto1.mandatorioTipoIdentificacion = Nothing
+                producto1.marca = CursorDetalles.marca
+                producto1.modelo = Nothing
+                producto1.muestraGratis = "0"
+                producto1.nombreFabricante = Nothing
+                producto1.nota = Nothing
+                producto1.precioReferencia = Nothing
+                producto1.precioTotal = CDec(CursorDetalles.precioTotal).ToString(FormatoDecimal)
+                producto1.precioTotalSinImpuestos = CDec(CursorDetalles.precioTotalSinImpuestos).ToString(FormatoDecimal)
+                producto1.precioVentaUnitario = CDec(CursorDetalles.precioVentaUnitario).ToString(FormatoDecimal)
+                producto1.secuencia = CursorDetalles.secuencia
+                producto1.seriales = Nothing
+                producto1.subCodigoFabricante = Nothing
+                producto1.subCodigoProducto = Nothing
+                producto1.tipoAIU = Nothing
+                producto1.unidadMedida = CursorDetalles.unidadMedida
+
+
+                'CargosDescuentos
+                If CursorDetalles.porcentaje <> 0 Then
+                    producto1.cargosDescuentos(1) = New ServicioEmi.CargosDescuentos
+                    Dim cargosDescuentos As ServicioEmi.CargosDescuentos = New ServicioEmi.CargosDescuentos
+                    cargosDescuentos.codigo = CursorDetalles.codigoDescuento
+                    cargosDescuentos.descripcion = CursorDetalles.descripcionDescuento
+                    cargosDescuentos.indicador = CursorDetalles.indicadorDescuento
+                    cargosDescuentos.monto = CursorDetalles.montoDescuento
+                    cargosDescuentos.montoBase = CursorDetalles.montoBaseDescuento
+                    cargosDescuentos.porcentaje = CursorDetalles.porcentaje
+                    producto1.cargosDescuentos(0) = cargosDescuentos
+                End If
+
+
+                DocFactura.detalleDeFactura(i) = producto1
+                i = i + 1
+            Next
+        End If
+
 
 #End Region
 

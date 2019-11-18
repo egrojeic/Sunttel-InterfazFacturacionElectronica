@@ -2989,8 +2989,6 @@ Partial Public Class dsConsultaFactura
         
         Private columncantidadUnidades As Global.System.Data.DataColumn
         
-        Private columncargosDescuentos As Global.System.Data.DataColumn
-        
         Private columncodigoFabricante As Global.System.Data.DataColumn
         
         Private columncodigoIdentificadorPais As Global.System.Data.DataColumn
@@ -3073,6 +3071,18 @@ Partial Public Class dsConsultaFactura
         
         Private columnunidadMedida As Global.System.Data.DataColumn
         
+        Private columncodigoDescuento As Global.System.Data.DataColumn
+        
+        Private columndescripcionDescuento As Global.System.Data.DataColumn
+        
+        Private columnindicadorDescuento As Global.System.Data.DataColumn
+        
+        Private columnmontoDescuento As Global.System.Data.DataColumn
+        
+        Private columnmontoBaseDescuento As Global.System.Data.DataColumn
+        
+        Private columnporcentaje As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3137,14 +3147,6 @@ Partial Public Class dsConsultaFactura
         Public ReadOnly Property cantidadUnidadesColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columncantidadUnidades
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property cargosDescuentosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncargosDescuentos
             End Get
         End Property
         
@@ -3477,6 +3479,54 @@ Partial Public Class dsConsultaFactura
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property codigoDescuentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncodigoDescuento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property descripcionDescuentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndescripcionDescuento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property indicadorDescuentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnindicadorDescuento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property montoDescuentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmontoDescuento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property montoBaseDescuentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmontoBaseDescuento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property porcentajeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnporcentaje
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3518,7 +3568,6 @@ Partial Public Class dsConsultaFactura
                     ByVal cantidadReal As String,  _
                     ByVal cantidadRealUnidadMedida As String,  _
                     ByVal cantidadUnidades As String,  _
-                    ByVal cargosDescuentos As String,  _
                     ByVal codigoFabricante As String,  _
                     ByVal codigoIdentificadorPais As String,  _
                     ByVal codigoProducto As String,  _
@@ -3559,9 +3608,15 @@ Partial Public Class dsConsultaFactura
                     ByVal subCodigoFabricante As String,  _
                     ByVal subCodigoProducto As String,  _
                     ByVal tipoAIU As String,  _
-                    ByVal unidadMedida As String) As InfoDetallesFacturaRow
+                    ByVal unidadMedida As String,  _
+                    ByVal codigoDescuento As String,  _
+                    ByVal descripcionDescuento As String,  _
+                    ByVal indicadorDescuento As String,  _
+                    ByVal montoDescuento As String,  _
+                    ByVal montoBaseDescuento As String,  _
+                    ByVal porcentaje As String) As InfoDetallesFacturaRow
             Dim rowInfoDetallesFacturaRow As InfoDetallesFacturaRow = CType(Me.NewRow,InfoDetallesFacturaRow)
-            Dim columnValuesArray() As Object = New Object() {cantidadPorEmpaque, cantidadReal, cantidadRealUnidadMedida, cantidadUnidades, cargosDescuentos, codigoFabricante, codigoIdentificadorPais, codigoProducto, codigoTipoPrecio, descripcion, descripcionTecnica, documentosReferenciados, estandarCodigo, estandarCodigoID, estandarCodigoIdentificador, estandarCodigoNombre, estandarCodigoProducto, estandarOrganizacion, estandarSubCodigoProducto, impuesto1_baseImponibleTOTALImp, impuesto1_codigoTOTALImp, impuesto1_controlInterno, impuesto1_porcentajeTOTALImp, impuesto1_unidadMedida, impuesto1_unidadMedidaTributo, impuesto1_valorTOTALImp, impuesto1_valorTributoUnidad, informacionAdicional, mandatorioNumeroIdentificacion, mandatorioNumeroIdentificacionDV, mandatorioTipoIdentificacion, marca, modelo, muestraGratis, nombreFabricante, nota, precioReferencia, precioTotal, precioTotalSinImpuestos, precioVentaUnitario, secuencia, seriales, subCodigoFabricante, subCodigoProducto, tipoAIU, unidadMedida}
+            Dim columnValuesArray() As Object = New Object() {cantidadPorEmpaque, cantidadReal, cantidadRealUnidadMedida, cantidadUnidades, codigoFabricante, codigoIdentificadorPais, codigoProducto, codigoTipoPrecio, descripcion, descripcionTecnica, documentosReferenciados, estandarCodigo, estandarCodigoID, estandarCodigoIdentificador, estandarCodigoNombre, estandarCodigoProducto, estandarOrganizacion, estandarSubCodigoProducto, impuesto1_baseImponibleTOTALImp, impuesto1_codigoTOTALImp, impuesto1_controlInterno, impuesto1_porcentajeTOTALImp, impuesto1_unidadMedida, impuesto1_unidadMedidaTributo, impuesto1_valorTOTALImp, impuesto1_valorTributoUnidad, informacionAdicional, mandatorioNumeroIdentificacion, mandatorioNumeroIdentificacionDV, mandatorioTipoIdentificacion, marca, modelo, muestraGratis, nombreFabricante, nota, precioReferencia, precioTotal, precioTotalSinImpuestos, precioVentaUnitario, secuencia, seriales, subCodigoFabricante, subCodigoProducto, tipoAIU, unidadMedida, codigoDescuento, descripcionDescuento, indicadorDescuento, montoDescuento, montoBaseDescuento, porcentaje}
             rowInfoDetallesFacturaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowInfoDetallesFacturaRow)
             Return rowInfoDetallesFacturaRow
@@ -3588,7 +3643,6 @@ Partial Public Class dsConsultaFactura
             Me.columncantidadReal = MyBase.Columns("cantidadReal")
             Me.columncantidadRealUnidadMedida = MyBase.Columns("cantidadRealUnidadMedida")
             Me.columncantidadUnidades = MyBase.Columns("cantidadUnidades")
-            Me.columncargosDescuentos = MyBase.Columns("cargosDescuentos")
             Me.columncodigoFabricante = MyBase.Columns("codigoFabricante")
             Me.columncodigoIdentificadorPais = MyBase.Columns("codigoIdentificadorPais")
             Me.columncodigoProducto = MyBase.Columns("codigoProducto")
@@ -3630,6 +3684,12 @@ Partial Public Class dsConsultaFactura
             Me.columnsubCodigoProducto = MyBase.Columns("subCodigoProducto")
             Me.columntipoAIU = MyBase.Columns("tipoAIU")
             Me.columnunidadMedida = MyBase.Columns("unidadMedida")
+            Me.columncodigoDescuento = MyBase.Columns("codigoDescuento")
+            Me.columndescripcionDescuento = MyBase.Columns("descripcionDescuento")
+            Me.columnindicadorDescuento = MyBase.Columns("indicadorDescuento")
+            Me.columnmontoDescuento = MyBase.Columns("montoDescuento")
+            Me.columnmontoBaseDescuento = MyBase.Columns("montoBaseDescuento")
+            Me.columnporcentaje = MyBase.Columns("porcentaje")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3643,8 +3703,6 @@ Partial Public Class dsConsultaFactura
             MyBase.Columns.Add(Me.columncantidadRealUnidadMedida)
             Me.columncantidadUnidades = New Global.System.Data.DataColumn("cantidadUnidades", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidadUnidades)
-            Me.columncargosDescuentos = New Global.System.Data.DataColumn("cargosDescuentos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncargosDescuentos)
             Me.columncodigoFabricante = New Global.System.Data.DataColumn("codigoFabricante", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncodigoFabricante)
             Me.columncodigoIdentificadorPais = New Global.System.Data.DataColumn("codigoIdentificadorPais", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -3727,6 +3785,18 @@ Partial Public Class dsConsultaFactura
             MyBase.Columns.Add(Me.columntipoAIU)
             Me.columnunidadMedida = New Global.System.Data.DataColumn("unidadMedida", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnunidadMedida)
+            Me.columncodigoDescuento = New Global.System.Data.DataColumn("codigoDescuento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncodigoDescuento)
+            Me.columndescripcionDescuento = New Global.System.Data.DataColumn("descripcionDescuento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndescripcionDescuento)
+            Me.columnindicadorDescuento = New Global.System.Data.DataColumn("indicadorDescuento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnindicadorDescuento)
+            Me.columnmontoDescuento = New Global.System.Data.DataColumn("montoDescuento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmontoDescuento)
+            Me.columnmontoBaseDescuento = New Global.System.Data.DataColumn("montoBaseDescuento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmontoBaseDescuento)
+            Me.columnporcentaje = New Global.System.Data.DataColumn("porcentaje", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnporcentaje)
             Me.columncantidadPorEmpaque.AllowDBNull = false
             Me.columncantidadPorEmpaque.MaxLength = 1
             Me.columncantidadRealUnidadMedida.AllowDBNull = false
@@ -8117,22 +8187,6 @@ Partial Public Class dsConsultaFactura
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property cargosDescuentos() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableInfoDetallesFactura.cargosDescuentosColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cargosDescuentos' in table 'InfoDetallesFactura' is DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableInfoDetallesFactura.cargosDescuentosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property codigoFabricante() As String
             Get
                 Try 
@@ -8727,6 +8781,99 @@ Partial Public Class dsConsultaFactura
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property codigoDescuento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDetallesFactura.codigoDescuentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'codigoDescuento' in table 'InfoDetallesFactura' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDetallesFactura.codigoDescuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property descripcionDescuento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDetallesFactura.descripcionDescuentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'descripcionDescuento' in table 'InfoDetallesFactura' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDetallesFactura.descripcionDescuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property indicadorDescuento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDetallesFactura.indicadorDescuentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'indicadorDescuento' in table 'InfoDetallesFactura' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDetallesFactura.indicadorDescuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property montoDescuento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDetallesFactura.montoDescuentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'montoDescuento' in table 'InfoDetallesFactura' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDetallesFactura.montoDescuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property montoBaseDescuento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDetallesFactura.montoBaseDescuentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'montoBaseDescuento' in table 'InfoDetallesFactura' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDetallesFactura.montoBaseDescuentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property porcentaje() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDetallesFactura.porcentajeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'porcentaje' in table 'InfoDetallesFactura' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDetallesFactura.porcentajeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IscantidadRealNull() As Boolean
             Return Me.IsNull(Me.tableInfoDetallesFactura.cantidadRealColumn)
         End Function
@@ -8747,18 +8894,6 @@ Partial Public Class dsConsultaFactura
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetcantidadUnidadesNull()
             Me(Me.tableInfoDetallesFactura.cantidadUnidadesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IscargosDescuentosNull() As Boolean
-            Return Me.IsNull(Me.tableInfoDetallesFactura.cargosDescuentosColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetcargosDescuentosNull()
-            Me(Me.tableInfoDetallesFactura.cargosDescuentosColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9119,6 +9254,78 @@ Partial Public Class dsConsultaFactura
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SettipoAIUNull()
             Me(Me.tableInfoDetallesFactura.tipoAIUColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscodigoDescuentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDetallesFactura.codigoDescuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcodigoDescuentoNull()
+            Me(Me.tableInfoDetallesFactura.codigoDescuentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdescripcionDescuentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDetallesFactura.descripcionDescuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdescripcionDescuentoNull()
+            Me(Me.tableInfoDetallesFactura.descripcionDescuentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsindicadorDescuentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDetallesFactura.indicadorDescuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetindicadorDescuentoNull()
+            Me(Me.tableInfoDetallesFactura.indicadorDescuentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmontoDescuentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDetallesFactura.montoDescuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmontoDescuentoNull()
+            Me(Me.tableInfoDetallesFactura.montoDescuentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmontoBaseDescuentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDetallesFactura.montoBaseDescuentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmontoBaseDescuentoNull()
+            Me(Me.tableInfoDetallesFactura.montoBaseDescuentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsporcentajeNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDetallesFactura.porcentajeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetporcentajeNull()
+            Me(Me.tableInfoDetallesFactura.porcentajeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
