@@ -47,6 +47,8 @@ Partial Public Class dsConsultaFactura
     
     Private tableInfoImpuestosTotales As InfoImpuestosTotalesDataTable
     
+    Private tableInfoDocumentosReferenciados As InfoDocumentosReferenciadosDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -108,6 +110,9 @@ Partial Public Class dsConsultaFactura
             End If
             If (Not (ds.Tables("InfoImpuestosTotales")) Is Nothing) Then
                 MyBase.Tables.Add(New InfoImpuestosTotalesDataTable(ds.Tables("InfoImpuestosTotales")))
+            End If
+            If (Not (ds.Tables("InfoDocumentosReferenciados")) Is Nothing) Then
+                MyBase.Tables.Add(New InfoDocumentosReferenciadosDataTable(ds.Tables("InfoDocumentosReferenciados")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -238,6 +243,16 @@ Partial Public Class dsConsultaFactura
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property InfoDocumentosReferenciados() As InfoDocumentosReferenciadosDataTable
+        Get
+            Return Me.tableInfoDocumentosReferenciados
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -335,6 +350,9 @@ Partial Public Class dsConsultaFactura
             End If
             If (Not (ds.Tables("InfoImpuestosTotales")) Is Nothing) Then
                 MyBase.Tables.Add(New InfoImpuestosTotalesDataTable(ds.Tables("InfoImpuestosTotales")))
+            End If
+            If (Not (ds.Tables("InfoDocumentosReferenciados")) Is Nothing) Then
+                MyBase.Tables.Add(New InfoDocumentosReferenciadosDataTable(ds.Tables("InfoDocumentosReferenciados")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -434,6 +452,12 @@ Partial Public Class dsConsultaFactura
                 Me.tableInfoImpuestosTotales.InitVars
             End If
         End If
+        Me.tableInfoDocumentosReferenciados = CType(MyBase.Tables("InfoDocumentosReferenciados"),InfoDocumentosReferenciadosDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableInfoDocumentosReferenciados) Is Nothing) Then
+                Me.tableInfoDocumentosReferenciados.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -466,6 +490,8 @@ Partial Public Class dsConsultaFactura
         MyBase.Tables.Add(Me.tableObligaciones)
         Me.tableInfoImpuestosTotales = New InfoImpuestosTotalesDataTable()
         MyBase.Tables.Add(Me.tableInfoImpuestosTotales)
+        Me.tableInfoDocumentosReferenciados = New InfoDocumentosReferenciadosDataTable()
+        MyBase.Tables.Add(Me.tableInfoDocumentosReferenciados)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -531,6 +557,12 @@ Partial Public Class dsConsultaFactura
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeInfoImpuestosTotales() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeInfoDocumentosReferenciados() As Boolean
         Return false
     End Function
     
@@ -624,6 +656,9 @@ Partial Public Class dsConsultaFactura
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub InfoImpuestosTotalesRowChangeEventHandler(ByVal sender As Object, ByVal e As InfoImpuestosTotalesRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub InfoDocumentosReferenciadosRowChangeEventHandler(ByVal sender As Object, ByVal e As InfoDocumentosReferenciadosRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2263,6 +2298,8 @@ Partial Public Class dsConsultaFactura
         
         Private columnimpuestoGeneral1ValorTributoUnidad As Global.System.Data.DataColumn
         
+        Private columnFlag3Decimales As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2363,6 +2400,14 @@ Partial Public Class dsConsultaFactura
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Flag3DecimalesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFlag3Decimales
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2399,9 +2444,9 @@ Partial Public Class dsConsultaFactura
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddInfoImpuestosRow(ByVal impuestoGeneral1BaseImponibleTOTALImp As String, ByVal impuestoGeneral1CodigoTOTALImp As String, ByVal impuestoGeneral1ControlInterno As String, ByVal impuestoGeneral1PorcentajeTOTALImp As String, ByVal impuestoGeneral1UnidadMedida As String, ByVal impuestoGeneral1UnidadMedidaTributo As String, ByVal impuestoGeneral1ValorTOTALImp As String, ByVal impuestoGeneral1ValorTributoUnidad As String) As InfoImpuestosRow
+        Public Overloads Function AddInfoImpuestosRow(ByVal impuestoGeneral1BaseImponibleTOTALImp As String, ByVal impuestoGeneral1CodigoTOTALImp As String, ByVal impuestoGeneral1ControlInterno As String, ByVal impuestoGeneral1PorcentajeTOTALImp As String, ByVal impuestoGeneral1UnidadMedida As String, ByVal impuestoGeneral1UnidadMedidaTributo As String, ByVal impuestoGeneral1ValorTOTALImp As String, ByVal impuestoGeneral1ValorTributoUnidad As String, ByVal Flag3Decimales As Integer) As InfoImpuestosRow
             Dim rowInfoImpuestosRow As InfoImpuestosRow = CType(Me.NewRow,InfoImpuestosRow)
-            Dim columnValuesArray() As Object = New Object() {impuestoGeneral1BaseImponibleTOTALImp, impuestoGeneral1CodigoTOTALImp, impuestoGeneral1ControlInterno, impuestoGeneral1PorcentajeTOTALImp, impuestoGeneral1UnidadMedida, impuestoGeneral1UnidadMedidaTributo, impuestoGeneral1ValorTOTALImp, impuestoGeneral1ValorTributoUnidad}
+            Dim columnValuesArray() As Object = New Object() {impuestoGeneral1BaseImponibleTOTALImp, impuestoGeneral1CodigoTOTALImp, impuestoGeneral1ControlInterno, impuestoGeneral1PorcentajeTOTALImp, impuestoGeneral1UnidadMedida, impuestoGeneral1UnidadMedidaTributo, impuestoGeneral1ValorTOTALImp, impuestoGeneral1ValorTributoUnidad, Flag3Decimales}
             rowInfoImpuestosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowInfoImpuestosRow)
             Return rowInfoImpuestosRow
@@ -2432,6 +2477,7 @@ Partial Public Class dsConsultaFactura
             Me.columnimpuestoGeneral1UnidadMedidaTributo = MyBase.Columns("impuestoGeneral1UnidadMedidaTributo")
             Me.columnimpuestoGeneral1ValorTOTALImp = MyBase.Columns("impuestoGeneral1ValorTOTALImp")
             Me.columnimpuestoGeneral1ValorTributoUnidad = MyBase.Columns("impuestoGeneral1ValorTributoUnidad")
+            Me.columnFlag3Decimales = MyBase.Columns("Flag3Decimales")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2453,6 +2499,8 @@ Partial Public Class dsConsultaFactura
             MyBase.Columns.Add(Me.columnimpuestoGeneral1ValorTOTALImp)
             Me.columnimpuestoGeneral1ValorTributoUnidad = New Global.System.Data.DataColumn("impuestoGeneral1ValorTributoUnidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnimpuestoGeneral1ValorTributoUnidad)
+            Me.columnFlag3Decimales = New Global.System.Data.DataColumn("Flag3Decimales", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFlag3Decimales)
             Me.columnimpuestoGeneral1CodigoTOTALImp.AllowDBNull = false
             Me.columnimpuestoGeneral1CodigoTOTALImp.MaxLength = 2
             Me.columnimpuestoGeneral1UnidadMedida.AllowDBNull = false
@@ -5812,6 +5860,388 @@ Partial Public Class dsConsultaFactura
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class InfoDocumentosReferenciadosDataTable
+        Inherits Global.System.Data.TypedTableBase(Of InfoDocumentosReferenciadosRow)
+        
+        Private columncodigoEstatusDocumento As Global.System.Data.DataColumn
+        
+        Private columncodigoInterno As Global.System.Data.DataColumn
+        
+        Private columncufeDocReferenciado As Global.System.Data.DataColumn
+        
+        Private columndescripcion As Global.System.Data.DataColumn
+        
+        Private columnfecha As Global.System.Data.DataColumn
+        
+        Private columnfechaFinValidez As Global.System.Data.DataColumn
+        
+        Private columnfechaInicioValidez As Global.System.Data.DataColumn
+        
+        Private columnnumeroDocumento As Global.System.Data.DataColumn
+        
+        Private columntipoCUFE As Global.System.Data.DataColumn
+        
+        Private columntipoDocumento As Global.System.Data.DataColumn
+        
+        Private columntipoDocumentoCodigo As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "InfoDocumentosReferenciados"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property codigoEstatusDocumentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncodigoEstatusDocumento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property codigoInternoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncodigoInterno
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property cufeDocReferenciadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncufeDocReferenciado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property descripcionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndescripcion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property fechaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfecha
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property fechaFinValidezColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfechaFinValidez
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property fechaInicioValidezColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfechaInicioValidez
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property numeroDocumentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnumeroDocumento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tipoCUFEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipoCUFE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tipoDocumentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipoDocumento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tipoDocumentoCodigoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipoDocumentoCodigo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As InfoDocumentosReferenciadosRow
+            Get
+                Return CType(Me.Rows(index),InfoDocumentosReferenciadosRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event InfoDocumentosReferenciadosRowChanging As InfoDocumentosReferenciadosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event InfoDocumentosReferenciadosRowChanged As InfoDocumentosReferenciadosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event InfoDocumentosReferenciadosRowDeleting As InfoDocumentosReferenciadosRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event InfoDocumentosReferenciadosRowDeleted As InfoDocumentosReferenciadosRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddInfoDocumentosReferenciadosRow(ByVal row As InfoDocumentosReferenciadosRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddInfoDocumentosReferenciadosRow(ByVal codigoEstatusDocumento As String, ByVal codigoInterno As String, ByVal cufeDocReferenciado As String, ByVal descripcion As String, ByVal fecha As String, ByVal fechaFinValidez As String, ByVal fechaInicioValidez As String, ByVal numeroDocumento As String, ByVal tipoCUFE As String, ByVal tipoDocumento As String, ByVal tipoDocumentoCodigo As String) As InfoDocumentosReferenciadosRow
+            Dim rowInfoDocumentosReferenciadosRow As InfoDocumentosReferenciadosRow = CType(Me.NewRow,InfoDocumentosReferenciadosRow)
+            Dim columnValuesArray() As Object = New Object() {codigoEstatusDocumento, codigoInterno, cufeDocReferenciado, descripcion, fecha, fechaFinValidez, fechaInicioValidez, numeroDocumento, tipoCUFE, tipoDocumento, tipoDocumentoCodigo}
+            rowInfoDocumentosReferenciadosRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowInfoDocumentosReferenciadosRow)
+            Return rowInfoDocumentosReferenciadosRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As InfoDocumentosReferenciadosDataTable = CType(MyBase.Clone,InfoDocumentosReferenciadosDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New InfoDocumentosReferenciadosDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columncodigoEstatusDocumento = MyBase.Columns("codigoEstatusDocumento")
+            Me.columncodigoInterno = MyBase.Columns("codigoInterno")
+            Me.columncufeDocReferenciado = MyBase.Columns("cufeDocReferenciado")
+            Me.columndescripcion = MyBase.Columns("descripcion")
+            Me.columnfecha = MyBase.Columns("fecha")
+            Me.columnfechaFinValidez = MyBase.Columns("fechaFinValidez")
+            Me.columnfechaInicioValidez = MyBase.Columns("fechaInicioValidez")
+            Me.columnnumeroDocumento = MyBase.Columns("numeroDocumento")
+            Me.columntipoCUFE = MyBase.Columns("tipoCUFE")
+            Me.columntipoDocumento = MyBase.Columns("tipoDocumento")
+            Me.columntipoDocumentoCodigo = MyBase.Columns("tipoDocumentoCodigo")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columncodigoEstatusDocumento = New Global.System.Data.DataColumn("codigoEstatusDocumento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncodigoEstatusDocumento)
+            Me.columncodigoInterno = New Global.System.Data.DataColumn("codigoInterno", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncodigoInterno)
+            Me.columncufeDocReferenciado = New Global.System.Data.DataColumn("cufeDocReferenciado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncufeDocReferenciado)
+            Me.columndescripcion = New Global.System.Data.DataColumn("descripcion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndescripcion)
+            Me.columnfecha = New Global.System.Data.DataColumn("fecha", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfecha)
+            Me.columnfechaFinValidez = New Global.System.Data.DataColumn("fechaFinValidez", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfechaFinValidez)
+            Me.columnfechaInicioValidez = New Global.System.Data.DataColumn("fechaInicioValidez", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfechaInicioValidez)
+            Me.columnnumeroDocumento = New Global.System.Data.DataColumn("numeroDocumento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnumeroDocumento)
+            Me.columntipoCUFE = New Global.System.Data.DataColumn("tipoCUFE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipoCUFE)
+            Me.columntipoDocumento = New Global.System.Data.DataColumn("tipoDocumento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipoDocumento)
+            Me.columntipoDocumentoCodigo = New Global.System.Data.DataColumn("tipoDocumentoCodigo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipoDocumentoCodigo)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewInfoDocumentosReferenciadosRow() As InfoDocumentosReferenciadosRow
+            Return CType(Me.NewRow,InfoDocumentosReferenciadosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New InfoDocumentosReferenciadosRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(InfoDocumentosReferenciadosRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.InfoDocumentosReferenciadosRowChangedEvent) Is Nothing) Then
+                RaiseEvent InfoDocumentosReferenciadosRowChanged(Me, New InfoDocumentosReferenciadosRowChangeEvent(CType(e.Row,InfoDocumentosReferenciadosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.InfoDocumentosReferenciadosRowChangingEvent) Is Nothing) Then
+                RaiseEvent InfoDocumentosReferenciadosRowChanging(Me, New InfoDocumentosReferenciadosRowChangeEvent(CType(e.Row,InfoDocumentosReferenciadosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.InfoDocumentosReferenciadosRowDeletedEvent) Is Nothing) Then
+                RaiseEvent InfoDocumentosReferenciadosRowDeleted(Me, New InfoDocumentosReferenciadosRowChangeEvent(CType(e.Row,InfoDocumentosReferenciadosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.InfoDocumentosReferenciadosRowDeletingEvent) Is Nothing) Then
+                RaiseEvent InfoDocumentosReferenciadosRowDeleting(Me, New InfoDocumentosReferenciadosRowChangeEvent(CType(e.Row,InfoDocumentosReferenciadosRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveInfoDocumentosReferenciadosRow(ByVal row As InfoDocumentosReferenciadosRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As dsConsultaFactura = New dsConsultaFactura()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "InfoDocumentosReferenciadosDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class InfoGeneralRow
@@ -7760,6 +8190,21 @@ Partial Public Class dsConsultaFactura
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Flag3Decimales() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoImpuestos.Flag3DecimalesColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Flag3Decimales' in table 'InfoImpuestos' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoImpuestos.Flag3DecimalesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsimpuestoGeneral1BaseImponibleTOTALImpNull() As Boolean
             Return Me.IsNull(Me.tableInfoImpuestos.impuestoGeneral1BaseImponibleTOTALImpColumn)
         End Function
@@ -7828,6 +8273,18 @@ Partial Public Class dsConsultaFactura
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetimpuestoGeneral1ValorTributoUnidadNull()
             Me(Me.tableInfoImpuestos.impuestoGeneral1ValorTributoUnidadColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsFlag3DecimalesNull() As Boolean
+            Return Me.IsNull(Me.tableInfoImpuestos.Flag3DecimalesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetFlag3DecimalesNull()
+            Me(Me.tableInfoImpuestos.Flag3DecimalesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10295,6 +10752,329 @@ Partial Public Class dsConsultaFactura
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class InfoDocumentosReferenciadosRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableInfoDocumentosReferenciados As InfoDocumentosReferenciadosDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableInfoDocumentosReferenciados = CType(Me.Table,InfoDocumentosReferenciadosDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property codigoEstatusDocumento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.codigoEstatusDocumentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'codigoEstatusDocumento' in table 'InfoDocumentosReferenciad"& _ 
+                            "os' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.codigoEstatusDocumentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property codigoInterno() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.codigoInternoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'codigoInterno' in table 'InfoDocumentosReferenciados' is DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.codigoInternoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property cufeDocReferenciado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.cufeDocReferenciadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cufeDocReferenciado' in table 'InfoDocumentosReferenciados'"& _ 
+                            " is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.cufeDocReferenciadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property descripcion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.descripcionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'descripcion' in table 'InfoDocumentosReferenciados' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.descripcionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property fecha() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.fechaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fecha' in table 'InfoDocumentosReferenciados' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.fechaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property fechaFinValidez() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.fechaFinValidezColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fechaFinValidez' in table 'InfoDocumentosReferenciados' is "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.fechaFinValidezColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property fechaInicioValidez() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.fechaInicioValidezColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fechaInicioValidez' in table 'InfoDocumentosReferenciados' "& _ 
+                            "is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.fechaInicioValidezColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property numeroDocumento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.numeroDocumentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'numeroDocumento' in table 'InfoDocumentosReferenciados' is "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.numeroDocumentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tipoCUFE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.tipoCUFEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'tipoCUFE' in table 'InfoDocumentosReferenciados' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.tipoCUFEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tipoDocumento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.tipoDocumentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'tipoDocumento' in table 'InfoDocumentosReferenciados' is DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.tipoDocumentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tipoDocumentoCodigo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInfoDocumentosReferenciados.tipoDocumentoCodigoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'tipoDocumentoCodigo' in table 'InfoDocumentosReferenciados'"& _ 
+                            " is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInfoDocumentosReferenciados.tipoDocumentoCodigoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscodigoEstatusDocumentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.codigoEstatusDocumentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcodigoEstatusDocumentoNull()
+            Me(Me.tableInfoDocumentosReferenciados.codigoEstatusDocumentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscodigoInternoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.codigoInternoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcodigoInternoNull()
+            Me(Me.tableInfoDocumentosReferenciados.codigoInternoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscufeDocReferenciadoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.cufeDocReferenciadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcufeDocReferenciadoNull()
+            Me(Me.tableInfoDocumentosReferenciados.cufeDocReferenciadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdescripcionNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.descripcionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdescripcionNull()
+            Me(Me.tableInfoDocumentosReferenciados.descripcionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfechaNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.fechaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetfechaNull()
+            Me(Me.tableInfoDocumentosReferenciados.fechaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfechaFinValidezNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.fechaFinValidezColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetfechaFinValidezNull()
+            Me(Me.tableInfoDocumentosReferenciados.fechaFinValidezColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfechaInicioValidezNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.fechaInicioValidezColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetfechaInicioValidezNull()
+            Me(Me.tableInfoDocumentosReferenciados.fechaInicioValidezColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnumeroDocumentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.numeroDocumentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetnumeroDocumentoNull()
+            Me(Me.tableInfoDocumentosReferenciados.numeroDocumentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstipoCUFENull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.tipoCUFEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettipoCUFENull()
+            Me(Me.tableInfoDocumentosReferenciados.tipoCUFEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstipoDocumentoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.tipoDocumentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettipoDocumentoNull()
+            Me(Me.tableInfoDocumentosReferenciados.tipoDocumentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstipoDocumentoCodigoNull() As Boolean
+            Return Me.IsNull(Me.tableInfoDocumentosReferenciados.tipoDocumentoCodigoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettipoDocumentoCodigoNull()
+            Me(Me.tableInfoDocumentosReferenciados.tipoDocumentoCodigoColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -10676,6 +11456,42 @@ Partial Public Class dsConsultaFactura
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As InfoImpuestosTotalesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class InfoDocumentosReferenciadosRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As InfoDocumentosReferenciadosRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As InfoDocumentosReferenciadosRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As InfoDocumentosReferenciadosRow
             Get
                 Return Me.eventRow
             End Get

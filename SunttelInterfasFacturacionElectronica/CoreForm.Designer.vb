@@ -27,8 +27,16 @@ Partial Class CoreForm
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CoreForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ConsecutivoDesde = New System.Windows.Forms.NumericUpDown()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.PreFijo = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.tokenPassword = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -114,22 +122,59 @@ Partial Class CoreForm
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.VCF_Error = New System.Windows.Forms.TextBox()
         Me.CF_Error = New System.Windows.Forms.CheckBox()
-        Me.VF_IDPOVentas_IDClientes_Nombre = New System.Windows.Forms.TextBox()
-        Me.CF_IDPOVentas_IDClientes_Nombre = New System.Windows.Forms.CheckBox()
-        Me.VF_IDPOVentas_IDClientes_Codigo = New System.Windows.Forms.TextBox()
-        Me.CF_IDPOVentas_IDClientes_Codigo = New System.Windows.Forms.CheckBox()
+        Me.VF_NomCliente = New System.Windows.Forms.TextBox()
+        Me.CF_NomCliente = New System.Windows.Forms.CheckBox()
+        Me.VF_CodCliente = New System.Windows.Forms.TextBox()
+        Me.CF_CodCliente = New System.Windows.Forms.CheckBox()
         Me.VF_IDPOVentas_PO = New System.Windows.Forms.TextBox()
         Me.CF_IDPOVentas_PO = New System.Windows.Forms.CheckBox()
         Me.VF_CodFactura = New System.Windows.Forms.TextBox()
         Me.CF_CodFactura = New System.Windows.Forms.CheckBox()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.TabControl3 = New System.Windows.Forms.TabControl()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.dgridColaNotasCredito = New System.Windows.Forms.DataGridView()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblNumRegistrosNC = New System.Windows.Forms.Label()
+        Me.PanelFiltroNC = New System.Windows.Forms.Panel()
+        Me.VF_Codigo = New System.Windows.Forms.TextBox()
+        Me.CF_Codigo = New System.Windows.Forms.CheckBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.VF_AuxCampoNomCliente = New System.Windows.Forms.TextBox()
+        Me.CF_AuxCampoNomCliente = New System.Windows.Forms.CheckBox()
+        Me.VF_AuxCampoCodCliente = New System.Windows.Forms.TextBox()
+        Me.CF_AuxCampoCodCliente = New System.Windows.Forms.CheckBox()
+        Me.VF_AuxCampoCodFactura = New System.Windows.Forms.TextBox()
+        Me.CF_AuxCampoCodFactura = New System.Windows.Forms.CheckBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.dsAux = New System.Data.DataSet()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.PreFijo = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.ConsecutivoDesde = New System.Windows.Forms.NumericUpDown()
+        Me.CMenuColaNC = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CodigoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FNotaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodClienteDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomClienteDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreArchivoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StampTimeEnvioDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FlagSentDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DesErrorDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ResultadoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MensajesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodigoNCEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodFacturaDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CufeFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDVentasFacturasDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDTiposEnviosDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDVentasDevolucionesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bsColaNotasCredito = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsNotasCreditoXProcesar1 = New SunttelInterfasFacturacionElectronica.dsNotasCreditoXProcesar()
         Me.Panel1.SuspendLayout()
+        CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FrecuenciaMins, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -147,8 +192,16 @@ Partial Class CoreForm
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        Me.TabControl3.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
+        CType(Me.dgridColaNotasCredito, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel6.SuspendLayout()
+        Me.PanelFiltroNC.SuspendLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CMenuColaNC.SuspendLayout()
+        CType(Me.bsColaNotasCredito, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsNotasCreditoXProcesar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -190,6 +243,42 @@ Partial Class CoreForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1140, 215)
         Me.Panel1.TabIndex = 4
+        '
+        'ConsecutivoDesde
+        '
+        Me.ConsecutivoDesde.Location = New System.Drawing.Point(686, 62)
+        Me.ConsecutivoDesde.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
+        Me.ConsecutivoDesde.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ConsecutivoDesde.Name = "ConsecutivoDesde"
+        Me.ConsecutivoDesde.Size = New System.Drawing.Size(84, 20)
+        Me.ConsecutivoDesde.TabIndex = 30
+        Me.ConsecutivoDesde.UseWaitCursor = True
+        Me.ConsecutivoDesde.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(642, 64)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(38, 13)
+        Me.Label15.TabIndex = 29
+        Me.Label15.Text = "Desde"
+        '
+        'PreFijo
+        '
+        Me.PreFijo.Location = New System.Drawing.Point(575, 61)
+        Me.PreFijo.Name = "PreFijo"
+        Me.PreFijo.Size = New System.Drawing.Size(61, 20)
+        Me.PreFijo.TabIndex = 28
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(549, 63)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(20, 13)
+        Me.Label14.TabIndex = 27
+        Me.Label14.Text = "PF"
         '
         'Label13
         '
@@ -435,6 +524,7 @@ Partial Class CoreForm
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 215)
@@ -874,10 +964,10 @@ Partial Class CoreForm
         Me.Panel2.BackColor = System.Drawing.Color.LightGray
         Me.Panel2.Controls.Add(Me.VCF_Error)
         Me.Panel2.Controls.Add(Me.CF_Error)
-        Me.Panel2.Controls.Add(Me.VF_IDPOVentas_IDClientes_Nombre)
-        Me.Panel2.Controls.Add(Me.CF_IDPOVentas_IDClientes_Nombre)
-        Me.Panel2.Controls.Add(Me.VF_IDPOVentas_IDClientes_Codigo)
-        Me.Panel2.Controls.Add(Me.CF_IDPOVentas_IDClientes_Codigo)
+        Me.Panel2.Controls.Add(Me.VF_NomCliente)
+        Me.Panel2.Controls.Add(Me.CF_NomCliente)
+        Me.Panel2.Controls.Add(Me.VF_CodCliente)
+        Me.Panel2.Controls.Add(Me.CF_CodCliente)
         Me.Panel2.Controls.Add(Me.VF_IDPOVentas_PO)
         Me.Panel2.Controls.Add(Me.CF_IDPOVentas_PO)
         Me.Panel2.Controls.Add(Me.VF_CodFactura)
@@ -905,39 +995,39 @@ Partial Class CoreForm
         Me.CF_Error.Text = "Error"
         Me.CF_Error.UseVisualStyleBackColor = True
         '
-        'VF_IDPOVentas_IDClientes_Nombre
+        'VF_NomCliente
         '
-        Me.VF_IDPOVentas_IDClientes_Nombre.Location = New System.Drawing.Point(632, 8)
-        Me.VF_IDPOVentas_IDClientes_Nombre.Name = "VF_IDPOVentas_IDClientes_Nombre"
-        Me.VF_IDPOVentas_IDClientes_Nombre.Size = New System.Drawing.Size(184, 20)
-        Me.VF_IDPOVentas_IDClientes_Nombre.TabIndex = 17
+        Me.VF_NomCliente.Location = New System.Drawing.Point(632, 8)
+        Me.VF_NomCliente.Name = "VF_NomCliente"
+        Me.VF_NomCliente.Size = New System.Drawing.Size(184, 20)
+        Me.VF_NomCliente.TabIndex = 17
         '
-        'CF_IDPOVentas_IDClientes_Nombre
+        'CF_NomCliente
         '
-        Me.CF_IDPOVentas_IDClientes_Nombre.AutoSize = True
-        Me.CF_IDPOVentas_IDClientes_Nombre.Location = New System.Drawing.Point(568, 10)
-        Me.CF_IDPOVentas_IDClientes_Nombre.Name = "CF_IDPOVentas_IDClientes_Nombre"
-        Me.CF_IDPOVentas_IDClientes_Nombre.Size = New System.Drawing.Size(58, 17)
-        Me.CF_IDPOVentas_IDClientes_Nombre.TabIndex = 16
-        Me.CF_IDPOVentas_IDClientes_Nombre.Text = "Cliente"
-        Me.CF_IDPOVentas_IDClientes_Nombre.UseVisualStyleBackColor = True
+        Me.CF_NomCliente.AutoSize = True
+        Me.CF_NomCliente.Location = New System.Drawing.Point(568, 10)
+        Me.CF_NomCliente.Name = "CF_NomCliente"
+        Me.CF_NomCliente.Size = New System.Drawing.Size(58, 17)
+        Me.CF_NomCliente.TabIndex = 16
+        Me.CF_NomCliente.Text = "Cliente"
+        Me.CF_NomCliente.UseVisualStyleBackColor = True
         '
-        'VF_IDPOVentas_IDClientes_Codigo
+        'VF_CodCliente
         '
-        Me.VF_IDPOVentas_IDClientes_Codigo.Location = New System.Drawing.Point(462, 8)
-        Me.VF_IDPOVentas_IDClientes_Codigo.Name = "VF_IDPOVentas_IDClientes_Codigo"
-        Me.VF_IDPOVentas_IDClientes_Codigo.Size = New System.Drawing.Size(100, 20)
-        Me.VF_IDPOVentas_IDClientes_Codigo.TabIndex = 15
+        Me.VF_CodCliente.Location = New System.Drawing.Point(462, 8)
+        Me.VF_CodCliente.Name = "VF_CodCliente"
+        Me.VF_CodCliente.Size = New System.Drawing.Size(100, 20)
+        Me.VF_CodCliente.TabIndex = 15
         '
-        'CF_IDPOVentas_IDClientes_Codigo
+        'CF_CodCliente
         '
-        Me.CF_IDPOVentas_IDClientes_Codigo.AutoSize = True
-        Me.CF_IDPOVentas_IDClientes_Codigo.Location = New System.Drawing.Point(358, 10)
-        Me.CF_IDPOVentas_IDClientes_Codigo.Name = "CF_IDPOVentas_IDClientes_Codigo"
-        Me.CF_IDPOVentas_IDClientes_Codigo.Size = New System.Drawing.Size(83, 17)
-        Me.CF_IDPOVentas_IDClientes_Codigo.TabIndex = 14
-        Me.CF_IDPOVentas_IDClientes_Codigo.Text = "Cod. Cliente"
-        Me.CF_IDPOVentas_IDClientes_Codigo.UseVisualStyleBackColor = True
+        Me.CF_CodCliente.AutoSize = True
+        Me.CF_CodCliente.Location = New System.Drawing.Point(358, 10)
+        Me.CF_CodCliente.Name = "CF_CodCliente"
+        Me.CF_CodCliente.Size = New System.Drawing.Size(83, 17)
+        Me.CF_CodCliente.TabIndex = 14
+        Me.CF_CodCliente.Text = "Cod. Cliente"
+        Me.CF_CodCliente.UseVisualStyleBackColor = True
         '
         'VF_IDPOVentas_PO
         '
@@ -973,6 +1063,189 @@ Partial Class CoreForm
         Me.CF_CodFactura.Text = "Factura  #"
         Me.CF_CodFactura.UseVisualStyleBackColor = True
         '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.TabControl3)
+        Me.TabPage5.Controls.Add(Me.PanelFiltroNC)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(1132, 312)
+        Me.TabPage5.TabIndex = 2
+        Me.TabPage5.Text = "Notas Crédito"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'TabControl3
+        '
+        Me.TabControl3.Controls.Add(Me.TabPage6)
+        Me.TabControl3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl3.Location = New System.Drawing.Point(3, 47)
+        Me.TabControl3.Name = "TabControl3"
+        Me.TabControl3.SelectedIndex = 0
+        Me.TabControl3.Size = New System.Drawing.Size(1126, 262)
+        Me.TabControl3.TabIndex = 2
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.dgridColaNotasCredito)
+        Me.TabPage6.Controls.Add(Me.Panel6)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(1118, 236)
+        Me.TabPage6.TabIndex = 0
+        Me.TabPage6.Text = "Transacciones en Cola"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'dgridColaNotasCredito
+        '
+        Me.dgridColaNotasCredito.AllowUserToAddRows = False
+        Me.dgridColaNotasCredito.AllowUserToDeleteRows = False
+        Me.dgridColaNotasCredito.AllowUserToOrderColumns = True
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightBlue
+        Me.dgridColaNotasCredito.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.dgridColaNotasCredito.AutoGenerateColumns = False
+        Me.dgridColaNotasCredito.BackgroundColor = System.Drawing.Color.AliceBlue
+        Me.dgridColaNotasCredito.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
+        Me.dgridColaNotasCredito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgridColaNotasCredito.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodigoDataGridViewTextBoxColumn2, Me.FNotaDataGridViewTextBoxColumn, Me.CodClienteDataGridViewTextBoxColumn2, Me.NomClienteDataGridViewTextBoxColumn2, Me.NombreArchivoDataGridViewTextBoxColumn2, Me.StampTimeEnvioDataGridViewTextBoxColumn2, Me.FlagSentDataGridViewTextBoxColumn2, Me.DesErrorDataGridViewTextBoxColumn2, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn2, Me.ResultadoDataGridViewTextBoxColumn2, Me.MensajesDataGridViewTextBoxColumn, Me.CodigoNCEDataGridViewTextBoxColumn, Me.CodFacturaDataGridViewTextBoxColumn2, Me.CufeFacturaDataGridViewTextBoxColumn, Me.IDVentasFacturasDataGridViewTextBoxColumn2, Me.IDTiposEnviosDataGridViewTextBoxColumn2, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2, Me.IDVentasDevolucionesDataGridViewTextBoxColumn, Me.IDDataGridViewTextBoxColumn2})
+        Me.dgridColaNotasCredito.ContextMenuStrip = Me.CMenuColaNC
+        Me.dgridColaNotasCredito.DataSource = Me.bsColaNotasCredito
+        Me.dgridColaNotasCredito.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgridColaNotasCredito.Location = New System.Drawing.Point(3, 3)
+        Me.dgridColaNotasCredito.Name = "dgridColaNotasCredito"
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgridColaNotasCredito.RowsDefaultCellStyle = DataGridViewCellStyle8
+        Me.dgridColaNotasCredito.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgridColaNotasCredito.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
+        Me.dgridColaNotasCredito.RowTemplate.Height = 24
+        Me.dgridColaNotasCredito.Size = New System.Drawing.Size(1112, 206)
+        Me.dgridColaNotasCredito.TabIndex = 138
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.Black
+        Me.Panel6.Controls.Add(Me.lblNumRegistrosNC)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel6.Location = New System.Drawing.Point(3, 209)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(1112, 24)
+        Me.Panel6.TabIndex = 137
+        '
+        'lblNumRegistrosNC
+        '
+        Me.lblNumRegistrosNC.AutoSize = True
+        Me.lblNumRegistrosNC.ForeColor = System.Drawing.Color.LightBlue
+        Me.lblNumRegistrosNC.Location = New System.Drawing.Point(11, 5)
+        Me.lblNumRegistrosNC.Name = "lblNumRegistrosNC"
+        Me.lblNumRegistrosNC.Size = New System.Drawing.Size(58, 13)
+        Me.lblNumRegistrosNC.TabIndex = 0
+        Me.lblNumRegistrosNC.Text = "Registro: 0"
+        '
+        'PanelFiltroNC
+        '
+        Me.PanelFiltroNC.BackColor = System.Drawing.Color.LightGray
+        Me.PanelFiltroNC.Controls.Add(Me.VF_Codigo)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_Codigo)
+        Me.PanelFiltroNC.Controls.Add(Me.TextBox1)
+        Me.PanelFiltroNC.Controls.Add(Me.CheckBox1)
+        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoNomCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoNomCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoCodCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoCodCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoCodFactura)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoCodFactura)
+        Me.PanelFiltroNC.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelFiltroNC.Location = New System.Drawing.Point(3, 3)
+        Me.PanelFiltroNC.Name = "PanelFiltroNC"
+        Me.PanelFiltroNC.Size = New System.Drawing.Size(1126, 44)
+        Me.PanelFiltroNC.TabIndex = 3
+        '
+        'VF_Codigo
+        '
+        Me.VF_Codigo.Location = New System.Drawing.Point(87, 8)
+        Me.VF_Codigo.Name = "VF_Codigo"
+        Me.VF_Codigo.Size = New System.Drawing.Size(87, 20)
+        Me.VF_Codigo.TabIndex = 21
+        '
+        'CF_Codigo
+        '
+        Me.CF_Codigo.AutoSize = True
+        Me.CF_Codigo.Location = New System.Drawing.Point(11, 10)
+        Me.CF_Codigo.Name = "CF_Codigo"
+        Me.CF_Codigo.Size = New System.Drawing.Size(75, 17)
+        Me.CF_Codigo.TabIndex = 20
+        Me.CF_Codigo.Text = "Nota C.  #"
+        Me.CF_Codigo.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(886, 8)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(141, 20)
+        Me.TextBox1.TabIndex = 19
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(832, 10)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(48, 17)
+        Me.CheckBox1.TabIndex = 18
+        Me.CheckBox1.Text = "Error"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'VF_AuxCampoNomCliente
+        '
+        Me.VF_AuxCampoNomCliente.Location = New System.Drawing.Point(632, 8)
+        Me.VF_AuxCampoNomCliente.Name = "VF_AuxCampoNomCliente"
+        Me.VF_AuxCampoNomCliente.Size = New System.Drawing.Size(184, 20)
+        Me.VF_AuxCampoNomCliente.TabIndex = 17
+        '
+        'CF_AuxCampoNomCliente
+        '
+        Me.CF_AuxCampoNomCliente.AutoSize = True
+        Me.CF_AuxCampoNomCliente.Location = New System.Drawing.Point(568, 10)
+        Me.CF_AuxCampoNomCliente.Name = "CF_AuxCampoNomCliente"
+        Me.CF_AuxCampoNomCliente.Size = New System.Drawing.Size(58, 17)
+        Me.CF_AuxCampoNomCliente.TabIndex = 16
+        Me.CF_AuxCampoNomCliente.Text = "Cliente"
+        Me.CF_AuxCampoNomCliente.UseVisualStyleBackColor = True
+        '
+        'VF_AuxCampoCodCliente
+        '
+        Me.VF_AuxCampoCodCliente.Location = New System.Drawing.Point(462, 8)
+        Me.VF_AuxCampoCodCliente.Name = "VF_AuxCampoCodCliente"
+        Me.VF_AuxCampoCodCliente.Size = New System.Drawing.Size(100, 20)
+        Me.VF_AuxCampoCodCliente.TabIndex = 15
+        '
+        'CF_AuxCampoCodCliente
+        '
+        Me.CF_AuxCampoCodCliente.AutoSize = True
+        Me.CF_AuxCampoCodCliente.Location = New System.Drawing.Point(368, 10)
+        Me.CF_AuxCampoCodCliente.Name = "CF_AuxCampoCodCliente"
+        Me.CF_AuxCampoCodCliente.Size = New System.Drawing.Size(83, 17)
+        Me.CF_AuxCampoCodCliente.TabIndex = 14
+        Me.CF_AuxCampoCodCliente.Text = "Cod. Cliente"
+        Me.CF_AuxCampoCodCliente.UseVisualStyleBackColor = True
+        '
+        'VF_AuxCampoCodFactura
+        '
+        Me.VF_AuxCampoCodFactura.Location = New System.Drawing.Point(265, 8)
+        Me.VF_AuxCampoCodFactura.Name = "VF_AuxCampoCodFactura"
+        Me.VF_AuxCampoCodFactura.Size = New System.Drawing.Size(87, 20)
+        Me.VF_AuxCampoCodFactura.TabIndex = 11
+        '
+        'CF_AuxCampoCodFactura
+        '
+        Me.CF_AuxCampoCodFactura.AutoSize = True
+        Me.CF_AuxCampoCodFactura.Location = New System.Drawing.Point(186, 10)
+        Me.CF_AuxCampoCodFactura.Name = "CF_AuxCampoCodFactura"
+        Me.CF_AuxCampoCodFactura.Size = New System.Drawing.Size(75, 17)
+        Me.CF_AuxCampoCodFactura.TabIndex = 10
+        Me.CF_AuxCampoCodFactura.Text = "Factura  #"
+        Me.CF_AuxCampoCodFactura.UseVisualStyleBackColor = True
+        '
         'TabPage2
         '
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
@@ -990,41 +1263,154 @@ Partial Class CoreForm
         '
         Me.dsAux.DataSetName = "NewDataSet"
         '
-        'Label14
+        'CMenuColaNC
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(549, 63)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(20, 13)
-        Me.Label14.TabIndex = 27
-        Me.Label14.Text = "PF"
+        Me.CMenuColaNC.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CMenuColaNC.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.CMenuColaNC.Name = "cMenuCola"
+        Me.CMenuColaNC.Size = New System.Drawing.Size(226, 48)
         '
-        'PreFijo
+        'ToolStripMenuItem1
         '
-        Me.PreFijo.Location = New System.Drawing.Point(575, 61)
-        Me.PreFijo.Name = "PreFijo"
-        Me.PreFijo.Size = New System.Drawing.Size(61, 20)
-        Me.PreFijo.TabIndex = 28
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(225, 22)
+        Me.ToolStripMenuItem1.Text = "Forzar Envío de Nota Credito"
         '
-        'Label15
+        'CodigoDataGridViewTextBoxColumn2
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(642, 64)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(38, 13)
-        Me.Label15.TabIndex = 29
-        Me.Label15.Text = "Desde"
+        Me.CodigoDataGridViewTextBoxColumn2.DataPropertyName = "Codigo"
+        Me.CodigoDataGridViewTextBoxColumn2.HeaderText = "Codigo"
+        Me.CodigoDataGridViewTextBoxColumn2.Name = "CodigoDataGridViewTextBoxColumn2"
         '
-        'ConsecutivoDesde
+        'FNotaDataGridViewTextBoxColumn
         '
-        Me.ConsecutivoDesde.Location = New System.Drawing.Point(686, 62)
-        Me.ConsecutivoDesde.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
-        Me.ConsecutivoDesde.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.ConsecutivoDesde.Name = "ConsecutivoDesde"
-        Me.ConsecutivoDesde.Size = New System.Drawing.Size(84, 20)
-        Me.ConsecutivoDesde.TabIndex = 30
-        Me.ConsecutivoDesde.UseWaitCursor = True
-        Me.ConsecutivoDesde.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.FNotaDataGridViewTextBoxColumn.DataPropertyName = "FNota"
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.FNotaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
+        Me.FNotaDataGridViewTextBoxColumn.HeaderText = "F. Nota"
+        Me.FNotaDataGridViewTextBoxColumn.Name = "FNotaDataGridViewTextBoxColumn"
+        '
+        'CodClienteDataGridViewTextBoxColumn2
+        '
+        Me.CodClienteDataGridViewTextBoxColumn2.DataPropertyName = "CodCliente"
+        Me.CodClienteDataGridViewTextBoxColumn2.HeaderText = "Cod Cliente"
+        Me.CodClienteDataGridViewTextBoxColumn2.Name = "CodClienteDataGridViewTextBoxColumn2"
+        '
+        'NomClienteDataGridViewTextBoxColumn2
+        '
+        Me.NomClienteDataGridViewTextBoxColumn2.DataPropertyName = "NomCliente"
+        Me.NomClienteDataGridViewTextBoxColumn2.HeaderText = "Cliente"
+        Me.NomClienteDataGridViewTextBoxColumn2.Name = "NomClienteDataGridViewTextBoxColumn2"
+        Me.NomClienteDataGridViewTextBoxColumn2.Width = 200
+        '
+        'NombreArchivoDataGridViewTextBoxColumn2
+        '
+        Me.NombreArchivoDataGridViewTextBoxColumn2.DataPropertyName = "NombreArchivo"
+        Me.NombreArchivoDataGridViewTextBoxColumn2.HeaderText = "Nombre Archivo"
+        Me.NombreArchivoDataGridViewTextBoxColumn2.Name = "NombreArchivoDataGridViewTextBoxColumn2"
+        '
+        'StampTimeEnvioDataGridViewTextBoxColumn2
+        '
+        Me.StampTimeEnvioDataGridViewTextBoxColumn2.DataPropertyName = "StampTimeEnvio"
+        DataGridViewCellStyle7.Format = "G"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.StampTimeEnvioDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle7
+        Me.StampTimeEnvioDataGridViewTextBoxColumn2.HeaderText = "Stamp Time Envio"
+        Me.StampTimeEnvioDataGridViewTextBoxColumn2.Name = "StampTimeEnvioDataGridViewTextBoxColumn2"
+        '
+        'FlagSentDataGridViewTextBoxColumn2
+        '
+        Me.FlagSentDataGridViewTextBoxColumn2.DataPropertyName = "FlagSent"
+        Me.FlagSentDataGridViewTextBoxColumn2.FalseValue = "0"
+        Me.FlagSentDataGridViewTextBoxColumn2.HeaderText = "Sent"
+        Me.FlagSentDataGridViewTextBoxColumn2.Name = "FlagSentDataGridViewTextBoxColumn2"
+        Me.FlagSentDataGridViewTextBoxColumn2.ReadOnly = True
+        Me.FlagSentDataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.FlagSentDataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.FlagSentDataGridViewTextBoxColumn2.TrueValue = "1"
+        '
+        'DesErrorDataGridViewTextBoxColumn2
+        '
+        Me.DesErrorDataGridViewTextBoxColumn2.DataPropertyName = "DesError"
+        Me.DesErrorDataGridViewTextBoxColumn2.HeaderText = "DesError"
+        Me.DesErrorDataGridViewTextBoxColumn2.Name = "DesErrorDataGridViewTextBoxColumn2"
+        '
+        'ConsecutivoDocumentoDataGridViewTextBoxColumn2
+        '
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn2.DataPropertyName = "ConsecutivoDocumento"
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn2.HeaderText = "Consecutivo Documento"
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn2.Name = "ConsecutivoDocumentoDataGridViewTextBoxColumn2"
+        '
+        'ResultadoDataGridViewTextBoxColumn2
+        '
+        Me.ResultadoDataGridViewTextBoxColumn2.DataPropertyName = "Resultado"
+        Me.ResultadoDataGridViewTextBoxColumn2.HeaderText = "Resultado"
+        Me.ResultadoDataGridViewTextBoxColumn2.Name = "ResultadoDataGridViewTextBoxColumn2"
+        '
+        'MensajesDataGridViewTextBoxColumn
+        '
+        Me.MensajesDataGridViewTextBoxColumn.DataPropertyName = "Mensajes"
+        Me.MensajesDataGridViewTextBoxColumn.HeaderText = "Mensajes"
+        Me.MensajesDataGridViewTextBoxColumn.Name = "MensajesDataGridViewTextBoxColumn"
+        '
+        'CodigoNCEDataGridViewTextBoxColumn
+        '
+        Me.CodigoNCEDataGridViewTextBoxColumn.DataPropertyName = "CodigoNCE"
+        Me.CodigoNCEDataGridViewTextBoxColumn.HeaderText = "CodigoNCE"
+        Me.CodigoNCEDataGridViewTextBoxColumn.Name = "CodigoNCEDataGridViewTextBoxColumn"
+        '
+        'CodFacturaDataGridViewTextBoxColumn2
+        '
+        Me.CodFacturaDataGridViewTextBoxColumn2.DataPropertyName = "CodFactura"
+        Me.CodFacturaDataGridViewTextBoxColumn2.HeaderText = "Cod Factura"
+        Me.CodFacturaDataGridViewTextBoxColumn2.Name = "CodFacturaDataGridViewTextBoxColumn2"
+        '
+        'CufeFacturaDataGridViewTextBoxColumn
+        '
+        Me.CufeFacturaDataGridViewTextBoxColumn.DataPropertyName = "CufeFactura"
+        Me.CufeFacturaDataGridViewTextBoxColumn.HeaderText = "Cufe Factura"
+        Me.CufeFacturaDataGridViewTextBoxColumn.Name = "CufeFacturaDataGridViewTextBoxColumn"
+        '
+        'IDVentasFacturasDataGridViewTextBoxColumn2
+        '
+        Me.IDVentasFacturasDataGridViewTextBoxColumn2.DataPropertyName = "IDVentasFacturas"
+        Me.IDVentasFacturasDataGridViewTextBoxColumn2.HeaderText = "IDVentasFacturas"
+        Me.IDVentasFacturasDataGridViewTextBoxColumn2.Name = "IDVentasFacturasDataGridViewTextBoxColumn2"
+        '
+        'IDTiposEnviosDataGridViewTextBoxColumn2
+        '
+        Me.IDTiposEnviosDataGridViewTextBoxColumn2.DataPropertyName = "IDTiposEnvios"
+        Me.IDTiposEnviosDataGridViewTextBoxColumn2.HeaderText = "IDTiposEnvios"
+        Me.IDTiposEnviosDataGridViewTextBoxColumn2.Name = "IDTiposEnviosDataGridViewTextBoxColumn2"
+        '
+        'IDEmpresaIntermediariaDataGridViewTextBoxColumn2
+        '
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2.DataPropertyName = "IDEmpresaIntermediaria"
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2.HeaderText = "IDEmpresaIntermediaria"
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2.Name = "IDEmpresaIntermediariaDataGridViewTextBoxColumn2"
+        '
+        'IDVentasDevolucionesDataGridViewTextBoxColumn
+        '
+        Me.IDVentasDevolucionesDataGridViewTextBoxColumn.DataPropertyName = "IDVentasDevoluciones"
+        Me.IDVentasDevolucionesDataGridViewTextBoxColumn.HeaderText = "IDVentasDevoluciones"
+        Me.IDVentasDevolucionesDataGridViewTextBoxColumn.Name = "IDVentasDevolucionesDataGridViewTextBoxColumn"
+        '
+        'IDDataGridViewTextBoxColumn2
+        '
+        Me.IDDataGridViewTextBoxColumn2.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn2.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn2.Name = "IDDataGridViewTextBoxColumn2"
+        '
+        'bsColaNotasCredito
+        '
+        Me.bsColaNotasCredito.DataMember = "InterfazNotasCredito"
+        Me.bsColaNotasCredito.DataSource = Me.DsNotasCreditoXProcesar1
+        '
+        'DsNotasCreditoXProcesar1
+        '
+        Me.DsNotasCreditoXProcesar1.DataSetName = "dsNotasCreditoXProcesar"
+        Me.DsNotasCreditoXProcesar1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CoreForm
         '
@@ -1039,6 +1425,7 @@ Partial Class CoreForm
         Me.Text = "Sunttel - Sistema Interfas de Facturación  Electrónica"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FrecuenciaMins, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -1060,8 +1447,18 @@ Partial Class CoreForm
         Me.Panel4.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabControl3.ResumeLayout(False)
+        Me.TabPage6.ResumeLayout(False)
+        CType(Me.dgridColaNotasCredito, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
+        Me.PanelFiltroNC.ResumeLayout(False)
+        Me.PanelFiltroNC.PerformLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CMenuColaNC.ResumeLayout(False)
+        CType(Me.bsColaNotasCredito, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsNotasCreditoXProcesar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1093,10 +1490,10 @@ Partial Class CoreForm
     Friend WithEvents Panel2 As Panel
     Friend WithEvents VCF_Error As TextBox
     Friend WithEvents CF_Error As CheckBox
-    Friend WithEvents VF_IDPOVentas_IDClientes_Nombre As TextBox
-    Friend WithEvents CF_IDPOVentas_IDClientes_Nombre As CheckBox
-    Friend WithEvents VF_IDPOVentas_IDClientes_Codigo As TextBox
-    Friend WithEvents CF_IDPOVentas_IDClientes_Codigo As CheckBox
+    Friend WithEvents VF_NomCliente As TextBox
+    Friend WithEvents CF_NomCliente As CheckBox
+    Friend WithEvents VF_CodCliente As TextBox
+    Friend WithEvents CF_CodCliente As CheckBox
     Friend WithEvents VF_IDPOVentas_PO As TextBox
     Friend WithEvents CF_IDPOVentas_PO As CheckBox
     Friend WithEvents VF_CodFactura As TextBox
@@ -1167,4 +1564,44 @@ Partial Class CoreForm
     Friend WithEvents Label15 As Label
     Friend WithEvents PreFijo As TextBox
     Friend WithEvents Label14 As Label
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents TabControl3 As TabControl
+    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents dgridColaNotasCredito As DataGridView
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents lblNumRegistrosNC As Label
+    Friend WithEvents PanelFiltroNC As Panel
+    Friend WithEvents VF_Codigo As TextBox
+    Friend WithEvents CF_Codigo As CheckBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents VF_AuxCampoNomCliente As TextBox
+    Friend WithEvents CF_AuxCampoNomCliente As CheckBox
+    Friend WithEvents VF_AuxCampoCodCliente As TextBox
+    Friend WithEvents CF_AuxCampoCodCliente As CheckBox
+    Friend WithEvents VF_AuxCampoCodFactura As TextBox
+    Friend WithEvents CF_AuxCampoCodFactura As CheckBox
+    Friend WithEvents DsNotasCreditoXProcesar1 As dsNotasCreditoXProcesar
+    Friend WithEvents bsColaNotasCredito As BindingSource
+    Friend WithEvents CMenuColaNC As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents CodigoDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents FNotaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CodClienteDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents NomClienteDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents NombreArchivoDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents StampTimeEnvioDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents FlagSentDataGridViewTextBoxColumn2 As DataGridViewCheckBoxColumn
+    Friend WithEvents DesErrorDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ConsecutivoDocumentoDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ResultadoDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents MensajesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CodigoNCEDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CodFacturaDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents CufeFacturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDVentasFacturasDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents IDTiposEnviosDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents IDEmpresaIntermediariaDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents IDVentasDevolucionesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
 End Class
