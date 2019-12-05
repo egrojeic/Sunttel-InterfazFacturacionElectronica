@@ -27,6 +27,7 @@ Public Class CoreForm
 
     Dim Var_EstadoProceso As Integer = 0 ' 0 Detenido, 1 Corriendo
     Dim Var_UltimoMomentoCorrio As Date
+    Dim Var_UltimoMomentoCorrioNC As Date
 
     Dim objDsMgr As cDsMgr
 
@@ -86,7 +87,8 @@ Public Class CoreForm
 
         If tmpMinutes < 0 Then
 
-            EjecutarEnvioArchivosFacturas()
+            CreaColaEnvioFacturas()
+            RecorrerDataFacturaEnvioAutomatico()
 
             Var_UltimoMomentoCorrio = Now
 
@@ -95,8 +97,17 @@ Public Class CoreForm
 
     End Sub
 
-    Private Sub EjecutarEnvioArchivosFacturas()
-        CreaColaEnvioFacturas()
+
+    Private Sub RecorrerDataFacturaEnvioAutomatico()
+        Dim CursorFE As dsCloaDocsFacturasXProcesar.InterfasFacturasRow
+
+        Select Case Me.IDEmpresaIntermediaria.SelectedItem("FormatoArchivo")
+            Case "XML"
+                For Each CursorFE In Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas
+                    EnviaArchivoFacturaElectronica(CursorFE.IDVentasFacturas, CursorFE.CodFactura)
+                Next
+        End Select
+
     End Sub
 
     Private Sub CreaColaEnvioFacturas()
@@ -106,6 +117,11 @@ Public Class CoreForm
         Me.DsCloaDocsFacturasXProcesar1.Clear()
         LlenaDataSetGenerico(Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas, "InterfasFacturas", strSQL, strConeccionDB)
 
+    End Sub
+
+    Private Sub CreaColaEnvioNotasCredito()
+
+        Dim strSQL As String = ""
         strSQL = "exec CreaColaEnvio 2"
         Me.DsNotasCreditoXProcesar1.Clear()
         LlenaDataSetGenerico(Me.DsNotasCreditoXProcesar1.InterfazNotasCredito, "InterfazNotasCredito", strSQL, strConeccionDB)
@@ -425,4 +441,44 @@ ControlaError:
 
         Return strResuesta
     End Function
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        Dim tmpAhora As Date = Now
+        Dim tmpMinutes As Integer = 0
+        Dim tmpSegundos As Integer = 0
+        Dim tmpSegundosFaltan As Integer = 0
+
+        tmpMinutes = FrecuenciaMinsNC.Value - DateAndTime.DateDiff(DateInterval.Minute, Var_UltimoMomentoCorrioNC, Now)
+        tmpSegundos = (FrecuenciaMinsNC.Value * 60) - DateAndTime.DateDiff(DateInterval.Second, Var_UltimoMomentoCorrioNC, Now)
+
+        tmpSegundosFaltan = 60 + (tmpSegundos - (tmpMinutes * 60))
+
+        tmpMinutes = tmpMinutes - 1
+
+        lblStatusNC.Text = "N.C Status: Running"
+        lblTiempoRestanteNuevoCargueNC.Text = "N.C Remaining Time for Next Upload (Mins): " & tmpMinutes.ToString & ":" & Strings.Right("00" + tmpSegundosFaltan.ToString, 2)
+        lblLastTimeRanNC.Text = "N.C Last time ran: " & Var_UltimoMomentoCorrioNC
+
+        If tmpMinutes < 0 Then
+
+            CreaColaEnvioNotasCredito()
+            RecorrerDataNCEnvioAutomatico()
+
+            Var_UltimoMomentoCorrio = Now
+
+
+        End If
+    End Sub
+
+    Private Sub RecorrerDataNCEnvioAutomatico()
+        Dim CursorNC As dsNotasCreditoXProcesar.InterfazNotasCreditoRow
+
+        Select Case Me.IDEmpresaIntermediaria.SelectedItem("FormatoArchivo")
+            Case "XML"
+                For Each CursorNC In Me.DsNotasCreditoXProcesar1.InterfazNotasCredito
+                    EnviaArchivoNotaCreditoElectronica(CursorNC.IDVentasDevoluciones, CursorNC.Codigo)
+                Next
+        End Select
+
+    End Sub
 End Class

@@ -33,6 +33,15 @@ Partial Class CoreForm
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CoreForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ConsecutivoDesdeNC = New System.Windows.Forms.NumericUpDown()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.PreFijoNC = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.FrecuenciaMinsNC = New System.Windows.Forms.NumericUpDown()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.lblLastTimeRanNC = New System.Windows.Forms.Label()
+        Me.lblTiempoRestanteNuevoCargueNC = New System.Windows.Forms.Label()
+        Me.lblStatusNC = New System.Windows.Forms.Label()
         Me.ConsecutivoDesde = New System.Windows.Forms.NumericUpDown()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.PreFijo = New System.Windows.Forms.TextBox()
@@ -134,24 +143,6 @@ Partial Class CoreForm
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.dgridColaNotasCredito = New System.Windows.Forms.DataGridView()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.lblNumRegistrosNC = New System.Windows.Forms.Label()
-        Me.PanelFiltroNC = New System.Windows.Forms.Panel()
-        Me.VF_Codigo = New System.Windows.Forms.TextBox()
-        Me.CF_Codigo = New System.Windows.Forms.CheckBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.VF_AuxCampoNomCliente = New System.Windows.Forms.TextBox()
-        Me.CF_AuxCampoNomCliente = New System.Windows.Forms.CheckBox()
-        Me.VF_AuxCampoCodCliente = New System.Windows.Forms.TextBox()
-        Me.CF_AuxCampoCodCliente = New System.Windows.Forms.CheckBox()
-        Me.VF_AuxCampoCodFactura = New System.Windows.Forms.TextBox()
-        Me.CF_AuxCampoCodFactura = New System.Windows.Forms.CheckBox()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.dsAux = New System.Data.DataSet()
-        Me.CMenuColaNC = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodigoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FNotaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CodClienteDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -171,9 +162,29 @@ Partial Class CoreForm
         Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDVentasDevolucionesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CMenuColaNC = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.bsColaNotasCredito = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsNotasCreditoXProcesar1 = New SunttelInterfasFacturacionElectronica.dsNotasCreditoXProcesar()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblNumRegistrosNC = New System.Windows.Forms.Label()
+        Me.PanelFiltroNC = New System.Windows.Forms.Panel()
+        Me.VF_Codigo = New System.Windows.Forms.TextBox()
+        Me.CF_Codigo = New System.Windows.Forms.CheckBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.VF_AuxCampoNomCliente = New System.Windows.Forms.TextBox()
+        Me.CF_AuxCampoNomCliente = New System.Windows.Forms.CheckBox()
+        Me.VF_AuxCampoCodCliente = New System.Windows.Forms.TextBox()
+        Me.CF_AuxCampoCodCliente = New System.Windows.Forms.CheckBox()
+        Me.VF_AuxCampoCodFactura = New System.Windows.Forms.TextBox()
+        Me.CF_AuxCampoCodFactura = New System.Windows.Forms.CheckBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.dsAux = New System.Data.DataSet()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
+        CType(Me.ConsecutivoDesdeNC, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FrecuenciaMinsNC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FrecuenciaMins, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -196,17 +207,26 @@ Partial Class CoreForm
         Me.TabControl3.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         CType(Me.dgridColaNotasCredito, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel6.SuspendLayout()
-        Me.PanelFiltroNC.SuspendLayout()
-        CType(Me.dsAux, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CMenuColaNC.SuspendLayout()
         CType(Me.bsColaNotasCredito, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsNotasCreditoXProcesar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel6.SuspendLayout()
+        Me.PanelFiltroNC.SuspendLayout()
+        CType(Me.dsAux, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.ConsecutivoDesdeNC)
+        Me.Panel1.Controls.Add(Me.Label17)
+        Me.Panel1.Controls.Add(Me.PreFijoNC)
+        Me.Panel1.Controls.Add(Me.Label18)
+        Me.Panel1.Controls.Add(Me.FrecuenciaMinsNC)
+        Me.Panel1.Controls.Add(Me.Label16)
+        Me.Panel1.Controls.Add(Me.lblLastTimeRanNC)
+        Me.Panel1.Controls.Add(Me.lblTiempoRestanteNuevoCargueNC)
+        Me.Panel1.Controls.Add(Me.lblStatusNC)
         Me.Panel1.Controls.Add(Me.ConsecutivoDesde)
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.PreFijo)
@@ -241,8 +261,96 @@ Partial Class CoreForm
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1140, 215)
+        Me.Panel1.Size = New System.Drawing.Size(1140, 242)
         Me.Panel1.TabIndex = 4
+        '
+        'ConsecutivoDesdeNC
+        '
+        Me.ConsecutivoDesdeNC.Location = New System.Drawing.Point(687, 87)
+        Me.ConsecutivoDesdeNC.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
+        Me.ConsecutivoDesdeNC.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ConsecutivoDesdeNC.Name = "ConsecutivoDesdeNC"
+        Me.ConsecutivoDesdeNC.Size = New System.Drawing.Size(84, 20)
+        Me.ConsecutivoDesdeNC.TabIndex = 39
+        Me.ConsecutivoDesdeNC.UseWaitCursor = True
+        Me.ConsecutivoDesdeNC.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(643, 89)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(38, 13)
+        Me.Label17.TabIndex = 38
+        Me.Label17.Text = "Desde"
+        '
+        'PreFijoNC
+        '
+        Me.PreFijoNC.Location = New System.Drawing.Point(597, 86)
+        Me.PreFijoNC.Name = "PreFijoNC"
+        Me.PreFijoNC.Size = New System.Drawing.Size(40, 20)
+        Me.PreFijoNC.TabIndex = 37
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(550, 88)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(41, 13)
+        Me.Label18.TabIndex = 36
+        Me.Label18.Text = "PF N.C"
+        '
+        'FrecuenciaMinsNC
+        '
+        Me.FrecuenciaMinsNC.Location = New System.Drawing.Point(177, 87)
+        Me.FrecuenciaMinsNC.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        Me.FrecuenciaMinsNC.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.FrecuenciaMinsNC.Name = "FrecuenciaMinsNC"
+        Me.FrecuenciaMinsNC.Size = New System.Drawing.Size(63, 20)
+        Me.FrecuenciaMinsNC.TabIndex = 35
+        Me.FrecuenciaMinsNC.Value = New Decimal(New Integer() {20, 0, 0, 0})
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(12, 89)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(159, 13)
+        Me.Label16.TabIndex = 34
+        Me.Label16.Text = "Frecuencia de Envío N.C (Mins)"
+        '
+        'lblLastTimeRanNC
+        '
+        Me.lblLastTimeRanNC.AutoSize = True
+        Me.lblLastTimeRanNC.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLastTimeRanNC.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lblLastTimeRanNC.Location = New System.Drawing.Point(498, 220)
+        Me.lblLastTimeRanNC.Name = "lblLastTimeRanNC"
+        Me.lblLastTimeRanNC.Size = New System.Drawing.Size(93, 13)
+        Me.lblLastTimeRanNC.TabIndex = 33
+        Me.lblLastTimeRanNC.Text = "Last Time Ran:"
+        '
+        'lblTiempoRestanteNuevoCargueNC
+        '
+        Me.lblTiempoRestanteNuevoCargueNC.AutoSize = True
+        Me.lblTiempoRestanteNuevoCargueNC.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTiempoRestanteNuevoCargueNC.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lblTiempoRestanteNuevoCargueNC.Location = New System.Drawing.Point(181, 220)
+        Me.lblTiempoRestanteNuevoCargueNC.Name = "lblTiempoRestanteNuevoCargueNC"
+        Me.lblTiempoRestanteNuevoCargueNC.Size = New System.Drawing.Size(236, 13)
+        Me.lblTiempoRestanteNuevoCargueNC.TabIndex = 32
+        Me.lblTiempoRestanteNuevoCargueNC.Text = "Remaining Time for Next Upload (Mins): "
+        '
+        'lblStatusNC
+        '
+        Me.lblStatusNC.AutoSize = True
+        Me.lblStatusNC.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatusNC.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lblStatusNC.Location = New System.Drawing.Point(10, 220)
+        Me.lblStatusNC.Name = "lblStatusNC"
+        Me.lblStatusNC.Size = New System.Drawing.Size(91, 13)
+        Me.lblStatusNC.TabIndex = 31
+        Me.lblStatusNC.Text = "Status: Stoped"
         '
         'ConsecutivoDesde
         '
@@ -283,7 +391,7 @@ Partial Class CoreForm
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(67, 144)
+        Me.Label13.Location = New System.Drawing.Point(67, 169)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(87, 13)
         Me.Label13.TabIndex = 25
@@ -291,7 +399,7 @@ Partial Class CoreForm
         '
         'tokenPassword
         '
-        Me.tokenPassword.Location = New System.Drawing.Point(157, 141)
+        Me.tokenPassword.Location = New System.Drawing.Point(157, 166)
         Me.tokenPassword.Name = "tokenPassword"
         Me.tokenPassword.Size = New System.Drawing.Size(480, 20)
         Me.tokenPassword.TabIndex = 26
@@ -300,7 +408,7 @@ Partial Class CoreForm
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(66, 118)
+        Me.Label12.Location = New System.Drawing.Point(66, 143)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(38, 13)
         Me.Label12.TabIndex = 23
@@ -308,7 +416,7 @@ Partial Class CoreForm
         '
         'tokenLogin
         '
-        Me.tokenLogin.Location = New System.Drawing.Point(156, 115)
+        Me.tokenLogin.Location = New System.Drawing.Point(156, 140)
         Me.tokenLogin.Name = "tokenLogin"
         Me.tokenLogin.Size = New System.Drawing.Size(480, 20)
         Me.tokenLogin.TabIndex = 24
@@ -333,7 +441,7 @@ Partial Class CoreForm
         '
         'FInicioProduccion
         '
-        Me.FInicioProduccion.Location = New System.Drawing.Point(436, 88)
+        Me.FInicioProduccion.Location = New System.Drawing.Point(436, 113)
         Me.FInicioProduccion.Name = "FInicioProduccion"
         Me.FInicioProduccion.Size = New System.Drawing.Size(200, 20)
         Me.FInicioProduccion.TabIndex = 20
@@ -341,7 +449,7 @@ Partial Class CoreForm
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(376, 93)
+        Me.Label7.Location = New System.Drawing.Point(376, 118)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 13)
         Me.Label7.TabIndex = 19
@@ -349,7 +457,7 @@ Partial Class CoreForm
         '
         'FInicioPruebas
         '
-        Me.FInicioPruebas.Location = New System.Drawing.Point(156, 88)
+        Me.FInicioPruebas.Location = New System.Drawing.Point(156, 113)
         Me.FInicioPruebas.Name = "FInicioPruebas"
         Me.FInicioPruebas.Size = New System.Drawing.Size(200, 20)
         Me.FInicioPruebas.TabIndex = 18
@@ -357,7 +465,7 @@ Partial Class CoreForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(96, 93)
+        Me.Label1.Location = New System.Drawing.Point(96, 118)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 17
@@ -367,7 +475,7 @@ Partial Class CoreForm
         '
         Me.lblLastTimeRan.AutoSize = True
         Me.lblLastTimeRan.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLastTimeRan.Location = New System.Drawing.Point(498, 188)
+        Me.lblLastTimeRan.Location = New System.Drawing.Point(498, 193)
         Me.lblLastTimeRan.Name = "lblLastTimeRan"
         Me.lblLastTimeRan.Size = New System.Drawing.Size(93, 13)
         Me.lblLastTimeRan.TabIndex = 16
@@ -377,7 +485,7 @@ Partial Class CoreForm
         '
         Me.lblTiempoRestanteNuevoCargue.AutoSize = True
         Me.lblTiempoRestanteNuevoCargue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTiempoRestanteNuevoCargue.Location = New System.Drawing.Point(181, 188)
+        Me.lblTiempoRestanteNuevoCargue.Location = New System.Drawing.Point(181, 193)
         Me.lblTiempoRestanteNuevoCargue.Name = "lblTiempoRestanteNuevoCargue"
         Me.lblTiempoRestanteNuevoCargue.Size = New System.Drawing.Size(236, 13)
         Me.lblTiempoRestanteNuevoCargue.TabIndex = 15
@@ -396,7 +504,7 @@ Partial Class CoreForm
         '
         Me.lblStatus.AutoSize = True
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.Location = New System.Drawing.Point(10, 188)
+        Me.lblStatus.Location = New System.Drawing.Point(10, 193)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(91, 13)
         Me.lblStatus.TabIndex = 14
@@ -525,12 +633,11 @@ Partial Class CoreForm
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 215)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 242)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1140, 338)
+        Me.TabControl1.Size = New System.Drawing.Size(1140, 409)
         Me.TabControl1.TabIndex = 5
         '
         'TabPage1
@@ -540,7 +647,7 @@ Partial Class CoreForm
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1132, 312)
+        Me.TabPage1.Size = New System.Drawing.Size(1132, 383)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Facturación"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -553,7 +660,7 @@ Partial Class CoreForm
         Me.TabControl2.Location = New System.Drawing.Point(3, 47)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(1126, 262)
+        Me.TabControl2.Size = New System.Drawing.Size(1126, 333)
         Me.TabControl2.TabIndex = 0
         '
         'TabPage3
@@ -563,7 +670,7 @@ Partial Class CoreForm
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1118, 236)
+        Me.TabPage3.Size = New System.Drawing.Size(1118, 307)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Transacciones en Cola"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -590,7 +697,7 @@ Partial Class CoreForm
         Me.dGridCurrentActivity.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dGridCurrentActivity.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dGridCurrentActivity.RowTemplate.Height = 24
-        Me.dGridCurrentActivity.Size = New System.Drawing.Size(1112, 206)
+        Me.dGridCurrentActivity.Size = New System.Drawing.Size(1112, 277)
         Me.dGridCurrentActivity.TabIndex = 138
         '
         'CodFacturaDataGridViewTextBoxColumn
@@ -722,7 +829,7 @@ Partial Class CoreForm
         Me.Panel3.BackColor = System.Drawing.Color.Black
         Me.Panel3.Controls.Add(Me.lblRecordsCurrentActivity)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(3, 209)
+        Me.Panel3.Location = New System.Drawing.Point(3, 280)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1112, 24)
         Me.Panel3.TabIndex = 137
@@ -745,7 +852,7 @@ Partial Class CoreForm
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1118, 236)
+        Me.TabPage4.Size = New System.Drawing.Size(1118, 334)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Historial de Transacciones"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -771,7 +878,7 @@ Partial Class CoreForm
         Me.dGridHistorial.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dGridHistorial.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dGridHistorial.RowTemplate.Height = 24
-        Me.dGridHistorial.Size = New System.Drawing.Size(1112, 171)
+        Me.dGridHistorial.Size = New System.Drawing.Size(1112, 269)
         Me.dGridHistorial.TabIndex = 140
         '
         'IDDataGridViewTextBoxColumn1
@@ -944,7 +1051,7 @@ Partial Class CoreForm
         Me.Panel4.BackColor = System.Drawing.Color.Black
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(3, 209)
+        Me.Panel4.Location = New System.Drawing.Point(3, 307)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1112, 24)
         Me.Panel4.TabIndex = 139
@@ -1070,7 +1177,7 @@ Partial Class CoreForm
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1132, 312)
+        Me.TabPage5.Size = New System.Drawing.Size(1132, 383)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "Notas Crédito"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -1082,7 +1189,7 @@ Partial Class CoreForm
         Me.TabControl3.Location = New System.Drawing.Point(3, 47)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(1126, 262)
+        Me.TabControl3.Size = New System.Drawing.Size(1126, 333)
         Me.TabControl3.TabIndex = 2
         '
         'TabPage6
@@ -1092,7 +1199,7 @@ Partial Class CoreForm
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(1118, 236)
+        Me.TabPage6.Size = New System.Drawing.Size(1118, 307)
         Me.TabPage6.TabIndex = 0
         Me.TabPage6.Text = "Transacciones en Cola"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -1119,162 +1226,8 @@ Partial Class CoreForm
         Me.dgridColaNotasCredito.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgridColaNotasCredito.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dgridColaNotasCredito.RowTemplate.Height = 24
-        Me.dgridColaNotasCredito.Size = New System.Drawing.Size(1112, 206)
+        Me.dgridColaNotasCredito.Size = New System.Drawing.Size(1112, 277)
         Me.dgridColaNotasCredito.TabIndex = 138
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.Black
-        Me.Panel6.Controls.Add(Me.lblNumRegistrosNC)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(3, 209)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1112, 24)
-        Me.Panel6.TabIndex = 137
-        '
-        'lblNumRegistrosNC
-        '
-        Me.lblNumRegistrosNC.AutoSize = True
-        Me.lblNumRegistrosNC.ForeColor = System.Drawing.Color.LightBlue
-        Me.lblNumRegistrosNC.Location = New System.Drawing.Point(11, 5)
-        Me.lblNumRegistrosNC.Name = "lblNumRegistrosNC"
-        Me.lblNumRegistrosNC.Size = New System.Drawing.Size(58, 13)
-        Me.lblNumRegistrosNC.TabIndex = 0
-        Me.lblNumRegistrosNC.Text = "Registro: 0"
-        '
-        'PanelFiltroNC
-        '
-        Me.PanelFiltroNC.BackColor = System.Drawing.Color.LightGray
-        Me.PanelFiltroNC.Controls.Add(Me.VF_Codigo)
-        Me.PanelFiltroNC.Controls.Add(Me.CF_Codigo)
-        Me.PanelFiltroNC.Controls.Add(Me.TextBox1)
-        Me.PanelFiltroNC.Controls.Add(Me.CheckBox1)
-        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoNomCliente)
-        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoNomCliente)
-        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoCodCliente)
-        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoCodCliente)
-        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoCodFactura)
-        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoCodFactura)
-        Me.PanelFiltroNC.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelFiltroNC.Location = New System.Drawing.Point(3, 3)
-        Me.PanelFiltroNC.Name = "PanelFiltroNC"
-        Me.PanelFiltroNC.Size = New System.Drawing.Size(1126, 44)
-        Me.PanelFiltroNC.TabIndex = 3
-        '
-        'VF_Codigo
-        '
-        Me.VF_Codigo.Location = New System.Drawing.Point(87, 8)
-        Me.VF_Codigo.Name = "VF_Codigo"
-        Me.VF_Codigo.Size = New System.Drawing.Size(87, 20)
-        Me.VF_Codigo.TabIndex = 21
-        '
-        'CF_Codigo
-        '
-        Me.CF_Codigo.AutoSize = True
-        Me.CF_Codigo.Location = New System.Drawing.Point(11, 10)
-        Me.CF_Codigo.Name = "CF_Codigo"
-        Me.CF_Codigo.Size = New System.Drawing.Size(75, 17)
-        Me.CF_Codigo.TabIndex = 20
-        Me.CF_Codigo.Text = "Nota C.  #"
-        Me.CF_Codigo.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(886, 8)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(141, 20)
-        Me.TextBox1.TabIndex = 19
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(832, 10)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(48, 17)
-        Me.CheckBox1.TabIndex = 18
-        Me.CheckBox1.Text = "Error"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'VF_AuxCampoNomCliente
-        '
-        Me.VF_AuxCampoNomCliente.Location = New System.Drawing.Point(632, 8)
-        Me.VF_AuxCampoNomCliente.Name = "VF_AuxCampoNomCliente"
-        Me.VF_AuxCampoNomCliente.Size = New System.Drawing.Size(184, 20)
-        Me.VF_AuxCampoNomCliente.TabIndex = 17
-        '
-        'CF_AuxCampoNomCliente
-        '
-        Me.CF_AuxCampoNomCliente.AutoSize = True
-        Me.CF_AuxCampoNomCliente.Location = New System.Drawing.Point(568, 10)
-        Me.CF_AuxCampoNomCliente.Name = "CF_AuxCampoNomCliente"
-        Me.CF_AuxCampoNomCliente.Size = New System.Drawing.Size(58, 17)
-        Me.CF_AuxCampoNomCliente.TabIndex = 16
-        Me.CF_AuxCampoNomCliente.Text = "Cliente"
-        Me.CF_AuxCampoNomCliente.UseVisualStyleBackColor = True
-        '
-        'VF_AuxCampoCodCliente
-        '
-        Me.VF_AuxCampoCodCliente.Location = New System.Drawing.Point(462, 8)
-        Me.VF_AuxCampoCodCliente.Name = "VF_AuxCampoCodCliente"
-        Me.VF_AuxCampoCodCliente.Size = New System.Drawing.Size(100, 20)
-        Me.VF_AuxCampoCodCliente.TabIndex = 15
-        '
-        'CF_AuxCampoCodCliente
-        '
-        Me.CF_AuxCampoCodCliente.AutoSize = True
-        Me.CF_AuxCampoCodCliente.Location = New System.Drawing.Point(368, 10)
-        Me.CF_AuxCampoCodCliente.Name = "CF_AuxCampoCodCliente"
-        Me.CF_AuxCampoCodCliente.Size = New System.Drawing.Size(83, 17)
-        Me.CF_AuxCampoCodCliente.TabIndex = 14
-        Me.CF_AuxCampoCodCliente.Text = "Cod. Cliente"
-        Me.CF_AuxCampoCodCliente.UseVisualStyleBackColor = True
-        '
-        'VF_AuxCampoCodFactura
-        '
-        Me.VF_AuxCampoCodFactura.Location = New System.Drawing.Point(265, 8)
-        Me.VF_AuxCampoCodFactura.Name = "VF_AuxCampoCodFactura"
-        Me.VF_AuxCampoCodFactura.Size = New System.Drawing.Size(87, 20)
-        Me.VF_AuxCampoCodFactura.TabIndex = 11
-        '
-        'CF_AuxCampoCodFactura
-        '
-        Me.CF_AuxCampoCodFactura.AutoSize = True
-        Me.CF_AuxCampoCodFactura.Location = New System.Drawing.Point(186, 10)
-        Me.CF_AuxCampoCodFactura.Name = "CF_AuxCampoCodFactura"
-        Me.CF_AuxCampoCodFactura.Size = New System.Drawing.Size(75, 17)
-        Me.CF_AuxCampoCodFactura.TabIndex = 10
-        Me.CF_AuxCampoCodFactura.Text = "Factura  #"
-        Me.CF_AuxCampoCodFactura.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1132, 312)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Devoluciones"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Timer1
-        '
-        '
-        'dsAux
-        '
-        Me.dsAux.DataSetName = "NewDataSet"
-        '
-        'CMenuColaNC
-        '
-        Me.CMenuColaNC.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.CMenuColaNC.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
-        Me.CMenuColaNC.Name = "cMenuCola"
-        Me.CMenuColaNC.Size = New System.Drawing.Size(226, 48)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(225, 22)
-        Me.ToolStripMenuItem1.Text = "Forzar Envío de Nota Credito"
         '
         'CodigoDataGridViewTextBoxColumn2
         '
@@ -1402,6 +1355,19 @@ Partial Class CoreForm
         Me.IDDataGridViewTextBoxColumn2.HeaderText = "ID"
         Me.IDDataGridViewTextBoxColumn2.Name = "IDDataGridViewTextBoxColumn2"
         '
+        'CMenuColaNC
+        '
+        Me.CMenuColaNC.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CMenuColaNC.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.CMenuColaNC.Name = "cMenuCola"
+        Me.CMenuColaNC.Size = New System.Drawing.Size(226, 26)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(225, 22)
+        Me.ToolStripMenuItem1.Text = "Forzar Envío de Nota Credito"
+        '
         'bsColaNotasCredito
         '
         Me.bsColaNotasCredito.DataMember = "InterfazNotasCredito"
@@ -1412,11 +1378,145 @@ Partial Class CoreForm
         Me.DsNotasCreditoXProcesar1.DataSetName = "dsNotasCreditoXProcesar"
         Me.DsNotasCreditoXProcesar1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.Black
+        Me.Panel6.Controls.Add(Me.lblNumRegistrosNC)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel6.Location = New System.Drawing.Point(3, 280)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(1112, 24)
+        Me.Panel6.TabIndex = 137
+        '
+        'lblNumRegistrosNC
+        '
+        Me.lblNumRegistrosNC.AutoSize = True
+        Me.lblNumRegistrosNC.ForeColor = System.Drawing.Color.LightBlue
+        Me.lblNumRegistrosNC.Location = New System.Drawing.Point(11, 5)
+        Me.lblNumRegistrosNC.Name = "lblNumRegistrosNC"
+        Me.lblNumRegistrosNC.Size = New System.Drawing.Size(58, 13)
+        Me.lblNumRegistrosNC.TabIndex = 0
+        Me.lblNumRegistrosNC.Text = "Registro: 0"
+        '
+        'PanelFiltroNC
+        '
+        Me.PanelFiltroNC.BackColor = System.Drawing.Color.LightGray
+        Me.PanelFiltroNC.Controls.Add(Me.VF_Codigo)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_Codigo)
+        Me.PanelFiltroNC.Controls.Add(Me.TextBox1)
+        Me.PanelFiltroNC.Controls.Add(Me.CheckBox1)
+        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoNomCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoNomCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoCodCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoCodCliente)
+        Me.PanelFiltroNC.Controls.Add(Me.VF_AuxCampoCodFactura)
+        Me.PanelFiltroNC.Controls.Add(Me.CF_AuxCampoCodFactura)
+        Me.PanelFiltroNC.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelFiltroNC.Location = New System.Drawing.Point(3, 3)
+        Me.PanelFiltroNC.Name = "PanelFiltroNC"
+        Me.PanelFiltroNC.Size = New System.Drawing.Size(1126, 44)
+        Me.PanelFiltroNC.TabIndex = 3
+        '
+        'VF_Codigo
+        '
+        Me.VF_Codigo.Location = New System.Drawing.Point(87, 8)
+        Me.VF_Codigo.Name = "VF_Codigo"
+        Me.VF_Codigo.Size = New System.Drawing.Size(87, 20)
+        Me.VF_Codigo.TabIndex = 21
+        '
+        'CF_Codigo
+        '
+        Me.CF_Codigo.AutoSize = True
+        Me.CF_Codigo.Location = New System.Drawing.Point(11, 10)
+        Me.CF_Codigo.Name = "CF_Codigo"
+        Me.CF_Codigo.Size = New System.Drawing.Size(75, 17)
+        Me.CF_Codigo.TabIndex = 20
+        Me.CF_Codigo.Text = "Nota C.  #"
+        Me.CF_Codigo.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(886, 8)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(141, 20)
+        Me.TextBox1.TabIndex = 19
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(832, 10)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(48, 17)
+        Me.CheckBox1.TabIndex = 18
+        Me.CheckBox1.Text = "Error"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'VF_AuxCampoNomCliente
+        '
+        Me.VF_AuxCampoNomCliente.Location = New System.Drawing.Point(632, 8)
+        Me.VF_AuxCampoNomCliente.Name = "VF_AuxCampoNomCliente"
+        Me.VF_AuxCampoNomCliente.Size = New System.Drawing.Size(184, 20)
+        Me.VF_AuxCampoNomCliente.TabIndex = 17
+        '
+        'CF_AuxCampoNomCliente
+        '
+        Me.CF_AuxCampoNomCliente.AutoSize = True
+        Me.CF_AuxCampoNomCliente.Location = New System.Drawing.Point(568, 10)
+        Me.CF_AuxCampoNomCliente.Name = "CF_AuxCampoNomCliente"
+        Me.CF_AuxCampoNomCliente.Size = New System.Drawing.Size(58, 17)
+        Me.CF_AuxCampoNomCliente.TabIndex = 16
+        Me.CF_AuxCampoNomCliente.Text = "Cliente"
+        Me.CF_AuxCampoNomCliente.UseVisualStyleBackColor = True
+        '
+        'VF_AuxCampoCodCliente
+        '
+        Me.VF_AuxCampoCodCliente.Location = New System.Drawing.Point(462, 8)
+        Me.VF_AuxCampoCodCliente.Name = "VF_AuxCampoCodCliente"
+        Me.VF_AuxCampoCodCliente.Size = New System.Drawing.Size(100, 20)
+        Me.VF_AuxCampoCodCliente.TabIndex = 15
+        '
+        'CF_AuxCampoCodCliente
+        '
+        Me.CF_AuxCampoCodCliente.AutoSize = True
+        Me.CF_AuxCampoCodCliente.Location = New System.Drawing.Point(368, 10)
+        Me.CF_AuxCampoCodCliente.Name = "CF_AuxCampoCodCliente"
+        Me.CF_AuxCampoCodCliente.Size = New System.Drawing.Size(83, 17)
+        Me.CF_AuxCampoCodCliente.TabIndex = 14
+        Me.CF_AuxCampoCodCliente.Text = "Cod. Cliente"
+        Me.CF_AuxCampoCodCliente.UseVisualStyleBackColor = True
+        '
+        'VF_AuxCampoCodFactura
+        '
+        Me.VF_AuxCampoCodFactura.Location = New System.Drawing.Point(265, 8)
+        Me.VF_AuxCampoCodFactura.Name = "VF_AuxCampoCodFactura"
+        Me.VF_AuxCampoCodFactura.Size = New System.Drawing.Size(87, 20)
+        Me.VF_AuxCampoCodFactura.TabIndex = 11
+        '
+        'CF_AuxCampoCodFactura
+        '
+        Me.CF_AuxCampoCodFactura.AutoSize = True
+        Me.CF_AuxCampoCodFactura.Location = New System.Drawing.Point(186, 10)
+        Me.CF_AuxCampoCodFactura.Name = "CF_AuxCampoCodFactura"
+        Me.CF_AuxCampoCodFactura.Size = New System.Drawing.Size(75, 17)
+        Me.CF_AuxCampoCodFactura.TabIndex = 10
+        Me.CF_AuxCampoCodFactura.Text = "Factura  #"
+        Me.CF_AuxCampoCodFactura.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        '
+        'dsAux
+        '
+        Me.dsAux.DataSetName = "NewDataSet"
+        '
+        'Timer2
+        '
+        '
         'CoreForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1140, 553)
+        Me.ClientSize = New System.Drawing.Size(1140, 651)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1425,6 +1525,8 @@ Partial Class CoreForm
         Me.Text = "Sunttel - Sistema Interfas de Facturación  Electrónica"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.ConsecutivoDesdeNC, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FrecuenciaMinsNC, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ConsecutivoDesde, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FrecuenciaMins, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
@@ -1451,14 +1553,14 @@ Partial Class CoreForm
         Me.TabControl3.ResumeLayout(False)
         Me.TabPage6.ResumeLayout(False)
         CType(Me.dgridColaNotasCredito, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CMenuColaNC.ResumeLayout(False)
+        CType(Me.bsColaNotasCredito, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsNotasCreditoXProcesar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.PanelFiltroNC.ResumeLayout(False)
         Me.PanelFiltroNC.PerformLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.CMenuColaNC.ResumeLayout(False)
-        CType(Me.bsColaNotasCredito, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsNotasCreditoXProcesar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1483,7 +1585,6 @@ Partial Class CoreForm
     Friend WithEvents Label5 As Label
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabControl2 As TabControl
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents TabPage4 As TabPage
@@ -1604,4 +1705,14 @@ Partial Class CoreForm
     Friend WithEvents IDEmpresaIntermediariaDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents IDVentasDevolucionesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IDDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents lblLastTimeRanNC As Label
+    Friend WithEvents lblTiempoRestanteNuevoCargueNC As Label
+    Friend WithEvents lblStatusNC As Label
+    Friend WithEvents FrecuenciaMinsNC As NumericUpDown
+    Friend WithEvents Label16 As Label
+    Friend WithEvents ConsecutivoDesdeNC As NumericUpDown
+    Friend WithEvents Label17 As Label
+    Friend WithEvents PreFijoNC As TextBox
+    Friend WithEvents Label18 As Label
 End Class
