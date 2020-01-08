@@ -28,9 +28,18 @@ Partial Class CoreForm
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CoreForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ConsecutivoDesdeNC = New System.Windows.Forms.NumericUpDown()
@@ -47,9 +56,9 @@ Partial Class CoreForm
         Me.PreFijo = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.tokenPassword = New System.Windows.Forms.TextBox()
+        Me.TokenPassword = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.tokenLogin = New System.Windows.Forms.TextBox()
+        Me.TokenLogin = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.IDEmpresaIntermediaria = New System.Windows.Forms.ComboBox()
         Me.FInicioProduccion = New System.Windows.Forms.DateTimePicker()
@@ -182,6 +191,10 @@ Partial Class CoreForm
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.dsAux = New System.Data.DataSet()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.cmbCompania = New System.Windows.Forms.ComboBox()
+        Me.DsConsultaFactura = New SunttelInterfasFacturacionElectronica.dsConsultaFactura()
+        Me.DsConsultaFacturaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.ConsecutivoDesdeNC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FrecuenciaMinsNC, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -213,11 +226,15 @@ Partial Class CoreForm
         Me.Panel6.SuspendLayout()
         Me.PanelFiltroNC.SuspendLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsConsultaFactura, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsConsultaFacturaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Label19)
+        Me.Panel1.Controls.Add(Me.cmbCompania)
         Me.Panel1.Controls.Add(Me.ConsecutivoDesdeNC)
         Me.Panel1.Controls.Add(Me.Label17)
         Me.Panel1.Controls.Add(Me.PreFijoNC)
@@ -232,9 +249,9 @@ Partial Class CoreForm
         Me.Panel1.Controls.Add(Me.PreFijo)
         Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.Label13)
-        Me.Panel1.Controls.Add(Me.tokenPassword)
+        Me.Panel1.Controls.Add(Me.TokenPassword)
         Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Controls.Add(Me.tokenLogin)
+        Me.Panel1.Controls.Add(Me.TokenLogin)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.IDEmpresaIntermediaria)
         Me.Panel1.Controls.Add(Me.FInicioProduccion)
@@ -397,13 +414,13 @@ Partial Class CoreForm
         Me.Label13.TabIndex = 25
         Me.Label13.Text = "Token Password"
         '
-        'tokenPassword
+        'TokenPassword
         '
-        Me.tokenPassword.Location = New System.Drawing.Point(157, 166)
-        Me.tokenPassword.Name = "tokenPassword"
-        Me.tokenPassword.Size = New System.Drawing.Size(480, 20)
-        Me.tokenPassword.TabIndex = 26
-        Me.tokenPassword.Text = "ce2e45d0d5f7479490663d1c113c892434d2da29"
+        Me.TokenPassword.Location = New System.Drawing.Point(157, 166)
+        Me.TokenPassword.Name = "TokenPassword"
+        Me.TokenPassword.Size = New System.Drawing.Size(480, 20)
+        Me.TokenPassword.TabIndex = 26
+        Me.TokenPassword.Text = "ce2e45d0d5f7479490663d1c113c892434d2da29"
         '
         'Label12
         '
@@ -414,13 +431,13 @@ Partial Class CoreForm
         Me.Label12.TabIndex = 23
         Me.Label12.Text = "Token"
         '
-        'tokenLogin
+        'TokenLogin
         '
-        Me.tokenLogin.Location = New System.Drawing.Point(156, 140)
-        Me.tokenLogin.Name = "tokenLogin"
-        Me.tokenLogin.Size = New System.Drawing.Size(480, 20)
-        Me.tokenLogin.TabIndex = 24
-        Me.tokenLogin.Text = "cb310720e02e40c4b3c1dac8f7e271c8b2c2f528"
+        Me.TokenLogin.Location = New System.Drawing.Point(156, 140)
+        Me.TokenLogin.Name = "TokenLogin"
+        Me.TokenLogin.Size = New System.Drawing.Size(480, 20)
+        Me.TokenLogin.TabIndex = 24
+        Me.TokenLogin.Text = "cb310720e02e40c4b3c1dac8f7e271c8b2c2f528"
         '
         'Label9
         '
@@ -685,15 +702,39 @@ Partial Class CoreForm
         Me.dGridCurrentActivity.AutoGenerateColumns = False
         Me.dGridCurrentActivity.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dGridCurrentActivity.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dGridCurrentActivity.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dGridCurrentActivity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dGridCurrentActivity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodFacturaDataGridViewTextBoxColumn, Me.FFactura, Me.CodClienteDataGridViewTextBoxColumn, Me.NomClienteDataGridViewTextBoxColumn, Me.IDVentasFacturasDataGridViewTextBoxColumn, Me.FlagSentDataGridViewTextBoxColumn, Me.DesErrorDataGridViewTextBoxColumn, Me.StampTimeEnvioDataGridViewTextBoxColumn, Me.NombreArchivoDataGridViewTextBoxColumn, Me.CodigoDataGridViewTextBoxColumn, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn, Me.CufeDataGridViewTextBoxColumn, Me.ResultadoDataGridViewTextBoxColumn, Me.IDDataGridViewTextBoxColumn, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn, Me.IDTiposEnviosDataGridViewTextBoxColumn})
         Me.dGridCurrentActivity.ContextMenuStrip = Me.cMenuCola
         Me.dGridCurrentActivity.DataSource = Me.bsColaDocsFacturas
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dGridCurrentActivity.DefaultCellStyle = DataGridViewCellStyle3
         Me.dGridCurrentActivity.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dGridCurrentActivity.Location = New System.Drawing.Point(3, 3)
         Me.dGridCurrentActivity.Name = "dGridCurrentActivity"
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue
-        Me.dGridCurrentActivity.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dGridCurrentActivity.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue
+        Me.dGridCurrentActivity.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.dGridCurrentActivity.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dGridCurrentActivity.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dGridCurrentActivity.RowTemplate.Height = 24
@@ -852,7 +893,7 @@ Partial Class CoreForm
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1118, 334)
+        Me.TabPage4.Size = New System.Drawing.Size(1118, 307)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Historial de Transacciones"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -862,23 +903,47 @@ Partial Class CoreForm
         Me.dGridHistorial.AllowUserToAddRows = False
         Me.dGridHistorial.AllowUserToDeleteRows = False
         Me.dGridHistorial.AllowUserToOrderColumns = True
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue
-        Me.dGridHistorial.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.LightBlue
+        Me.dGridHistorial.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dGridHistorial.AutoGenerateColumns = False
         Me.dGridHistorial.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dGridHistorial.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dGridHistorial.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dGridHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dGridHistorial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn1, Me.IDVentasFacturasDataGridViewTextBoxColumn1, Me.FlagSentDataGridViewTextBoxColumn1, Me.DesErrorDataGridViewTextBoxColumn1, Me.StampTimeEnvioDataGridViewTextBoxColumn1, Me.NombreArchivoDataGridViewTextBoxColumn1, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1, Me.IDTiposEnviosDataGridViewTextBoxColumn1, Me.CodigoDataGridViewTextBoxColumn1, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1, Me.CufeDataGridViewTextBoxColumn1, Me.ResultadoDataGridViewTextBoxColumn1, Me.CodFacturaDataGridViewTextBoxColumn1, Me.CodClienteDataGridViewTextBoxColumn1, Me.NomClienteDataGridViewTextBoxColumn1, Me.FFacturaDataGridViewTextBoxColumn})
         Me.dGridHistorial.DataSource = Me.bsHistoria
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dGridHistorial.DefaultCellStyle = DataGridViewCellStyle8
         Me.dGridHistorial.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dGridHistorial.Location = New System.Drawing.Point(3, 38)
         Me.dGridHistorial.Name = "dGridHistorial"
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue
-        Me.dGridHistorial.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dGridHistorial.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.AliceBlue
+        Me.dGridHistorial.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.dGridHistorial.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dGridHistorial.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dGridHistorial.RowTemplate.Height = 24
-        Me.dGridHistorial.Size = New System.Drawing.Size(1112, 269)
+        Me.dGridHistorial.Size = New System.Drawing.Size(1112, 242)
         Me.dGridHistorial.TabIndex = 140
         '
         'IDDataGridViewTextBoxColumn1
@@ -1051,7 +1116,7 @@ Partial Class CoreForm
         Me.Panel4.BackColor = System.Drawing.Color.Black
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(3, 307)
+        Me.Panel4.Location = New System.Drawing.Point(3, 280)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1112, 24)
         Me.Panel4.TabIndex = 139
@@ -1209,20 +1274,44 @@ Partial Class CoreForm
         Me.dgridColaNotasCredito.AllowUserToAddRows = False
         Me.dgridColaNotasCredito.AllowUserToDeleteRows = False
         Me.dgridColaNotasCredito.AllowUserToOrderColumns = True
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.LightBlue
-        Me.dgridColaNotasCredito.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.LightBlue
+        Me.dgridColaNotasCredito.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
         Me.dgridColaNotasCredito.AutoGenerateColumns = False
         Me.dgridColaNotasCredito.BackgroundColor = System.Drawing.Color.AliceBlue
         Me.dgridColaNotasCredito.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgridColaNotasCredito.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgridColaNotasCredito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgridColaNotasCredito.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodigoDataGridViewTextBoxColumn2, Me.FNotaDataGridViewTextBoxColumn, Me.CodClienteDataGridViewTextBoxColumn2, Me.NomClienteDataGridViewTextBoxColumn2, Me.NombreArchivoDataGridViewTextBoxColumn2, Me.StampTimeEnvioDataGridViewTextBoxColumn2, Me.FlagSentDataGridViewTextBoxColumn2, Me.DesErrorDataGridViewTextBoxColumn2, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn2, Me.ResultadoDataGridViewTextBoxColumn2, Me.MensajesDataGridViewTextBoxColumn, Me.CodigoNCEDataGridViewTextBoxColumn, Me.CodFacturaDataGridViewTextBoxColumn2, Me.CufeFacturaDataGridViewTextBoxColumn, Me.IDVentasFacturasDataGridViewTextBoxColumn2, Me.IDTiposEnviosDataGridViewTextBoxColumn2, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn2, Me.IDVentasDevolucionesDataGridViewTextBoxColumn, Me.IDDataGridViewTextBoxColumn2})
         Me.dgridColaNotasCredito.ContextMenuStrip = Me.CMenuColaNC
         Me.dgridColaNotasCredito.DataSource = Me.bsColaNotasCredito
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgridColaNotasCredito.DefaultCellStyle = DataGridViewCellStyle15
         Me.dgridColaNotasCredito.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgridColaNotasCredito.Location = New System.Drawing.Point(3, 3)
         Me.dgridColaNotasCredito.Name = "dgridColaNotasCredito"
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue
-        Me.dgridColaNotasCredito.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgridColaNotasCredito.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgridColaNotasCredito.RowsDefaultCellStyle = DataGridViewCellStyle17
         Me.dgridColaNotasCredito.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dgridColaNotasCredito.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue
         Me.dgridColaNotasCredito.RowTemplate.Height = 24
@@ -1238,9 +1327,9 @@ Partial Class CoreForm
         'FNotaDataGridViewTextBoxColumn
         '
         Me.FNotaDataGridViewTextBoxColumn.DataPropertyName = "FNota"
-        DataGridViewCellStyle6.Format = "d"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.FNotaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle13.Format = "d"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.FNotaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle13
         Me.FNotaDataGridViewTextBoxColumn.HeaderText = "F. Nota"
         Me.FNotaDataGridViewTextBoxColumn.Name = "FNotaDataGridViewTextBoxColumn"
         '
@@ -1266,9 +1355,9 @@ Partial Class CoreForm
         'StampTimeEnvioDataGridViewTextBoxColumn2
         '
         Me.StampTimeEnvioDataGridViewTextBoxColumn2.DataPropertyName = "StampTimeEnvio"
-        DataGridViewCellStyle7.Format = "G"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.StampTimeEnvioDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle14.Format = "G"
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.StampTimeEnvioDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle14
         Me.StampTimeEnvioDataGridViewTextBoxColumn2.HeaderText = "Stamp Time Envio"
         Me.StampTimeEnvioDataGridViewTextBoxColumn2.Name = "StampTimeEnvioDataGridViewTextBoxColumn2"
         '
@@ -1512,6 +1601,33 @@ Partial Class CoreForm
         'Timer2
         '
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(254, 90)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(54, 13)
+        Me.Label19.TabIndex = 41
+        Me.Label19.Text = "Compañia"
+        '
+        'cmbCompania
+        '
+        Me.cmbCompania.FormattingEnabled = True
+        Me.cmbCompania.Location = New System.Drawing.Point(313, 88)
+        Me.cmbCompania.Name = "cmbCompania"
+        Me.cmbCompania.Size = New System.Drawing.Size(220, 21)
+        Me.cmbCompania.TabIndex = 40
+        '
+        'DsConsultaFactura
+        '
+        Me.DsConsultaFactura.DataSetName = "dsConsultaFactura"
+        Me.DsConsultaFactura.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DsConsultaFacturaBindingSource
+        '
+        Me.DsConsultaFacturaBindingSource.DataSource = Me.DsConsultaFactura
+        Me.DsConsultaFacturaBindingSource.Position = 0
+        '
         'CoreForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1561,6 +1677,8 @@ Partial Class CoreForm
         Me.PanelFiltroNC.ResumeLayout(False)
         Me.PanelFiltroNC.PerformLayout()
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsConsultaFactura, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsConsultaFacturaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1658,9 +1776,9 @@ Partial Class CoreForm
     Friend WithEvents cMenuCola As ContextMenuStrip
     Friend WithEvents ForzarEnvíoDeFacturaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label13 As Label
-    Friend WithEvents tokenPassword As TextBox
+    Friend WithEvents TokenPassword As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents tokenLogin As TextBox
+    Friend WithEvents TokenLogin As TextBox
     Friend WithEvents ConsecutivoDesde As NumericUpDown
     Friend WithEvents Label15 As Label
     Friend WithEvents PreFijo As TextBox
@@ -1715,4 +1833,8 @@ Partial Class CoreForm
     Friend WithEvents Label17 As Label
     Friend WithEvents PreFijoNC As TextBox
     Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents cmbCompania As ComboBox
+    Friend WithEvents DsConsultaFacturaBindingSource As BindingSource
+    Friend WithEvents DsConsultaFactura As dsConsultaFactura
 End Class

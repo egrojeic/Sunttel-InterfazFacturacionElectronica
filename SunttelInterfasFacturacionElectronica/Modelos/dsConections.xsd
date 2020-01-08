@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsConections" targetNamespace="http://tempuri.org/dsConections.xsd" xmlns:mstns="http://tempuri.org/dsConections.xsd" xmlns="http://tempuri.org/dsConections.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsConections" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsConections" msprop:Generator_UserDSName="dsConections">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Conections" msprop:Generator_TableClassName="ConectionsDataTable" msprop:Generator_TableVarName="tableConections" msprop:Generator_RowChangedName="ConectionsRowChanged" msprop:Generator_TablePropName="Conections" msprop:Generator_RowDeletingName="ConectionsRowDeleting" msprop:Generator_RowChangingName="ConectionsRowChanging" msprop:Generator_RowEvHandlerName="ConectionsRowChangeEventHandler" msprop:Generator_RowDeletedName="ConectionsRowDeleted" msprop:Generator_RowClassName="ConectionsRow" msprop:Generator_UserTableName="Conections" msprop:Generator_RowEvArgName="ConectionsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDAppParametros" msprop:Generator_ColumnVarNameInTable="columnIDAppParametros" msprop:Generator_ColumnPropNameInRow="IDAppParametros" msprop:Generator_ColumnPropNameInTable="IDAppParametrosColumn" msprop:Generator_UserColumnName="IDAppParametros" type="xs:int" minOccurs="0" />
+              <xs:element name="Compania" msprop:Generator_ColumnVarNameInTable="columnCompania" msprop:Generator_ColumnPropNameInRow="Compania" msprop:Generator_ColumnPropNameInTable="CompaniaColumn" msprop:Generator_UserColumnName="Compania" type="xs:string" minOccurs="0" />
+              <xs:element name="RutaArchivo" msprop:Generator_ColumnVarNameInTable="columnRutaArchivo" msprop:Generator_ColumnPropNameInRow="RutaArchivo" msprop:Generator_ColumnPropNameInTable="RutaArchivoColumn" msprop:Generator_UserColumnName="RutaArchivo" type="xs:string" minOccurs="0" />
+              <xs:element name="FrecMins" msprop:Generator_ColumnVarNameInTable="columnFrecMins" msprop:Generator_ColumnPropNameInRow="FrecMins" msprop:Generator_ColumnPropNameInTable="FrecMinsColumn" msprop:Generator_UserColumnName="FrecMins" type="xs:int" minOccurs="0" />
+              <xs:element name="ServidorSQL" msprop:Generator_ColumnVarNameInTable="columnServidorSQL" msprop:Generator_ColumnPropNameInRow="ServidorSQL" msprop:Generator_ColumnPropNameInTable="ServidorSQLColumn" msprop:Generator_UserColumnName="ServidorSQL" type="xs:string" minOccurs="0" />
+              <xs:element name="BaseDatos" msprop:Generator_ColumnVarNameInTable="columnBaseDatos" msprop:Generator_ColumnPropNameInRow="BaseDatos" msprop:Generator_ColumnPropNameInTable="BaseDatosColumn" msprop:Generator_UserColumnName="BaseDatos" type="xs:string" minOccurs="0" />
+              <xs:element name="Login" msprop:Generator_ColumnVarNameInTable="columnLogin" msprop:Generator_ColumnPropNameInRow="Login" msprop:Generator_ColumnPropNameInTable="LoginColumn" msprop:Generator_UserColumnName="Login" type="xs:string" minOccurs="0" />
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password" type="xs:string" minOccurs="0" />
+              <xs:element name="EndPointEmision" msprop:Generator_ColumnVarNameInTable="columnEndPointEmision" msprop:Generator_ColumnPropNameInRow="EndPointEmision" msprop:Generator_ColumnPropNameInTable="EndPointEmisionColumn" msprop:Generator_UserColumnName="EndPointEmision" type="xs:string" minOccurs="0" />
+              <xs:element name="EndPointAdjuntos" msprop:Generator_ColumnVarNameInTable="columnEndPointAdjuntos" msprop:Generator_ColumnPropNameInRow="EndPointAdjuntos" msprop:Generator_ColumnPropNameInTable="EndPointAdjuntosColumn" msprop:Generator_UserColumnName="EndPointAdjuntos" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

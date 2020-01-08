@@ -23,7 +23,6 @@ Public Class CoreForm
 
     Dim objSuperClass As cSuperDBDocMgr
     Dim cnn As cConeccionDB
-    Dim Var_ID As Integer = 1
 
     Dim Var_EstadoProceso As Integer = 0 ' 0 Detenido, 1 Corriendo
     Dim Var_UltimoMomentoCorrio As Date
@@ -33,33 +32,11 @@ Public Class CoreForm
 
 
     Private Sub CoreForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.cmbCompania.DataSource = dsConexiones
+        Me.cmbCompania.DisplayMember = "Conections.Compania"
+        Me.cmbCompania.ValueMember = "Conections.IDAppParametros"
 
-        Dim ci As New Globalization.CultureInfo("en-US")
-        Application.CurrentCulture = ci
-
-        cnn = New cConeccionDB(strConeccionDB, cConeccionDB.TipoConeccion.SQLServerConeccion)
-        objSuperClass = New cSuperDBDocMgr(strConeccionDB, cConeccionDB.TipoConeccion.SQLServerConeccion, "AppParametros", Me, cSuperDBDocMgr.TipoVista.WindowsForms_Vista, dsAux)
-
-        objDsMgr = New cDsMgr(strConeccionDB, cDsMgr.TipoConeccion.SQLServerConeccion, cnn)
-
-
-        Dim port As BasicHttpBinding = New BasicHttpBinding()
-        port.MaxBufferPoolSize = Int32.MaxValue
-        port.MaxBufferSize = Int32.MaxValue
-        port.MaxReceivedMessageSize = Int32.MaxValue
-        port.ReaderQuotas.MaxStringContentLength = Int32.MaxValue
-        port.SendTimeout = TimeSpan.FromMinutes(2)
-        port.ReceiveTimeout = TimeSpan.FromMinutes(2)
-        Dim endPointEmision As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/v1.0/Service.svc?wsdl")
-        Dim endPointAdjuntos As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/adjuntos/Service.svc?wsdl")
-        serviceClientEm = New ServicioEmi.ServiceClient(port, endPointEmision)
-        serviceArchivos = New ServicioAdjuntos.ServiceClient(port, endPointAdjuntos)
-
-
-
-        objSuperClass.Show(Var_ID)
         Var_UltimoMomentoCorrio = Date.Now.AddDays(-1)
-
 
     End Sub
 
@@ -129,8 +106,6 @@ Public Class CoreForm
     End Sub
 
     Private Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
-
-        RegistraConfigSys()
         objSuperClass.Guardar(True)
     End Sub
 
@@ -148,6 +123,7 @@ Public Class CoreForm
         Var_EstadoProceso = 1
 
         Timer1.Start()
+        Timer2.Start()
 
 
     End Sub
@@ -198,7 +174,7 @@ ControlaError:
 
         Dim docRespuesta As ServicioEmi.DocumentResponse  '//objeto Response del metodo enviar
 
-        docRespuesta = serviceClientEm.Enviar(Me.tokenLogin.Text.Trim(), Me.tokenPassword.Text.Trim(), objDocto, "0")
+        docRespuesta = serviceClientEm.Enviar(Me.TokenLogin.Text.Trim(), Me.TokenPassword.Text.Trim(), objDocto, "0")
 
         tmpRutaArchivo = RutaArchivosArmellini.Text & "\Response_FE" & prmIDVentasFactura & ".txt"
         Dim MyFile2 As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
@@ -391,7 +367,7 @@ ControlaError:
 
         Dim docRespuesta As ServicioEmi.DocumentResponse  '//objeto Response del metodo enviar
 
-        docRespuesta = serviceClientEm.Enviar(Me.tokenLogin.Text.Trim(), Me.tokenPassword.Text.Trim(), objDocto, "0")
+        docRespuesta = serviceClientEm.Enviar(Me.TokenLogin.Text.Trim(), Me.TokenPassword.Text.Trim(), objDocto, "0")
 
         tmpRutaArchivo = RutaArchivosArmellini.Text & "\Response_NCE" & prmIDVentasDevoluciones & ".txt"
         Dim MyFile2 As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
@@ -480,5 +456,50 @@ ControlaError:
                 Next
         End Select
 
+    End Sub
+
+    Private Sub cmbCompania_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCompania.SelectedIndexChanged
+        On Error Resume Next
+        ActualizaDatosConexion()
+    End Sub
+
+    Private Sub ActualizaDatosConexion()
+
+        strConeccionDB = GetStringConeccionDB(Me.cmbCompania.SelectedItem("ServidorSQL"), Me.cmbCompania.SelectedItem("BaseDatos"), Me.cmbCompania.SelectedItem("Login"), Me.cmbCompania.SelectedItem("Password"))
+
+        Dim ci As New Globalization.CultureInfo("en-US")
+        Application.CurrentCulture = ci
+
+        cnn = New cConeccionDB(strConeccionDB, cConeccionDB.TipoConeccion.SQLServerConeccion)
+        objSuperClass = New cSuperDBDocMgr(strConeccionDB, cConeccionDB.TipoConeccion.SQLServerConeccion, "AppParametros", Me, cSuperDBDocMgr.TipoVista.WindowsForms_Vista, dsAux)
+
+        objDsMgr = New cDsMgr(strConeccionDB, cDsMgr.TipoConeccion.SQLServerConeccion, cnn)
+
+        FrecuenciaMins.Value = Me.cmbCompania.SelectedItem("FrecMins")
+        FrecuenciaMinsNC.Value = Me.cmbCompania.SelectedItem("FrecMins")
+
+        Dim port As BasicHttpBinding = New BasicHttpBinding()
+        port.MaxBufferPoolSize = Int32.MaxValue
+        port.MaxBufferSize = Int32.MaxValue
+        port.MaxReceivedMessageSize = Int32.MaxValue
+        port.ReaderQuotas.MaxStringContentLength = Int32.MaxValue
+        port.SendTimeout = TimeSpan.FromMinutes(2)
+        port.ReceiveTimeout = TimeSpan.FromMinutes(2)
+        'Dim endPointEmision As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/v1.0/Service.svc?wsdl")
+        'Dim endPointAdjuntos As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/adjuntos/Service.svc?wsdl")
+
+        Dim strEndPointEmision As String
+        Dim strEndPointAdjuntos As String
+
+        strEndPointEmision = Me.cmbCompania.SelectedItem("EndPointEmision")
+        strEndPointAdjuntos = Me.cmbCompania.SelectedItem("EndPointAdjuntos")
+
+        Dim endPointEmision As EndpointAddress = New EndpointAddress(strEndPointEmision)
+        Dim endPointAdjuntos As EndpointAddress = New EndpointAddress(strEndPointAdjuntos)
+
+        serviceClientEm = New ServicioEmi.ServiceClient(port, endPointEmision)
+        serviceArchivos = New ServicioAdjuntos.ServiceClient(port, endPointAdjuntos)
+
+        objSuperClass.Show(Me.cmbCompania.SelectedItem("IDAppParametros"))
     End Sub
 End Class
