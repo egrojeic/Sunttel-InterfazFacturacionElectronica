@@ -13,13 +13,14 @@ Imports System.IO
 'Imports DemoGenFactura_int_tfhka_fel.ServiceAdjuntos
 Imports System.Xml.Serialization
 Imports SunttelDll2007
-
-
+Imports System.Xml
 
 Public Class CoreForm
 
     Dim serviceClientEm As ServicioEmi.ServiceClient
     Dim serviceArchivos As ServicioAdjuntos.ServiceClient
+
+    Dim serviceClientEkomercio As ServicioEkomercio.WSCFDBuilderPlusSoapClient
 
     Dim objSuperClass As cSuperDBDocMgr
     Dim cnn As cConeccionDB
@@ -37,11 +38,11 @@ Public Class CoreForm
         Me.cmbCompania.ValueMember = "Conections.IDAppParametros"
 
         Var_UltimoMomentoCorrio = Date.Now.AddDays(-1)
-
+        Var_UltimoMomentoCorrioNC = Date.Now.AddDays(-1)
     End Sub
 
     Private Sub CoreForm_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-        RegistraConfigSys()
+        'RegistraConfigSys()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -76,15 +77,148 @@ Public Class CoreForm
 
 
     Private Sub RecorrerDataFacturaEnvioAutomatico()
+        Dim rstCodigo As Integer = 0
+
         Dim CursorFE As dsCloaDocsFacturasXProcesar.InterfasFacturasRow
 
         Select Case Me.IDEmpresaIntermediaria.SelectedItem("FormatoArchivo")
             Case "XML"
                 For Each CursorFE In Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas
-                    EnviaArchivoFacturaElectronica(CursorFE.IDVentasFacturas, CursorFE.CodFactura)
+                    rstCodigo = EnviaArchivoFacturaElectronica(CursorFE.IDVentasFacturas, CursorFE.CodFactura)
+                    CursorFE.FlagSent = If(rstCodigo = 200, 1, 0)
+                Next
+            Case "TXT"
+                For Each CursorFE In Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas
+                    EnviaArchivoFEeKOMERCIO(CursorFE.IDVentasFacturas, CursorFE.CodFactura)
                 Next
         End Select
 
+    End Sub
+
+    Private Sub EnviaArchivoFEeKOMERCIO(prmIDVentasFactura As Integer, prmcodFactura As String)
+        Dim strResuesta As String = ""
+        Dim objFacturaElectronica As New cFacturaEkomercio
+        Dim XMLResponse As XmlNode
+        Dim dsArchivoPlano As New dsArchivoPlano
+        Dim strTextoPlano As String = ""
+        Dim tmpCodigoFE As Integer = 0
+
+        dsArchivoPlano = objFacturaElectronica.GeneraFileFacturaEkomercio(prmIDVentasFactura)
+        ExportaTabla(dsArchivoPlano.ArchivoPlano, RutaArchivos.Text, "Codigo", "FE" & prmIDVentasFactura & ".txt")
+
+        Dim CursorAP As dsArchivoPlano.ArchivoPlanoRow
+
+        For Each CursorAP In dsArchivoPlano.ArchivoPlano
+            tmpCodigoFE = CursorAP.Codigo
+            strTextoPlano += CursorAP.Texto
+        Next
+
+        XMLResponse = serviceClientEkomercio.procesarTextoPlanoToXML(TokenLogin.Text, TokenPassword.Text, LoinIntermediario.Text, strTextoPlano)
+
+
+        Dim tmpRutaArchivo As String = ""
+        tmpRutaArchivo = RutaArchivos.Text & "\Response_FE" & prmIDVentasFactura & ".txt"
+
+        If Not System.IO.Directory.Exists(RutaArchivos.Text) Then
+            System.IO.Directory.CreateDirectory(RutaArchivos.Text)
+        End If
+
+        Dim MyFile As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
+        Dim Serializer1 As XmlSerializer = New XmlSerializer(GetType(XmlNode))
+        Serializer1.Serialize(MyFile, XMLResponse) ' // Objeto serializado
+        MyFile.Close()
+
+        Dim tmpCodRespuesta As Integer = 0
+        Dim tmpConsecutivo As String = 0
+        Dim tmpCufe As String = ""
+        Dim tmpMensajes As String = ""
+        Dim tmpError As String = ""
+        Dim tmpMensajesValidacion As String = ""
+
+        tmpError = XMLResponse.Item("Error").InnerText
+
+        If (tmpError.Trim.Length = 0) Then
+            tmpCodRespuesta = 200
+            tmpConsecutivo = PreFijo.Text + tmpCodigoFE.ToString
+            tmpCufe = XMLResponse.Item("UUID").InnerXml
+            tmpMensajes = ""
+        Else
+            tmpCodRespuesta = 0
+            tmpMensajes = ""
+            tmpCodigoFE = 0
+        End If
+
+        tmpError = Replace(tmpError, "'", "")
+
+        Dim strSQL As String = ""
+        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & If(IsNothing(tmpError), "", tmpError.Substring(If(tmpError.Length >= 999, 999, tmpError.Length))) & "', '" & tmpMensajesValidacion & "', " & tmpCodigoFE
+        Dim objGestionData As New cGestionData
+        objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
+
+        Exit Sub
+    End Sub
+
+    Private Sub EnviaArchivoNotaCreditoeKOMERCIO(prmIDVentasDevoluciones As Integer, prmcodNota As String)
+        Dim strResuesta As String = ""
+        Dim objFacturaElectronica As New cFacturaEkomercio
+        Dim XMLResponse As XmlNode
+        Dim dsArchivoPlano As New dsArchivoPlano
+        Dim strTextoPlano As String = ""
+        Dim tmpCodigoFE As Integer = 0
+
+        dsArchivoPlano = objFacturaElectronica.GeneraFileNotaCreditoEkomercio(prmIDVentasDevoluciones)
+        ExportaTabla(dsArchivoPlano.ArchivoPlano, RutaArchivos.Text, "Codigo", "NCE" & prmIDVentasDevoluciones & ".txt")
+
+        Dim CursorAP As dsArchivoPlano.ArchivoPlanoRow
+
+        For Each CursorAP In dsArchivoPlano.ArchivoPlano
+            tmpCodigoFE = CursorAP.Codigo
+            strTextoPlano += CursorAP.Texto
+        Next
+
+        XMLResponse = serviceClientEkomercio.procesarTextoPlanoToXML(TokenLogin.Text, TokenPassword.Text, LoinIntermediario.Text, strTextoPlano)
+
+
+        Dim tmpRutaArchivo As String = ""
+        tmpRutaArchivo = RutaArchivos.Text & "\Response_NCE" & prmIDVentasDevoluciones & ".txt"
+
+        If Not System.IO.Directory.Exists(RutaArchivos.Text) Then
+            System.IO.Directory.CreateDirectory(RutaArchivos.Text)
+        End If
+
+        Dim MyFile As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
+        Dim Serializer1 As XmlSerializer = New XmlSerializer(GetType(XmlNode))
+        Serializer1.Serialize(MyFile, XMLResponse) ' // Objeto serializado
+        MyFile.Close()
+
+        Dim tmpCodRespuesta As Integer = 0
+        Dim tmpConsecutivo As String = 0
+        Dim tmpCufe As String = ""
+        Dim tmpMensajes As String = ""
+        Dim tmpError As String = ""
+        Dim tmpMensajesValidacion As String = ""
+
+        tmpError = XMLResponse.Item("Error").InnerText
+
+        If (tmpError.Trim.Length = 0) Then
+            tmpCodRespuesta = 200
+            tmpConsecutivo = PreFijo.Text + tmpCodigoFE.ToString
+            tmpCufe = XMLResponse.Item("UUID").InnerXml
+            tmpMensajes = ""
+        Else
+            tmpCodRespuesta = 0
+            tmpMensajes = ""
+            tmpCodigoFE = 0
+        End If
+
+        tmpError = Replace(tmpError, "'", "")
+
+        Dim strSQL As String = ""
+        strSQL = "exec ActualizaEstadoInterfazNC " & prmIDVentasDevoluciones & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & If(IsNothing(tmpError), "", tmpError.Substring(If(tmpError.Length >= 999, 999, tmpError.Length))) & "', '" & tmpMensajesValidacion & "', " & tmpCodigoFE
+        Dim objGestionData As New cGestionData
+        objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
+
+        Exit Sub
     End Sub
 
     Private Sub CreaColaEnvioFacturas()
@@ -125,7 +259,6 @@ Public Class CoreForm
         Timer1.Start()
         Timer2.Start()
 
-
     End Sub
 
     Private Sub ForzarEnvíoDeFacturaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ForzarEnvíoDeFacturaToolStripMenuItem.Click
@@ -135,13 +268,20 @@ Public Class CoreForm
         tmpActualFila = Me.dGridCurrentActivity.CurrentRow.DataBoundItem
         Dim tmpId As Integer = 0
         Dim tmpCodigo As Integer = 0
+        Dim rstaCodigo As Integer = 0
 
         tmpId = tmpActualFila.Item("IDVentasFacturas")
         tmpCodigo = tmpActualFila.Item("CodFactura")
 
         Select Case Me.IDEmpresaIntermediaria.SelectedItem("FormatoArchivo")
             Case "XML"
-                EnviaArchivoFacturaElectronica(tmpId, tmpCodigo)
+                rstaCodigo = EnviaArchivoFacturaElectronica(tmpId, tmpCodigo)
+
+                If rstaCodigo = 200 Then
+                    objDsMgr.EstablecerValorCampo(dGridCurrentActivity, "FlagSent", 1)
+                End If
+            Case "TXT"
+                EnviaArchivoFEeKOMERCIO(tmpId, tmpCodigo)
         End Select
 
         Exit Sub
@@ -149,7 +289,7 @@ ControlaError:
         MessageBox.Show(Err.Description)
     End Sub
 
-    Private Function EnviaArchivoFacturaElectronica(prmIDVentasFactura As Integer, prmCodigo As Integer) As String
+    Private Function EnviaArchivoFacturaElectronica(prmIDVentasFactura As Integer, prmCodigo As Integer) As Integer
         Dim strResuesta As String = ""
 
         Dim objDocto As ServicioEmi.FacturaGeneral
@@ -160,10 +300,10 @@ ControlaError:
         objDocto = objFacturaElectronica.GeneraFileFacturaFactory(prmIDVentasFactura, prmCodigo, PreFijo.Text, ConsecutivoDesde.Value)
 
         Dim tmpRutaArchivo As String = ""
-        tmpRutaArchivo = RutaArchivosArmellini.Text & "\FE" & prmIDVentasFactura & ".txt"
+        tmpRutaArchivo = RutaArchivos.Text & "\FE" & prmIDVentasFactura & ".txt"
 
-        If Not System.IO.Directory.Exists(RutaArchivosArmellini.Text) Then
-            System.IO.Directory.CreateDirectory(RutaArchivosArmellini.Text)
+        If Not System.IO.Directory.Exists(RutaArchivos.Text) Then
+            System.IO.Directory.CreateDirectory(RutaArchivos.Text)
         End If
 
         Dim MyFile As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
@@ -176,7 +316,7 @@ ControlaError:
 
         docRespuesta = serviceClientEm.Enviar(Me.TokenLogin.Text.Trim(), Me.TokenPassword.Text.Trim(), objDocto, "0")
 
-        tmpRutaArchivo = RutaArchivosArmellini.Text & "\Response_FE" & prmIDVentasFactura & ".txt"
+        tmpRutaArchivo = RutaArchivos.Text & "\Response_FE" & prmIDVentasFactura & ".txt"
         Dim MyFile2 As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
         Dim Serializer2 As XmlSerializer = New XmlSerializer(GetType(ServicioEmi.DocumentResponse))
         Serializer2.Serialize(MyFile2, docRespuesta) ' // Objeto serializado
@@ -222,7 +362,7 @@ ControlaError:
         objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
 
 
-        Return strResuesta
+        Return tmpCodRespuesta
     End Function
 
     Private Sub Filtrar()
@@ -335,8 +475,9 @@ ControlaError:
         Select Case Me.IDEmpresaIntermediaria.SelectedItem("FormatoArchivo")
             Case "XML"
                 EnviaArchivoNotaCreditoElectronica(tmpId, tmpCodigo)
+            Case "TXT"
+                EnviaArchivoNotaCreditoeKOMERCIO(tmpId, tmpCodigo)
         End Select
-
 
         Exit Sub
 ControlaError:
@@ -349,14 +490,13 @@ ControlaError:
         Dim objDocto As ServicioEmi.FacturaGeneral
         Dim objFacturaElectronica As New cFacturaElectronica
 
-
         objDocto = objFacturaElectronica.GeneraFileNotaCreditoFactory(prmIDVentasDevoluciones, prmCodigo, PreFijo.Text, ConsecutivoDesde.Value)
 
         Dim tmpRutaArchivo As String = ""
-        tmpRutaArchivo = RutaArchivosArmellini.Text & "\NCE" & prmIDVentasDevoluciones & ".txt"
+        tmpRutaArchivo = RutaArchivos.Text & "\NCE" & prmIDVentasDevoluciones & ".txt"
 
-        If Not System.IO.Directory.Exists(RutaArchivosArmellini.Text) Then
-            System.IO.Directory.CreateDirectory(RutaArchivosArmellini.Text)
+        If Not System.IO.Directory.Exists(RutaArchivos.Text) Then
+            System.IO.Directory.CreateDirectory(RutaArchivos.Text)
         End If
 
         Dim MyFile As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
@@ -364,12 +504,11 @@ ControlaError:
         Serializer1.Serialize(MyFile, objDocto) ' // Objeto serializado
         MyFile.Close()
 
-
         Dim docRespuesta As ServicioEmi.DocumentResponse  '//objeto Response del metodo enviar
 
         docRespuesta = serviceClientEm.Enviar(Me.TokenLogin.Text.Trim(), Me.TokenPassword.Text.Trim(), objDocto, "0")
 
-        tmpRutaArchivo = RutaArchivosArmellini.Text & "\Response_NCE" & prmIDVentasDevoluciones & ".txt"
+        tmpRutaArchivo = RutaArchivos.Text & "\Response_NCE" & prmIDVentasDevoluciones & ".txt"
         Dim MyFile2 As StreamWriter = New StreamWriter(tmpRutaArchivo) '//ruta y name del archivo request a almecenar
         Dim Serializer2 As XmlSerializer = New XmlSerializer(GetType(ServicioEmi.DocumentResponse))
         Serializer2.Serialize(MyFile2, docRespuesta) ' // Objeto serializado
@@ -436,13 +575,10 @@ ControlaError:
         lblLastTimeRanNC.Text = "N.C Last time ran: " & Var_UltimoMomentoCorrioNC
 
         If tmpMinutes < 0 Then
-
             CreaColaEnvioNotasCredito()
             RecorrerDataNCEnvioAutomatico()
 
-            Var_UltimoMomentoCorrio = Now
-
-
+            Var_UltimoMomentoCorrioNC = Now
         End If
     End Sub
 
@@ -453,6 +589,10 @@ ControlaError:
             Case "XML"
                 For Each CursorNC In Me.DsNotasCreditoXProcesar1.InterfazNotasCredito
                     EnviaArchivoNotaCreditoElectronica(CursorNC.IDVentasDevoluciones, CursorNC.Codigo)
+                Next
+            Case "TXT"
+                For Each CursorNC In Me.DsNotasCreditoXProcesar1.InterfazNotasCredito
+                    EnviaArchivoNotaCreditoeKOMERCIO(CursorNC.IDVentasDevoluciones, CursorNC.Codigo)
                 Next
         End Select
 
@@ -478,6 +618,13 @@ ControlaError:
         FrecuenciaMins.Value = Me.cmbCompania.SelectedItem("FrecMins")
         FrecuenciaMinsNC.Value = Me.cmbCompania.SelectedItem("FrecMins")
 
+        ConfiguraEndPoints(Me.IDEmpresaIntermediaria.SelectedItem("FormatoArchivo"))
+
+        objSuperClass.Show(Me.cmbCompania.SelectedItem("IDAppParametros"))
+    End Sub
+
+    Private Sub ConfiguraEndPoints(prmFormatoArchivo As String)
+
         Dim port As BasicHttpBinding = New BasicHttpBinding()
         port.MaxBufferPoolSize = Int32.MaxValue
         port.MaxBufferSize = Int32.MaxValue
@@ -485,21 +632,30 @@ ControlaError:
         port.ReaderQuotas.MaxStringContentLength = Int32.MaxValue
         port.SendTimeout = TimeSpan.FromMinutes(2)
         port.ReceiveTimeout = TimeSpan.FromMinutes(2)
-        'Dim endPointEmision As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/v1.0/Service.svc?wsdl")
-        'Dim endPointAdjuntos As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/adjuntos/Service.svc?wsdl")
 
         Dim strEndPointEmision As String
         Dim strEndPointAdjuntos As String
 
         strEndPointEmision = Me.cmbCompania.SelectedItem("EndPointEmision")
         strEndPointAdjuntos = Me.cmbCompania.SelectedItem("EndPointAdjuntos")
+        RutaArchivos.Text = Me.cmbCompania.SelectedItem("RutaArchivo")
 
-        Dim endPointEmision As EndpointAddress = New EndpointAddress(strEndPointEmision)
-        Dim endPointAdjuntos As EndpointAddress = New EndpointAddress(strEndPointAdjuntos)
+        If prmFormatoArchivo = "XML" Then
 
-        serviceClientEm = New ServicioEmi.ServiceClient(port, endPointEmision)
-        serviceArchivos = New ServicioAdjuntos.ServiceClient(port, endPointAdjuntos)
+            'Dim endPointEmision As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/v1.0/Service.svc?wsdl")
+            'Dim endPointAdjuntos As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/adjuntos/Service.svc?wsdl")
 
-        objSuperClass.Show(Me.cmbCompania.SelectedItem("IDAppParametros"))
+            Dim endPointEmision As EndpointAddress = New EndpointAddress(strEndPointEmision)
+            Dim endPointAdjuntos As EndpointAddress = New EndpointAddress(strEndPointAdjuntos)
+
+            serviceClientEm = New ServicioEmi.ServiceClient(port, endPointEmision)
+            serviceArchivos = New ServicioAdjuntos.ServiceClient(port, endPointAdjuntos)
+        End If
+
+        If prmFormatoArchivo = "TXT" Then
+            Dim endPointEmision As EndpointAddress = New EndpointAddress(strEndPointEmision)
+
+            serviceClientEkomercio = New ServicioEkomercio.WSCFDBuilderPlusSoapClient(port, endPointEmision)
+        End If
     End Sub
 End Class

@@ -42,6 +42,8 @@ Partial Class CoreForm
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CoreForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.cmbCompania = New System.Windows.Forms.ComboBox()
         Me.ConsecutivoDesdeNC = New System.Windows.Forms.NumericUpDown()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.PreFijoNC = New System.Windows.Forms.TextBox()
@@ -77,7 +79,7 @@ Partial Class CoreForm
         Me.PasswordIntermediario = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.RutaArchivosArmellini = New System.Windows.Forms.TextBox()
+        Me.RutaArchivos = New System.Windows.Forms.TextBox()
         Me.IDTiposEnvios = New System.Windows.Forms.ComboBox()
         Me.btnSelectFolder = New System.Windows.Forms.Button()
         Me.FrecuenciaMins = New System.Windows.Forms.NumericUpDown()
@@ -191,8 +193,6 @@ Partial Class CoreForm
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.dsAux = New System.Data.DataSet()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.cmbCompania = New System.Windows.Forms.ComboBox()
         Me.DsConsultaFactura = New SunttelInterfasFacturacionElectronica.dsConsultaFactura()
         Me.DsConsultaFacturaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1.SuspendLayout()
@@ -270,7 +270,7 @@ Partial Class CoreForm
         Me.Panel1.Controls.Add(Me.PasswordIntermediario)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.RutaArchivosArmellini)
+        Me.Panel1.Controls.Add(Me.RutaArchivos)
         Me.Panel1.Controls.Add(Me.IDTiposEnvios)
         Me.Panel1.Controls.Add(Me.btnSelectFolder)
         Me.Panel1.Controls.Add(Me.FrecuenciaMins)
@@ -280,6 +280,23 @@ Partial Class CoreForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1140, 242)
         Me.Panel1.TabIndex = 4
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(254, 90)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(54, 13)
+        Me.Label19.TabIndex = 41
+        Me.Label19.Text = "Compañia"
+        '
+        'cmbCompania
+        '
+        Me.cmbCompania.FormattingEnabled = True
+        Me.cmbCompania.Location = New System.Drawing.Point(313, 88)
+        Me.cmbCompania.Name = "cmbCompania"
+        Me.cmbCompania.Size = New System.Drawing.Size(220, 21)
+        Me.cmbCompania.TabIndex = 40
         '
         'ConsecutivoDesdeNC
         '
@@ -321,7 +338,7 @@ Partial Class CoreForm
         '
         Me.FrecuenciaMinsNC.Location = New System.Drawing.Point(177, 87)
         Me.FrecuenciaMinsNC.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
-        Me.FrecuenciaMinsNC.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.FrecuenciaMinsNC.Minimum = New Decimal(New Integer() {4, 0, 0, 0})
         Me.FrecuenciaMinsNC.Name = "FrecuenciaMinsNC"
         Me.FrecuenciaMinsNC.Size = New System.Drawing.Size(63, 20)
         Me.FrecuenciaMinsNC.TabIndex = 35
@@ -427,9 +444,9 @@ Partial Class CoreForm
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(66, 143)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(38, 13)
+        Me.Label12.Size = New System.Drawing.Size(83, 13)
         Me.Label12.TabIndex = 23
-        Me.Label12.Text = "Token"
+        Me.Label12.Text = "Token (Usuario)"
         '
         'TokenLogin
         '
@@ -458,7 +475,7 @@ Partial Class CoreForm
         '
         'FInicioProduccion
         '
-        Me.FInicioProduccion.Location = New System.Drawing.Point(436, 113)
+        Me.FInicioProduccion.Location = New System.Drawing.Point(481, 113)
         Me.FInicioProduccion.Name = "FInicioProduccion"
         Me.FInicioProduccion.Size = New System.Drawing.Size(200, 20)
         Me.FInicioProduccion.TabIndex = 20
@@ -468,9 +485,9 @@ Partial Class CoreForm
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(376, 118)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(41, 13)
+        Me.Label7.Size = New System.Drawing.Size(101, 13)
         Me.Label7.TabIndex = 19
-        Me.Label7.Text = "F. Final"
+        Me.Label7.Text = "F. Inicio Produccion"
         '
         'FInicioPruebas
         '
@@ -603,13 +620,13 @@ Partial Class CoreForm
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Modo"
         '
-        'RutaArchivosArmellini
+        'RutaArchivos
         '
-        Me.RutaArchivosArmellini.Location = New System.Drawing.Point(157, 33)
-        Me.RutaArchivosArmellini.Name = "RutaArchivosArmellini"
-        Me.RutaArchivosArmellini.Size = New System.Drawing.Size(338, 20)
-        Me.RutaArchivosArmellini.TabIndex = 5
-        Me.RutaArchivosArmellini.Text = "C:\ArchivosFacturasElectronicas"
+        Me.RutaArchivos.Location = New System.Drawing.Point(157, 33)
+        Me.RutaArchivos.Name = "RutaArchivos"
+        Me.RutaArchivos.Size = New System.Drawing.Size(338, 20)
+        Me.RutaArchivos.TabIndex = 5
+        Me.RutaArchivos.Text = "C:\ArchivosFacturasElectronicas"
         '
         'IDTiposEnvios
         '
@@ -1601,23 +1618,6 @@ Partial Class CoreForm
         'Timer2
         '
         '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(254, 90)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(54, 13)
-        Me.Label19.TabIndex = 41
-        Me.Label19.Text = "Compañia"
-        '
-        'cmbCompania
-        '
-        Me.cmbCompania.FormattingEnabled = True
-        Me.cmbCompania.Location = New System.Drawing.Point(313, 88)
-        Me.cmbCompania.Name = "cmbCompania"
-        Me.cmbCompania.Size = New System.Drawing.Size(220, 21)
-        Me.cmbCompania.TabIndex = 40
-        '
         'DsConsultaFactura
         '
         Me.DsConsultaFactura.DataSetName = "dsConsultaFactura"
@@ -1696,7 +1696,7 @@ Partial Class CoreForm
     Friend WithEvents PasswordIntermediario As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents RutaArchivosArmellini As TextBox
+    Friend WithEvents RutaArchivos As TextBox
     Friend WithEvents IDTiposEnvios As ComboBox
     Friend WithEvents btnSelectFolder As Button
     Friend WithEvents FrecuenciaMins As NumericUpDown

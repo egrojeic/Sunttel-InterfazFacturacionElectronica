@@ -119,4 +119,53 @@ ControlaError:
 
     End Sub
 
+    Public Sub ExportaTabla(ByVal prmDataTable As DataTable, ByVal prmDirectorio As String, Optional ByVal prmCamposNO As String = "", Optional ByVal NombreArchivo As String = "", Optional ByVal chrSeparador As String = "", Optional ByVal prmExtension As String = "")
+        Dim Cursor As DataRow
+        Dim tmpNombreArchivo As String = ""
+        Dim tmpPathArchivo As String = ""
+        Dim tmpStrArchivo As String = ""
+        Dim tmpLinea As String = ""
+        On Error GoTo ControlaError
+        If NombreArchivo.Length > 0 Then
+            tmpNombreArchivo = NombreArchivo
+        Else
+            tmpNombreArchivo = prmDataTable.TableName
+        End If
+        tmpPathArchivo = prmDirectorio.Trim & "\" & tmpNombreArchivo.Trim & prmExtension
+        Dim Escritor As New StreamWriter(tmpPathArchivo, False, System.Text.Encoding.ASCII)
+
+        Dim i As Integer = 0
+        Dim j As Integer = 0
+
+        Dim CursorCampos As DataColumn
+
+
+
+        For Each Cursor In prmDataTable.Rows
+            If Cursor.RowState <> DataRowState.Deleted Then
+                tmpLinea = ""
+                For Each CursorCampos In prmDataTable.Columns
+                    If Not (prmCamposNO.Contains(CursorCampos.ColumnName & ",") Or prmCamposNO.Contains("," & CursorCampos.ColumnName)) Then
+                        If i = 0 Then
+                            tmpLinea = Cursor.Item(CursorCampos.ColumnName)
+
+                        Else
+                            tmpLinea = tmpLinea & chrSeparador & Cursor.Item(CursorCampos.ColumnName)
+
+                        End If
+                        i = i + 1
+                    Else
+                        Dim a = "ajaja"
+                    End If
+
+                Next
+                i = 0
+                Escritor.WriteLine(tmpLinea)
+            End If
+        Next
+        Escritor.Close()
+        Exit Sub
+ControlaError:
+        Dim strError As String = Err.Description
+    End Sub
 End Module

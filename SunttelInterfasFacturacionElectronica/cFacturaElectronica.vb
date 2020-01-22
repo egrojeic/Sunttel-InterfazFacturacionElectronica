@@ -516,14 +516,15 @@ Public Class cFacturaElectronica
 
                 'CargosDescuentos
                 If CursorDetalles.porcentaje <> 0 Then
-                    producto1.cargosDescuentos(0) = New ServicioEmi.CargosDescuentos
+                    ReDim producto1.cargosDescuentos(0)
                     Dim cargosDescuentos As ServicioEmi.CargosDescuentos = New ServicioEmi.CargosDescuentos
                     cargosDescuentos.codigo = CursorDetalles.codigoDescuento
                     cargosDescuentos.descripcion = CursorDetalles.descripcionDescuento
                     cargosDescuentos.indicador = CursorDetalles.indicadorDescuento
-                    cargosDescuentos.monto = CursorDetalles.montoDescuento
-                    cargosDescuentos.montoBase = CursorDetalles.montoBaseDescuento
-                    cargosDescuentos.porcentaje = CursorDetalles.porcentaje
+                    cargosDescuentos.monto = CDec(CursorDetalles.montoDescuento).ToString(FormatoDecimal)
+                    cargosDescuentos.montoBase = CDec(CursorDetalles.montoBaseDescuento).ToString(FormatoDecimal)
+                    cargosDescuentos.porcentaje = CDec(CursorDetalles.porcentaje).ToString(FormatoDecimal)
+                    cargosDescuentos.secuencia = CursorDetalles.secuencia
                     producto1.cargosDescuentos(0) = cargosDescuentos
                 End If
 

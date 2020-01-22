@@ -13,6 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="cFacturaEkomercio.vb" />
     <Compile Include="cFacturaElectronica.vb" />
     <Compile Include="CoreForm.Designer.vb">
       <DependentUpon>CoreForm.vb</DependentUpon>
@@ -107,6 +108,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CoreModule.vb" />
+    <Compile Include="Modelos\dsArchivoPlano.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsArchivoPlano.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\dsCloaDocsFacturasXProcesar1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,6 +159,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServicioEkomercio\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServicioEmi\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,6 +182,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Modelos\dsArchivoPlano.xsc">
+      <DependentUpon>dsArchivoPlano.xsd</DependentUpon>
+    </None>
+    <None Include="Modelos\dsArchivoPlano.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsArchivoPlano.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modelos\dsArchivoPlano.xss">
+      <DependentUpon>dsArchivoPlano.xsd</DependentUpon>
+    </None>
     <None Include="Modelos\dsCloaDocsFacturasXProcesar.xsc">
       <DependentUpon>dsCloaDocsFacturasXProcesar.xsd</DependentUpon>
     </None>
@@ -219,6 +241,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\System.Xml.XmlNode.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -245,6 +268,46 @@
     <None Include="Service References\ServicioAdjuntos\SunttelInterfasFacturacionElectronica.ServicioAdjuntos.UploadAttachmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.clsRespuestaConsultaAcuses_DIAN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.EnValidacionCertificado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.existeConsecutivoInternoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ConsecutivoDentroRangoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ExisteTimbreSATResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ValidarCertificadoPropiosMediosFechaDocResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ValidarCertificadoPropiosMediosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ValidarComplementoNominaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ValidarComplementoNotariosPublicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ValidarListaBlancaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.SAT_ValidarTimbreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.ValidarFuncionamientoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.WSRespuestaTimbrado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus.wsdl" />
     <None Include="Service References\ServicioEmi\Service.wsdl" />
     <None Include="Service References\ServicioEmi\Service.xsd">
       <SubType>Designer</SubType>
@@ -300,6 +363,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServicioAdjuntos\" />
+    <WCFMetadataStorage Include="Service References\ServicioEkomercio\" />
     <WCFMetadataStorage Include="Service References\ServicioEmi\" />
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +401,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioEkomercio\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioEkomercio\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioEkomercio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
