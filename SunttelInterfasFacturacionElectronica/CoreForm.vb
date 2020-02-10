@@ -89,13 +89,15 @@ Public Class CoreForm
                 Next
             Case "TXT"
                 For Each CursorFE In Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas
-                    EnviaArchivoFEeKOMERCIO(CursorFE.IDVentasFacturas, CursorFE.CodFactura)
+                    rstCodigo = EnviaArchivoFEeKOMERCIO(CursorFE.IDVentasFacturas, CursorFE.CodFactura)
+                    CursorFE.FlagSent = If(rstCodigo = 200, 1, 0)
                 Next
         End Select
 
+        ActualizaVistaFacturas()
     End Sub
 
-    Private Sub EnviaArchivoFEeKOMERCIO(prmIDVentasFactura As Integer, prmcodFactura As String)
+    Private Function EnviaArchivoFEeKOMERCIO(prmIDVentasFactura As Integer, prmcodFactura As String) As Integer
         Dim strResuesta As String = ""
         Dim objFacturaElectronica As New cFacturaEkomercio
         Dim XMLResponse As XmlNode
@@ -151,12 +153,12 @@ Public Class CoreForm
         tmpError = Replace(tmpError, "'", "")
 
         Dim strSQL As String = ""
-        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & If(IsNothing(tmpError), "", tmpError.Substring(If(tmpError.Length >= 999, 999, tmpError.Length))) & "', '" & tmpMensajesValidacion & "', " & tmpCodigoFE
+        strSQL = "exec ActualizaEstadoInterfas " & prmIDVentasFactura & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & If(IsNothing(tmpError), "", tmpError.Substring(0, If(tmpError.Length >= 999, 999, tmpError.Length))) & "', '" & tmpMensajesValidacion & "', " & tmpCodigoFE
         Dim objGestionData As New cGestionData
         objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
 
-        Exit Sub
-    End Sub
+        Return tmpCodRespuesta
+    End Function
 
     Private Sub EnviaArchivoNotaCreditoeKOMERCIO(prmIDVentasDevoluciones As Integer, prmcodNota As String)
         Dim strResuesta As String = ""
@@ -214,7 +216,7 @@ Public Class CoreForm
         tmpError = Replace(tmpError, "'", "")
 
         Dim strSQL As String = ""
-        strSQL = "exec ActualizaEstadoInterfazNC " & prmIDVentasDevoluciones & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & If(IsNothing(tmpError), "", tmpError.Substring(If(tmpError.Length >= 999, 999, tmpError.Length))) & "', '" & tmpMensajesValidacion & "', " & tmpCodigoFE
+        strSQL = "exec ActualizaEstadoInterfazNC " & prmIDVentasDevoluciones & ", '" & tmpCodRespuesta & "', '" & tmpConsecutivo & "', '" & tmpCufe & "', '" & If(IsNothing(tmpError), "", tmpError.Substring(0, If(tmpError.Length >= 999, 999, tmpError.Length))) & "', '" & tmpMensajesValidacion & "', " & tmpCodigoFE
         Dim objGestionData As New cGestionData
         objGestionData.GetDatoEscalar(strSQL, cGestionData.TipoConeccion.SQLServerConeccion, strConeccionDB)
 
@@ -225,6 +227,15 @@ Public Class CoreForm
 
         Dim strSQL As String = ""
         strSQL = "exec CreaColaEnvio 1"
+        Me.DsCloaDocsFacturasXProcesar1.Clear()
+        LlenaDataSetGenerico(Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas, "InterfasFacturas", strSQL, strConeccionDB)
+
+    End Sub
+
+    Private Sub ActualizaVistaFacturas()
+
+        Dim strSQL As String = ""
+        strSQL = "EXEC GetColaEnvio 1"
         Me.DsCloaDocsFacturasXProcesar1.Clear()
         LlenaDataSetGenerico(Me.DsCloaDocsFacturasXProcesar1.InterfasFacturas, "InterfasFacturas", strSQL, strConeccionDB)
 
@@ -284,6 +295,7 @@ Public Class CoreForm
                 EnviaArchivoFEeKOMERCIO(tmpId, tmpCodigo)
         End Select
 
+        ActualizaVistaFacturas()
         Exit Sub
 ControlaError:
         MessageBox.Show(Err.Description)
@@ -633,6 +645,7 @@ ControlaError:
         port.SendTimeout = TimeSpan.FromMinutes(2)
         port.ReceiveTimeout = TimeSpan.FromMinutes(2)
 
+
         Dim strEndPointEmision As String
         Dim strEndPointAdjuntos As String
 
@@ -642,8 +655,10 @@ ControlaError:
 
         If prmFormatoArchivo = "XML" Then
 
-            'Dim endPointEmision As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/v1.0/Service.svc?wsdl")
-            'Dim endPointAdjuntos As EndpointAddress = New EndpointAddress("http://testubl21.thefactoryhka.com.co/ws/adjuntos/Service.svc?wsdl")
+            'Dim endPointEmision As EndpointAddress = New EndpointAddress("https://emision21.thefactoryhka.com.co/ws/v1.0/Service.svc?wsdl")
+            'Dim endPointAdjuntos As EndpointAddress = New EndpointAddress("https://emision21.thefactoryhka.com.co/ws/adjuntos/Service.svc?wsdl")
+
+            port.Security.Mode = BasicHttpSecurityMode.Transport ' para the factory
 
             Dim endPointEmision As EndpointAddress = New EndpointAddress(strEndPointEmision)
             Dim endPointAdjuntos As EndpointAddress = New EndpointAddress(strEndPointAdjuntos)

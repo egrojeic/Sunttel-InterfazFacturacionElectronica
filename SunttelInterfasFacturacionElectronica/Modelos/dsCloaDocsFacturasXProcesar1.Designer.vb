@@ -315,6 +315,8 @@ Partial Public Class dsCloaDocsFacturasXProcesar
         
         Private columnFFactura As Global.System.Data.DataColumn
         
+        Private columnMensajes As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -479,6 +481,14 @@ Partial Public Class dsCloaDocsFacturasXProcesar
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property MensajesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMensajes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -531,9 +541,10 @@ Partial Public Class dsCloaDocsFacturasXProcesar
                     ByVal CodFactura As String,  _
                     ByVal CodCliente As String,  _
                     ByVal NomCliente As String,  _
-                    ByVal FFactura As Date) As InterfasFacturasRow
+                    ByVal FFactura As Date,  _
+                    ByVal Mensajes As String) As InterfasFacturasRow
             Dim rowInterfasFacturasRow As InterfasFacturasRow = CType(Me.NewRow,InterfasFacturasRow)
-            Dim columnValuesArray() As Object = New Object() {ID, IDVentasFacturas, FlagSent, DesError, StampTimeEnvio, NombreArchivo, IDEmpresaIntermediaria, IDTiposEnvios, Codigo, ConsecutivoDocumento, Cufe, Resultado, CodFactura, CodCliente, NomCliente, FFactura}
+            Dim columnValuesArray() As Object = New Object() {ID, IDVentasFacturas, FlagSent, DesError, StampTimeEnvio, NombreArchivo, IDEmpresaIntermediaria, IDTiposEnvios, Codigo, ConsecutivoDocumento, Cufe, Resultado, CodFactura, CodCliente, NomCliente, FFactura, Mensajes}
             rowInterfasFacturasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowInterfasFacturasRow)
             Return rowInterfasFacturasRow
@@ -578,6 +589,7 @@ Partial Public Class dsCloaDocsFacturasXProcesar
             Me.columnCodCliente = MyBase.Columns("CodCliente")
             Me.columnNomCliente = MyBase.Columns("NomCliente")
             Me.columnFFactura = MyBase.Columns("FFactura")
+            Me.columnMensajes = MyBase.Columns("Mensajes")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -615,6 +627,8 @@ Partial Public Class dsCloaDocsFacturasXProcesar
             MyBase.Columns.Add(Me.columnNomCliente)
             Me.columnFFactura = New Global.System.Data.DataColumn("FFactura", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFFactura)
+            Me.columnMensajes = New Global.System.Data.DataColumn("Mensajes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMensajes)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
@@ -1004,6 +1018,21 @@ Partial Public Class dsCloaDocsFacturasXProcesar
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Mensajes() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInterfasFacturas.MensajesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Mensajes' in table 'InterfasFacturas' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInterfasFacturas.MensajesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIDVentasFacturasNull() As Boolean
             Return Me.IsNull(Me.tableInterfasFacturas.IDVentasFacturasColumn)
         End Function
@@ -1180,6 +1209,18 @@ Partial Public Class dsCloaDocsFacturasXProcesar
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetFFacturaNull()
             Me(Me.tableInterfasFacturas.FFacturaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsMensajesNull() As Boolean
+            Return Me.IsNull(Me.tableInterfasFacturas.MensajesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetMensajesNull()
+            Me(Me.tableInterfasFacturas.MensajesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

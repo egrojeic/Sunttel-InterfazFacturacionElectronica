@@ -247,22 +247,24 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
-    <None Include="Service References\ServicioAdjuntos\Service.wsdl" />
-    <None Include="Service References\ServicioAdjuntos\Service.xsd">
+    <None Include="Service References\ServicioAdjuntos\Service1.wsdl" />
+    <None Include="Service References\ServicioAdjuntos\Service5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAdjuntos\Service1.xsd">
+    <None Include="Service References\ServicioAdjuntos\Service51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAdjuntos\Service2.xsd">
+    <None Include="Service References\ServicioAdjuntos\Service52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAdjuntos\Service3.xsd">
+    <None Include="Service References\ServicioAdjuntos\Service53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAdjuntos\Service4.xsd">
+    <None Include="Service References\ServicioAdjuntos\Service54.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicioAdjuntos\SunttelInterfasFacturacionElectronica.ServicioAdjuntos.UploadAttachmentResponse.datasource">
@@ -308,23 +310,23 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus.wsdl" />
-    <None Include="Service References\ServicioEmi\Service.wsdl" />
-    <None Include="Service References\ServicioEmi\Service.xsd">
+    <None Include="Service References\ServicioEmi\Service1.wsdl" />
+    <None Include="Service References\ServicioEmi\Service6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioEmi\Service1.xsd">
+    <None Include="Service References\ServicioEmi\Service61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioEmi\Service2.xsd">
+    <None Include="Service References\ServicioEmi\Service62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioEmi\Service3.xsd">
+    <None Include="Service References\ServicioEmi\Service63.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioEmi\Service4.xsd">
+    <None Include="Service References\ServicioEmi\Service64.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioEmi\Service5.xsd">
+    <None Include="Service References\ServicioEmi\Service65.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicioEmi\SunttelInterfasFacturacionElectronica.ServicioEmi.ContenedorResponse.datasource">

@@ -89,48 +89,12 @@ Partial Class CoreForm
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.dGridCurrentActivity = New System.Windows.Forms.DataGridView()
-        Me.CodFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FFactura = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDVentasFacturasDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FlagSentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DesErrorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StampTimeEnvioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreArchivoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodigoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CufeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ResultadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDTiposEnviosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cMenuCola = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ForzarEnvíoDeFacturaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.bsColaDocsFacturas = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsCloaDocsFacturasXProcesar1 = New SunttelInterfasFacturacionElectronica.dsCloaDocsFacturasXProcesar()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblRecordsCurrentActivity = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.dGridHistorial = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDVentasFacturasDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FlagSentDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DesErrorDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StampTimeEnvioDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreArchivoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDTiposEnviosDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodigoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CufeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ResultadoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodFacturaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CodClienteDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomClienteDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.bsHistoria = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsCloaDocsFacturasXProcesarHistoria = New SunttelInterfasFacturacionElectronica.dsCloaDocsFacturasXProcesar()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.btnConsultarHistoria = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -195,6 +159,43 @@ Partial Class CoreForm
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.DsConsultaFactura = New SunttelInterfasFacturacionElectronica.dsConsultaFactura()
         Me.DsConsultaFacturaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.bsColaDocsFacturas = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsCloaDocsFacturasXProcesar1 = New SunttelInterfasFacturacionElectronica.dsCloaDocsFacturasXProcesar()
+        Me.IDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDVentasFacturasDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FlagSentDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DesErrorDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StampTimeEnvioDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreArchivoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDTiposEnviosDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodigoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CufeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ResultadoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodFacturaDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodClienteDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomClienteDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bsHistoria = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsCloaDocsFacturasXProcesarHistoria = New SunttelInterfasFacturacionElectronica.dsCloaDocsFacturasXProcesar()
+        Me.CodFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FFactura = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomClienteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDVentasFacturasDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FlagSentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DesErrorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mensajes = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StampTimeEnvioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreArchivoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CodigoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CufeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ResultadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDTiposEnviosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.ConsecutivoDesdeNC, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FrecuenciaMinsNC, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -206,13 +207,9 @@ Partial Class CoreForm
         Me.TabPage3.SuspendLayout()
         CType(Me.dGridCurrentActivity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cMenuCola.SuspendLayout()
-        CType(Me.bsColaDocsFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsCloaDocsFacturasXProcesar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.dGridHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bsHistoria, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsCloaDocsFacturasXProcesarHistoria, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -228,6 +225,10 @@ Partial Class CoreForm
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsConsultaFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsConsultaFacturaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsColaDocsFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsCloaDocsFacturasXProcesar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bsHistoria, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsCloaDocsFacturasXProcesarHistoria, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -728,7 +729,7 @@ Partial Class CoreForm
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dGridCurrentActivity.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dGridCurrentActivity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dGridCurrentActivity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodFacturaDataGridViewTextBoxColumn, Me.FFactura, Me.CodClienteDataGridViewTextBoxColumn, Me.NomClienteDataGridViewTextBoxColumn, Me.IDVentasFacturasDataGridViewTextBoxColumn, Me.FlagSentDataGridViewTextBoxColumn, Me.DesErrorDataGridViewTextBoxColumn, Me.StampTimeEnvioDataGridViewTextBoxColumn, Me.NombreArchivoDataGridViewTextBoxColumn, Me.CodigoDataGridViewTextBoxColumn, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn, Me.CufeDataGridViewTextBoxColumn, Me.ResultadoDataGridViewTextBoxColumn, Me.IDDataGridViewTextBoxColumn, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn, Me.IDTiposEnviosDataGridViewTextBoxColumn})
+        Me.dGridCurrentActivity.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodFacturaDataGridViewTextBoxColumn, Me.FFactura, Me.CodClienteDataGridViewTextBoxColumn, Me.NomClienteDataGridViewTextBoxColumn, Me.IDVentasFacturasDataGridViewTextBoxColumn, Me.FlagSentDataGridViewTextBoxColumn, Me.DesErrorDataGridViewTextBoxColumn, Me.Mensajes, Me.StampTimeEnvioDataGridViewTextBoxColumn, Me.NombreArchivoDataGridViewTextBoxColumn, Me.CodigoDataGridViewTextBoxColumn, Me.ConsecutivoDocumentoDataGridViewTextBoxColumn, Me.CufeDataGridViewTextBoxColumn, Me.ResultadoDataGridViewTextBoxColumn, Me.IDDataGridViewTextBoxColumn, Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn, Me.IDTiposEnviosDataGridViewTextBoxColumn})
         Me.dGridCurrentActivity.ContextMenuStrip = Me.cMenuCola
         Me.dGridCurrentActivity.DataSource = Me.bsColaDocsFacturas
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -758,107 +759,6 @@ Partial Class CoreForm
         Me.dGridCurrentActivity.Size = New System.Drawing.Size(1112, 277)
         Me.dGridCurrentActivity.TabIndex = 138
         '
-        'CodFacturaDataGridViewTextBoxColumn
-        '
-        Me.CodFacturaDataGridViewTextBoxColumn.DataPropertyName = "CodFactura"
-        Me.CodFacturaDataGridViewTextBoxColumn.HeaderText = "CodFactura"
-        Me.CodFacturaDataGridViewTextBoxColumn.Name = "CodFacturaDataGridViewTextBoxColumn"
-        '
-        'FFactura
-        '
-        Me.FFactura.DataPropertyName = "FFactura"
-        Me.FFactura.HeaderText = "FFactura"
-        Me.FFactura.Name = "FFactura"
-        '
-        'CodClienteDataGridViewTextBoxColumn
-        '
-        Me.CodClienteDataGridViewTextBoxColumn.DataPropertyName = "CodCliente"
-        Me.CodClienteDataGridViewTextBoxColumn.HeaderText = "CodCliente"
-        Me.CodClienteDataGridViewTextBoxColumn.Name = "CodClienteDataGridViewTextBoxColumn"
-        '
-        'NomClienteDataGridViewTextBoxColumn
-        '
-        Me.NomClienteDataGridViewTextBoxColumn.DataPropertyName = "NomCliente"
-        Me.NomClienteDataGridViewTextBoxColumn.HeaderText = "NomCliente"
-        Me.NomClienteDataGridViewTextBoxColumn.Name = "NomClienteDataGridViewTextBoxColumn"
-        '
-        'IDVentasFacturasDataGridViewTextBoxColumn
-        '
-        Me.IDVentasFacturasDataGridViewTextBoxColumn.DataPropertyName = "IDVentasFacturas"
-        Me.IDVentasFacturasDataGridViewTextBoxColumn.HeaderText = "ID. VentasFacturas"
-        Me.IDVentasFacturasDataGridViewTextBoxColumn.Name = "IDVentasFacturasDataGridViewTextBoxColumn"
-        '
-        'FlagSentDataGridViewTextBoxColumn
-        '
-        Me.FlagSentDataGridViewTextBoxColumn.DataPropertyName = "FlagSent"
-        Me.FlagSentDataGridViewTextBoxColumn.FalseValue = "0"
-        Me.FlagSentDataGridViewTextBoxColumn.HeaderText = "Sent"
-        Me.FlagSentDataGridViewTextBoxColumn.Name = "FlagSentDataGridViewTextBoxColumn"
-        Me.FlagSentDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.FlagSentDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.FlagSentDataGridViewTextBoxColumn.TrueValue = "1"
-        Me.FlagSentDataGridViewTextBoxColumn.Width = 70
-        '
-        'DesErrorDataGridViewTextBoxColumn
-        '
-        Me.DesErrorDataGridViewTextBoxColumn.DataPropertyName = "DesError"
-        Me.DesErrorDataGridViewTextBoxColumn.HeaderText = "Error"
-        Me.DesErrorDataGridViewTextBoxColumn.Name = "DesErrorDataGridViewTextBoxColumn"
-        '
-        'StampTimeEnvioDataGridViewTextBoxColumn
-        '
-        Me.StampTimeEnvioDataGridViewTextBoxColumn.DataPropertyName = "StampTimeEnvio"
-        Me.StampTimeEnvioDataGridViewTextBoxColumn.HeaderText = "Stamp Time Envio"
-        Me.StampTimeEnvioDataGridViewTextBoxColumn.Name = "StampTimeEnvioDataGridViewTextBoxColumn"
-        '
-        'NombreArchivoDataGridViewTextBoxColumn
-        '
-        Me.NombreArchivoDataGridViewTextBoxColumn.DataPropertyName = "NombreArchivo"
-        Me.NombreArchivoDataGridViewTextBoxColumn.HeaderText = "Archivo"
-        Me.NombreArchivoDataGridViewTextBoxColumn.Name = "NombreArchivoDataGridViewTextBoxColumn"
-        '
-        'CodigoDataGridViewTextBoxColumn
-        '
-        Me.CodigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo"
-        Me.CodigoDataGridViewTextBoxColumn.HeaderText = "Codigo"
-        Me.CodigoDataGridViewTextBoxColumn.Name = "CodigoDataGridViewTextBoxColumn"
-        '
-        'ConsecutivoDocumentoDataGridViewTextBoxColumn
-        '
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "ConsecutivoDocumento"
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn.HeaderText = "Consecutivo Documento"
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn.Name = "ConsecutivoDocumentoDataGridViewTextBoxColumn"
-        '
-        'CufeDataGridViewTextBoxColumn
-        '
-        Me.CufeDataGridViewTextBoxColumn.DataPropertyName = "Cufe"
-        Me.CufeDataGridViewTextBoxColumn.HeaderText = "Cufe"
-        Me.CufeDataGridViewTextBoxColumn.Name = "CufeDataGridViewTextBoxColumn"
-        '
-        'ResultadoDataGridViewTextBoxColumn
-        '
-        Me.ResultadoDataGridViewTextBoxColumn.DataPropertyName = "Resultado"
-        Me.ResultadoDataGridViewTextBoxColumn.HeaderText = "Resultado"
-        Me.ResultadoDataGridViewTextBoxColumn.Name = "ResultadoDataGridViewTextBoxColumn"
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        '
-        'IDEmpresaIntermediariaDataGridViewTextBoxColumn
-        '
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn.DataPropertyName = "IDEmpresaIntermediaria"
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn.HeaderText = "IDEmpresaIntermediaria"
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn.Name = "IDEmpresaIntermediariaDataGridViewTextBoxColumn"
-        '
-        'IDTiposEnviosDataGridViewTextBoxColumn
-        '
-        Me.IDTiposEnviosDataGridViewTextBoxColumn.DataPropertyName = "IDTiposEnvios"
-        Me.IDTiposEnviosDataGridViewTextBoxColumn.HeaderText = "ID. Tipos Envio"
-        Me.IDTiposEnviosDataGridViewTextBoxColumn.Name = "IDTiposEnviosDataGridViewTextBoxColumn"
-        '
         'cMenuCola
         '
         Me.cMenuCola.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -871,16 +771,6 @@ Partial Class CoreForm
         Me.ForzarEnvíoDeFacturaToolStripMenuItem.Name = "ForzarEnvíoDeFacturaToolStripMenuItem"
         Me.ForzarEnvíoDeFacturaToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.ForzarEnvíoDeFacturaToolStripMenuItem.Text = "Forzar Envío de Factura"
-        '
-        'bsColaDocsFacturas
-        '
-        Me.bsColaDocsFacturas.DataMember = "InterfasFacturas"
-        Me.bsColaDocsFacturas.DataSource = Me.DsCloaDocsFacturasXProcesar1
-        '
-        'DsCloaDocsFacturasXProcesar1
-        '
-        Me.DsCloaDocsFacturasXProcesar1.DataSetName = "dsCloaDocsFacturasXProcesar"
-        Me.DsCloaDocsFacturasXProcesar1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Panel3
         '
@@ -962,112 +852,6 @@ Partial Class CoreForm
         Me.dGridHistorial.RowTemplate.Height = 24
         Me.dGridHistorial.Size = New System.Drawing.Size(1112, 242)
         Me.dGridHistorial.TabIndex = 140
-        '
-        'IDDataGridViewTextBoxColumn1
-        '
-        Me.IDDataGridViewTextBoxColumn1.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn1.Name = "IDDataGridViewTextBoxColumn1"
-        '
-        'IDVentasFacturasDataGridViewTextBoxColumn1
-        '
-        Me.IDVentasFacturasDataGridViewTextBoxColumn1.DataPropertyName = "IDVentasFacturas"
-        Me.IDVentasFacturasDataGridViewTextBoxColumn1.HeaderText = "IDVentasFacturas"
-        Me.IDVentasFacturasDataGridViewTextBoxColumn1.Name = "IDVentasFacturasDataGridViewTextBoxColumn1"
-        '
-        'FlagSentDataGridViewTextBoxColumn1
-        '
-        Me.FlagSentDataGridViewTextBoxColumn1.DataPropertyName = "FlagSent"
-        Me.FlagSentDataGridViewTextBoxColumn1.HeaderText = "FlagSent"
-        Me.FlagSentDataGridViewTextBoxColumn1.Name = "FlagSentDataGridViewTextBoxColumn1"
-        '
-        'DesErrorDataGridViewTextBoxColumn1
-        '
-        Me.DesErrorDataGridViewTextBoxColumn1.DataPropertyName = "DesError"
-        Me.DesErrorDataGridViewTextBoxColumn1.HeaderText = "DesError"
-        Me.DesErrorDataGridViewTextBoxColumn1.Name = "DesErrorDataGridViewTextBoxColumn1"
-        '
-        'StampTimeEnvioDataGridViewTextBoxColumn1
-        '
-        Me.StampTimeEnvioDataGridViewTextBoxColumn1.DataPropertyName = "StampTimeEnvio"
-        Me.StampTimeEnvioDataGridViewTextBoxColumn1.HeaderText = "StampTimeEnvio"
-        Me.StampTimeEnvioDataGridViewTextBoxColumn1.Name = "StampTimeEnvioDataGridViewTextBoxColumn1"
-        '
-        'NombreArchivoDataGridViewTextBoxColumn1
-        '
-        Me.NombreArchivoDataGridViewTextBoxColumn1.DataPropertyName = "NombreArchivo"
-        Me.NombreArchivoDataGridViewTextBoxColumn1.HeaderText = "NombreArchivo"
-        Me.NombreArchivoDataGridViewTextBoxColumn1.Name = "NombreArchivoDataGridViewTextBoxColumn1"
-        '
-        'IDEmpresaIntermediariaDataGridViewTextBoxColumn1
-        '
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1.DataPropertyName = "IDEmpresaIntermediaria"
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1.HeaderText = "IDEmpresaIntermediaria"
-        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1.Name = "IDEmpresaIntermediariaDataGridViewTextBoxColumn1"
-        '
-        'IDTiposEnviosDataGridViewTextBoxColumn1
-        '
-        Me.IDTiposEnviosDataGridViewTextBoxColumn1.DataPropertyName = "IDTiposEnvios"
-        Me.IDTiposEnviosDataGridViewTextBoxColumn1.HeaderText = "IDTiposEnvios"
-        Me.IDTiposEnviosDataGridViewTextBoxColumn1.Name = "IDTiposEnviosDataGridViewTextBoxColumn1"
-        '
-        'CodigoDataGridViewTextBoxColumn1
-        '
-        Me.CodigoDataGridViewTextBoxColumn1.DataPropertyName = "Codigo"
-        Me.CodigoDataGridViewTextBoxColumn1.HeaderText = "Codigo"
-        Me.CodigoDataGridViewTextBoxColumn1.Name = "CodigoDataGridViewTextBoxColumn1"
-        '
-        'ConsecutivoDocumentoDataGridViewTextBoxColumn1
-        '
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1.DataPropertyName = "ConsecutivoDocumento"
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1.HeaderText = "ConsecutivoDocumento"
-        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1.Name = "ConsecutivoDocumentoDataGridViewTextBoxColumn1"
-        '
-        'CufeDataGridViewTextBoxColumn1
-        '
-        Me.CufeDataGridViewTextBoxColumn1.DataPropertyName = "Cufe"
-        Me.CufeDataGridViewTextBoxColumn1.HeaderText = "Cufe"
-        Me.CufeDataGridViewTextBoxColumn1.Name = "CufeDataGridViewTextBoxColumn1"
-        '
-        'ResultadoDataGridViewTextBoxColumn1
-        '
-        Me.ResultadoDataGridViewTextBoxColumn1.DataPropertyName = "Resultado"
-        Me.ResultadoDataGridViewTextBoxColumn1.HeaderText = "Resultado"
-        Me.ResultadoDataGridViewTextBoxColumn1.Name = "ResultadoDataGridViewTextBoxColumn1"
-        '
-        'CodFacturaDataGridViewTextBoxColumn1
-        '
-        Me.CodFacturaDataGridViewTextBoxColumn1.DataPropertyName = "CodFactura"
-        Me.CodFacturaDataGridViewTextBoxColumn1.HeaderText = "CodFactura"
-        Me.CodFacturaDataGridViewTextBoxColumn1.Name = "CodFacturaDataGridViewTextBoxColumn1"
-        '
-        'CodClienteDataGridViewTextBoxColumn1
-        '
-        Me.CodClienteDataGridViewTextBoxColumn1.DataPropertyName = "CodCliente"
-        Me.CodClienteDataGridViewTextBoxColumn1.HeaderText = "CodCliente"
-        Me.CodClienteDataGridViewTextBoxColumn1.Name = "CodClienteDataGridViewTextBoxColumn1"
-        '
-        'NomClienteDataGridViewTextBoxColumn1
-        '
-        Me.NomClienteDataGridViewTextBoxColumn1.DataPropertyName = "NomCliente"
-        Me.NomClienteDataGridViewTextBoxColumn1.HeaderText = "NomCliente"
-        Me.NomClienteDataGridViewTextBoxColumn1.Name = "NomClienteDataGridViewTextBoxColumn1"
-        '
-        'FFacturaDataGridViewTextBoxColumn
-        '
-        Me.FFacturaDataGridViewTextBoxColumn.DataPropertyName = "FFactura"
-        Me.FFacturaDataGridViewTextBoxColumn.HeaderText = "FFactura"
-        Me.FFacturaDataGridViewTextBoxColumn.Name = "FFacturaDataGridViewTextBoxColumn"
-        '
-        'bsHistoria
-        '
-        Me.bsHistoria.DataMember = "InterfasFacturas"
-        Me.bsHistoria.DataSource = Me.DsCloaDocsFacturasXProcesarHistoria
-        '
-        'DsCloaDocsFacturasXProcesarHistoria
-        '
-        Me.DsCloaDocsFacturasXProcesarHistoria.DataSetName = "dsCloaDocsFacturasXProcesar"
-        Me.DsCloaDocsFacturasXProcesarHistoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Panel5
         '
@@ -1628,6 +1412,230 @@ Partial Class CoreForm
         Me.DsConsultaFacturaBindingSource.DataSource = Me.DsConsultaFactura
         Me.DsConsultaFacturaBindingSource.Position = 0
         '
+        'bsColaDocsFacturas
+        '
+        Me.bsColaDocsFacturas.DataMember = "InterfasFacturas"
+        Me.bsColaDocsFacturas.DataSource = Me.DsCloaDocsFacturasXProcesar1
+        '
+        'DsCloaDocsFacturasXProcesar1
+        '
+        Me.DsCloaDocsFacturasXProcesar1.DataSetName = "dsCloaDocsFacturasXProcesar"
+        Me.DsCloaDocsFacturasXProcesar1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IDDataGridViewTextBoxColumn1
+        '
+        Me.IDDataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn1.Name = "IDDataGridViewTextBoxColumn1"
+        '
+        'IDVentasFacturasDataGridViewTextBoxColumn1
+        '
+        Me.IDVentasFacturasDataGridViewTextBoxColumn1.DataPropertyName = "IDVentasFacturas"
+        Me.IDVentasFacturasDataGridViewTextBoxColumn1.HeaderText = "IDVentasFacturas"
+        Me.IDVentasFacturasDataGridViewTextBoxColumn1.Name = "IDVentasFacturasDataGridViewTextBoxColumn1"
+        '
+        'FlagSentDataGridViewTextBoxColumn1
+        '
+        Me.FlagSentDataGridViewTextBoxColumn1.DataPropertyName = "FlagSent"
+        Me.FlagSentDataGridViewTextBoxColumn1.HeaderText = "FlagSent"
+        Me.FlagSentDataGridViewTextBoxColumn1.Name = "FlagSentDataGridViewTextBoxColumn1"
+        '
+        'DesErrorDataGridViewTextBoxColumn1
+        '
+        Me.DesErrorDataGridViewTextBoxColumn1.DataPropertyName = "DesError"
+        Me.DesErrorDataGridViewTextBoxColumn1.HeaderText = "DesError"
+        Me.DesErrorDataGridViewTextBoxColumn1.Name = "DesErrorDataGridViewTextBoxColumn1"
+        '
+        'StampTimeEnvioDataGridViewTextBoxColumn1
+        '
+        Me.StampTimeEnvioDataGridViewTextBoxColumn1.DataPropertyName = "StampTimeEnvio"
+        Me.StampTimeEnvioDataGridViewTextBoxColumn1.HeaderText = "StampTimeEnvio"
+        Me.StampTimeEnvioDataGridViewTextBoxColumn1.Name = "StampTimeEnvioDataGridViewTextBoxColumn1"
+        '
+        'NombreArchivoDataGridViewTextBoxColumn1
+        '
+        Me.NombreArchivoDataGridViewTextBoxColumn1.DataPropertyName = "NombreArchivo"
+        Me.NombreArchivoDataGridViewTextBoxColumn1.HeaderText = "NombreArchivo"
+        Me.NombreArchivoDataGridViewTextBoxColumn1.Name = "NombreArchivoDataGridViewTextBoxColumn1"
+        '
+        'IDEmpresaIntermediariaDataGridViewTextBoxColumn1
+        '
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1.DataPropertyName = "IDEmpresaIntermediaria"
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1.HeaderText = "IDEmpresaIntermediaria"
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn1.Name = "IDEmpresaIntermediariaDataGridViewTextBoxColumn1"
+        '
+        'IDTiposEnviosDataGridViewTextBoxColumn1
+        '
+        Me.IDTiposEnviosDataGridViewTextBoxColumn1.DataPropertyName = "IDTiposEnvios"
+        Me.IDTiposEnviosDataGridViewTextBoxColumn1.HeaderText = "IDTiposEnvios"
+        Me.IDTiposEnviosDataGridViewTextBoxColumn1.Name = "IDTiposEnviosDataGridViewTextBoxColumn1"
+        '
+        'CodigoDataGridViewTextBoxColumn1
+        '
+        Me.CodigoDataGridViewTextBoxColumn1.DataPropertyName = "Codigo"
+        Me.CodigoDataGridViewTextBoxColumn1.HeaderText = "Codigo"
+        Me.CodigoDataGridViewTextBoxColumn1.Name = "CodigoDataGridViewTextBoxColumn1"
+        '
+        'ConsecutivoDocumentoDataGridViewTextBoxColumn1
+        '
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1.DataPropertyName = "ConsecutivoDocumento"
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1.HeaderText = "ConsecutivoDocumento"
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn1.Name = "ConsecutivoDocumentoDataGridViewTextBoxColumn1"
+        '
+        'CufeDataGridViewTextBoxColumn1
+        '
+        Me.CufeDataGridViewTextBoxColumn1.DataPropertyName = "Cufe"
+        Me.CufeDataGridViewTextBoxColumn1.HeaderText = "Cufe"
+        Me.CufeDataGridViewTextBoxColumn1.Name = "CufeDataGridViewTextBoxColumn1"
+        '
+        'ResultadoDataGridViewTextBoxColumn1
+        '
+        Me.ResultadoDataGridViewTextBoxColumn1.DataPropertyName = "Resultado"
+        Me.ResultadoDataGridViewTextBoxColumn1.HeaderText = "Resultado"
+        Me.ResultadoDataGridViewTextBoxColumn1.Name = "ResultadoDataGridViewTextBoxColumn1"
+        '
+        'CodFacturaDataGridViewTextBoxColumn1
+        '
+        Me.CodFacturaDataGridViewTextBoxColumn1.DataPropertyName = "CodFactura"
+        Me.CodFacturaDataGridViewTextBoxColumn1.HeaderText = "CodFactura"
+        Me.CodFacturaDataGridViewTextBoxColumn1.Name = "CodFacturaDataGridViewTextBoxColumn1"
+        '
+        'CodClienteDataGridViewTextBoxColumn1
+        '
+        Me.CodClienteDataGridViewTextBoxColumn1.DataPropertyName = "CodCliente"
+        Me.CodClienteDataGridViewTextBoxColumn1.HeaderText = "CodCliente"
+        Me.CodClienteDataGridViewTextBoxColumn1.Name = "CodClienteDataGridViewTextBoxColumn1"
+        '
+        'NomClienteDataGridViewTextBoxColumn1
+        '
+        Me.NomClienteDataGridViewTextBoxColumn1.DataPropertyName = "NomCliente"
+        Me.NomClienteDataGridViewTextBoxColumn1.HeaderText = "NomCliente"
+        Me.NomClienteDataGridViewTextBoxColumn1.Name = "NomClienteDataGridViewTextBoxColumn1"
+        '
+        'FFacturaDataGridViewTextBoxColumn
+        '
+        Me.FFacturaDataGridViewTextBoxColumn.DataPropertyName = "FFactura"
+        Me.FFacturaDataGridViewTextBoxColumn.HeaderText = "FFactura"
+        Me.FFacturaDataGridViewTextBoxColumn.Name = "FFacturaDataGridViewTextBoxColumn"
+        '
+        'bsHistoria
+        '
+        Me.bsHistoria.DataMember = "InterfasFacturas"
+        Me.bsHistoria.DataSource = Me.DsCloaDocsFacturasXProcesarHistoria
+        '
+        'DsCloaDocsFacturasXProcesarHistoria
+        '
+        Me.DsCloaDocsFacturasXProcesarHistoria.DataSetName = "dsCloaDocsFacturasXProcesar"
+        Me.DsCloaDocsFacturasXProcesarHistoria.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CodFacturaDataGridViewTextBoxColumn
+        '
+        Me.CodFacturaDataGridViewTextBoxColumn.DataPropertyName = "CodFactura"
+        Me.CodFacturaDataGridViewTextBoxColumn.HeaderText = "CodFactura"
+        Me.CodFacturaDataGridViewTextBoxColumn.Name = "CodFacturaDataGridViewTextBoxColumn"
+        '
+        'FFactura
+        '
+        Me.FFactura.DataPropertyName = "FFactura"
+        Me.FFactura.HeaderText = "FFactura"
+        Me.FFactura.Name = "FFactura"
+        '
+        'CodClienteDataGridViewTextBoxColumn
+        '
+        Me.CodClienteDataGridViewTextBoxColumn.DataPropertyName = "CodCliente"
+        Me.CodClienteDataGridViewTextBoxColumn.HeaderText = "CodCliente"
+        Me.CodClienteDataGridViewTextBoxColumn.Name = "CodClienteDataGridViewTextBoxColumn"
+        '
+        'NomClienteDataGridViewTextBoxColumn
+        '
+        Me.NomClienteDataGridViewTextBoxColumn.DataPropertyName = "NomCliente"
+        Me.NomClienteDataGridViewTextBoxColumn.HeaderText = "NomCliente"
+        Me.NomClienteDataGridViewTextBoxColumn.Name = "NomClienteDataGridViewTextBoxColumn"
+        '
+        'IDVentasFacturasDataGridViewTextBoxColumn
+        '
+        Me.IDVentasFacturasDataGridViewTextBoxColumn.DataPropertyName = "IDVentasFacturas"
+        Me.IDVentasFacturasDataGridViewTextBoxColumn.HeaderText = "ID. VentasFacturas"
+        Me.IDVentasFacturasDataGridViewTextBoxColumn.Name = "IDVentasFacturasDataGridViewTextBoxColumn"
+        '
+        'FlagSentDataGridViewTextBoxColumn
+        '
+        Me.FlagSentDataGridViewTextBoxColumn.DataPropertyName = "FlagSent"
+        Me.FlagSentDataGridViewTextBoxColumn.FalseValue = "0"
+        Me.FlagSentDataGridViewTextBoxColumn.HeaderText = "Sent"
+        Me.FlagSentDataGridViewTextBoxColumn.Name = "FlagSentDataGridViewTextBoxColumn"
+        Me.FlagSentDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.FlagSentDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.FlagSentDataGridViewTextBoxColumn.TrueValue = "1"
+        Me.FlagSentDataGridViewTextBoxColumn.Width = 70
+        '
+        'DesErrorDataGridViewTextBoxColumn
+        '
+        Me.DesErrorDataGridViewTextBoxColumn.DataPropertyName = "DesError"
+        Me.DesErrorDataGridViewTextBoxColumn.HeaderText = "Error"
+        Me.DesErrorDataGridViewTextBoxColumn.Name = "DesErrorDataGridViewTextBoxColumn"
+        '
+        'Mensajes
+        '
+        Me.Mensajes.DataPropertyName = "Mensajes"
+        Me.Mensajes.HeaderText = "Mensajes"
+        Me.Mensajes.Name = "Mensajes"
+        Me.Mensajes.Width = 200
+        '
+        'StampTimeEnvioDataGridViewTextBoxColumn
+        '
+        Me.StampTimeEnvioDataGridViewTextBoxColumn.DataPropertyName = "StampTimeEnvio"
+        Me.StampTimeEnvioDataGridViewTextBoxColumn.HeaderText = "Stamp Time Envio"
+        Me.StampTimeEnvioDataGridViewTextBoxColumn.Name = "StampTimeEnvioDataGridViewTextBoxColumn"
+        '
+        'NombreArchivoDataGridViewTextBoxColumn
+        '
+        Me.NombreArchivoDataGridViewTextBoxColumn.DataPropertyName = "NombreArchivo"
+        Me.NombreArchivoDataGridViewTextBoxColumn.HeaderText = "Archivo"
+        Me.NombreArchivoDataGridViewTextBoxColumn.Name = "NombreArchivoDataGridViewTextBoxColumn"
+        '
+        'CodigoDataGridViewTextBoxColumn
+        '
+        Me.CodigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo"
+        Me.CodigoDataGridViewTextBoxColumn.HeaderText = "Codigo"
+        Me.CodigoDataGridViewTextBoxColumn.Name = "CodigoDataGridViewTextBoxColumn"
+        '
+        'ConsecutivoDocumentoDataGridViewTextBoxColumn
+        '
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn.DataPropertyName = "ConsecutivoDocumento"
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn.HeaderText = "Consecutivo Documento"
+        Me.ConsecutivoDocumentoDataGridViewTextBoxColumn.Name = "ConsecutivoDocumentoDataGridViewTextBoxColumn"
+        '
+        'CufeDataGridViewTextBoxColumn
+        '
+        Me.CufeDataGridViewTextBoxColumn.DataPropertyName = "Cufe"
+        Me.CufeDataGridViewTextBoxColumn.HeaderText = "Cufe"
+        Me.CufeDataGridViewTextBoxColumn.Name = "CufeDataGridViewTextBoxColumn"
+        '
+        'ResultadoDataGridViewTextBoxColumn
+        '
+        Me.ResultadoDataGridViewTextBoxColumn.DataPropertyName = "Resultado"
+        Me.ResultadoDataGridViewTextBoxColumn.HeaderText = "Resultado"
+        Me.ResultadoDataGridViewTextBoxColumn.Name = "ResultadoDataGridViewTextBoxColumn"
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        '
+        'IDEmpresaIntermediariaDataGridViewTextBoxColumn
+        '
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn.DataPropertyName = "IDEmpresaIntermediaria"
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn.HeaderText = "IDEmpresaIntermediaria"
+        Me.IDEmpresaIntermediariaDataGridViewTextBoxColumn.Name = "IDEmpresaIntermediariaDataGridViewTextBoxColumn"
+        '
+        'IDTiposEnviosDataGridViewTextBoxColumn
+        '
+        Me.IDTiposEnviosDataGridViewTextBoxColumn.DataPropertyName = "IDTiposEnvios"
+        Me.IDTiposEnviosDataGridViewTextBoxColumn.HeaderText = "ID. Tipos Envio"
+        Me.IDTiposEnviosDataGridViewTextBoxColumn.Name = "IDTiposEnviosDataGridViewTextBoxColumn"
+        '
         'CoreForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1651,14 +1659,10 @@ Partial Class CoreForm
         Me.TabPage3.ResumeLayout(False)
         CType(Me.dGridCurrentActivity, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cMenuCola.ResumeLayout(False)
-        CType(Me.bsColaDocsFacturas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsCloaDocsFacturasXProcesar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         CType(Me.dGridHistorial, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bsHistoria, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsCloaDocsFacturasXProcesarHistoria, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel4.ResumeLayout(False)
@@ -1679,6 +1683,10 @@ Partial Class CoreForm
         CType(Me.dsAux, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsConsultaFactura, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsConsultaFacturaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsColaDocsFacturas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsCloaDocsFacturasXProcesar1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bsHistoria, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsCloaDocsFacturasXProcesarHistoria, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1731,22 +1739,6 @@ Partial Class CoreForm
     Friend WithEvents Label8 As Label
     Friend WithEvents bsColaDocsFacturas As BindingSource
     Friend WithEvents DsCloaDocsFacturasXProcesar1 As dsCloaDocsFacturasXProcesar
-    Friend WithEvents CodFacturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FFactura As DataGridViewTextBoxColumn
-    Friend WithEvents CodClienteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomClienteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IDVentasFacturasDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FlagSentDataGridViewTextBoxColumn As DataGridViewCheckBoxColumn
-    Friend WithEvents DesErrorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StampTimeEnvioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NombreArchivoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CodigoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ConsecutivoDocumentoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CufeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ResultadoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IDEmpresaIntermediariaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IDTiposEnviosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Label9 As Label
     Friend WithEvents IDEmpresaIntermediaria As ComboBox
     Friend WithEvents Panel5 As Panel
@@ -1837,4 +1829,21 @@ Partial Class CoreForm
     Friend WithEvents cmbCompania As ComboBox
     Friend WithEvents DsConsultaFacturaBindingSource As BindingSource
     Friend WithEvents DsConsultaFactura As dsConsultaFactura
+    Friend WithEvents CodFacturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FFactura As DataGridViewTextBoxColumn
+    Friend WithEvents CodClienteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomClienteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDVentasFacturasDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FlagSentDataGridViewTextBoxColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents DesErrorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Mensajes As DataGridViewTextBoxColumn
+    Friend WithEvents StampTimeEnvioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NombreArchivoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CodigoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ConsecutivoDocumentoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CufeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ResultadoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDEmpresaIntermediariaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IDTiposEnviosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

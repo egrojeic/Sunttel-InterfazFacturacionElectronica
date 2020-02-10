@@ -14,7 +14,7 @@
   <xs:element name="dsCloaDocsFacturasXProcesar" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCloaDocsFacturasXProcesar" msprop:Generator_UserDSName="dsCloaDocsFacturasXProcesar">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="InterfasFacturas" msprop:Generator_TableClassName="InterfasFacturasDataTable" msprop:Generator_TableVarName="tableInterfasFacturas" msprop:Generator_RowChangedName="InterfasFacturasRowChanged" msprop:Generator_TablePropName="InterfasFacturas" msprop:Generator_RowDeletingName="InterfasFacturasRowDeleting" msprop:Generator_RowChangingName="InterfasFacturasRowChanging" msprop:Generator_RowEvHandlerName="InterfasFacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="InterfasFacturasRowDeleted" msprop:Generator_RowClassName="InterfasFacturasRow" msprop:Generator_UserTableName="InterfasFacturas" msprop:Generator_RowEvArgName="InterfasFacturasRowChangeEvent">
+        <xs:element name="InterfasFacturas" msprop:Generator_TableClassName="InterfasFacturasDataTable" msprop:Generator_TableVarName="tableInterfasFacturas" msprop:Generator_TablePropName="InterfasFacturas" msprop:Generator_RowDeletingName="InterfasFacturasRowDeleting" msprop:Generator_RowChangingName="InterfasFacturasRowChanging" msprop:Generator_RowEvHandlerName="InterfasFacturasRowChangeEventHandler" msprop:Generator_RowDeletedName="InterfasFacturasRowDeleted" msprop:Generator_UserTableName="InterfasFacturas" msprop:Generator_RowChangedName="InterfasFacturasRowChanged" msprop:Generator_RowEvArgName="InterfasFacturasRowChangeEvent" msprop:Generator_RowClassName="InterfasFacturasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -45,6 +45,7 @@
               <xs:element name="CodCliente" msprop:Generator_ColumnVarNameInTable="columnCodCliente" msprop:Generator_ColumnPropNameInRow="CodCliente" msprop:Generator_ColumnPropNameInTable="CodClienteColumn" msprop:Generator_UserColumnName="CodCliente" type="xs:string" minOccurs="0" />
               <xs:element name="NomCliente" msprop:Generator_ColumnVarNameInTable="columnNomCliente" msprop:Generator_ColumnPropNameInRow="NomCliente" msprop:Generator_ColumnPropNameInTable="NomClienteColumn" msprop:Generator_UserColumnName="NomCliente" type="xs:string" minOccurs="0" />
               <xs:element name="FFactura" msprop:Generator_ColumnVarNameInTable="columnFFactura" msprop:Generator_ColumnPropNameInRow="FFactura" msprop:Generator_ColumnPropNameInTable="FFacturaColumn" msprop:Generator_UserColumnName="FFactura" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Mensajes" msprop:Generator_ColumnVarNameInTable="columnMensajes" msprop:Generator_ColumnPropNameInRow="Mensajes" msprop:Generator_ColumnPropNameInTable="MensajesColumn" msprop:Generator_UserColumnName="Mensajes" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
