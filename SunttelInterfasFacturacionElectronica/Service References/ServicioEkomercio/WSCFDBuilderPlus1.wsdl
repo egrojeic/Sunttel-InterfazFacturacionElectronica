@@ -2991,16 +2991,16 @@ xmlFirmado: XML Firmado, sin timbrar, versión 3.0 según el Anexo 20.</wsdl:doc
   </wsdl:binding>
   <wsdl:service name="WSCFDBuilderPlus">
     <wsdl:port name="WSCFDBuilderPlusSoap" binding="tns:WSCFDBuilderPlusSoap">
-      <soap:address location="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
+      <soap:address location="http://fenalcofetest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
     </wsdl:port>
     <wsdl:port name="WSCFDBuilderPlusSoap12" binding="tns:WSCFDBuilderPlusSoap12">
-      <soap12:address location="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
+      <soap12:address location="http://fenalcofetest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
     </wsdl:port>
     <wsdl:port name="WSCFDBuilderPlusHttpGet" binding="tns:WSCFDBuilderPlusHttpGet">
-      <http:address location="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
+      <http:address location="http://fenalcofetest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
     </wsdl:port>
     <wsdl:port name="WSCFDBuilderPlusHttpPost" binding="tns:WSCFDBuilderPlusHttpPost">
-      <http:address location="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
+      <http:address location="http://fenalcofetest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

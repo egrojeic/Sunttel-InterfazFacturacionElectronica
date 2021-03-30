@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://FenalcoFETest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSCFDBuilderPlus.disco" MetadataType="Disco" ID="44a7fba9-8f83-4bd7-9de3-276532e0939b" SourceId="1" SourceUrl="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx?disco" />
-    <MetadataFile FileName="WSCFDBuilderPlus.wsdl" MetadataType="Wsdl" ID="46254c14-0e80-42bf-adf9-dd2033f68c70" SourceId="1" SourceUrl="https://fevalidacionpreviatest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx?wsdl" />
+    <MetadataFile FileName="WSCFDBuilderPlus1.wsdl" MetadataType="Wsdl" ID="7de21da3-2a44-4d7c-934d-713a6aa6c71b" SourceId="1" SourceUrl="http://fenalcofetest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx?wsdl" />
+    <MetadataFile FileName="WSCFDBuilderPlus1.disco" MetadataType="Disco" ID="c1efb1f7-4782-4df5-bbf9-2c83a573035a" SourceId="1" SourceUrl="http://fenalcofetest.ekomercio.com/WSCFDIBuilderPlusColombia/WSCFDBuilderPlus.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

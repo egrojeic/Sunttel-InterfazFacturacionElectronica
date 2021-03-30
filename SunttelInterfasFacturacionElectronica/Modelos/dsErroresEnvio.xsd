@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsErroresEnvio" targetNamespace="http://tempuri.org/dsErroresEnvio.xsd" xmlns:mstns="http://tempuri.org/dsErroresEnvio.xsd" xmlns="http://tempuri.org/dsErroresEnvio.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsErroresEnvio" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsErroresEnvio" msprop:Generator_UserDSName="dsErroresEnvio">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ErrorEnvioDocumentos" msprop:Generator_TableClassName="ErrorEnvioDocumentosDataTable" msprop:Generator_TableVarName="tableErrorEnvioDocumentos" msprop:Generator_TablePropName="ErrorEnvioDocumentos" msprop:Generator_RowDeletingName="ErrorEnvioDocumentosRowDeleting" msprop:Generator_RowChangingName="ErrorEnvioDocumentosRowChanging" msprop:Generator_RowEvHandlerName="ErrorEnvioDocumentosRowChangeEventHandler" msprop:Generator_RowDeletedName="ErrorEnvioDocumentosRowDeleted" msprop:Generator_UserTableName="ErrorEnvioDocumentos" msprop:Generator_RowChangedName="ErrorEnvioDocumentosRowChanged" msprop:Generator_RowEvArgName="ErrorEnvioDocumentosRowChangeEvent" msprop:Generator_RowClassName="ErrorEnvioDocumentosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="TiempoEnvio" msprop:Generator_ColumnVarNameInTable="columnTiempoEnvio" msprop:Generator_ColumnPropNameInRow="TiempoEnvio" msprop:Generator_ColumnPropNameInTable="TiempoEnvioColumn" msprop:Generator_UserColumnName="TiempoEnvio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TipoDocumento" msprop:Generator_ColumnVarNameInTable="columnTipoDocumento" msprop:Generator_ColumnPropNameInRow="TipoDocumento" msprop:Generator_ColumnPropNameInTable="TipoDocumentoColumn" msprop:Generator_UserColumnName="TipoDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="ErrorDesc" msprop:Generator_ColumnVarNameInTable="columnErrorDesc" msprop:Generator_ColumnPropNameInRow="ErrorDesc" msprop:Generator_ColumnPropNameInTable="ErrorDescColumn" msprop:Generator_UserColumnName="ErrorDesc" type="xs:string" minOccurs="0" />
+              <xs:element name="IDDocto" msprop:Generator_ColumnVarNameInTable="columnIDDocto" msprop:Generator_ColumnPropNameInRow="IDDocto" msprop:Generator_ColumnPropNameInTable="IDDoctoColumn" msprop:Generator_UserColumnName="IDDocto" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ErrorEnvioDocumentos" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

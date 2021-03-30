@@ -68,7 +68,7 @@
     </Reference>
     <Reference Include="SunttelDll2007, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SUNTTEL_DLLs\SunttelDll2007.dll</HintPath>
+      <HintPath>..\..\..\SunttelDlls\SunttelDll2007.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -108,6 +108,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CoreModule.vb" />
+    <Compile Include="EstablecerNumFacturaElectronicaFrm.Designer.vb">
+      <DependentUpon>EstablecerNumFacturaElectronicaFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EstablecerNumFacturaElectronicaFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modelos\dsArchivoPlano.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +136,11 @@
     </Compile>
     <Compile Include="Modelos\dsConsultaFactura.vb">
       <DependentUpon>dsConsultaFactura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\dsErroresEnvio.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsErroresEnvio.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modelos\dsNotasCreditoXProcesar.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -173,6 +184,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CoreForm.resx">
       <DependentUpon>CoreForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstablecerNumFacturaElectronicaFrm.resx">
+      <DependentUpon>EstablecerNumFacturaElectronicaFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -225,6 +239,17 @@
     </None>
     <None Include="Modelos\dsConsultaFactura.xss">
       <DependentUpon>dsConsultaFactura.xsd</DependentUpon>
+    </None>
+    <None Include="Modelos\dsErroresEnvio.xsc">
+      <DependentUpon>dsErroresEnvio.xsd</DependentUpon>
+    </None>
+    <None Include="Modelos\dsErroresEnvio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsErroresEnvio.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modelos\dsErroresEnvio.xss">
+      <DependentUpon>dsErroresEnvio.xsd</DependentUpon>
     </None>
     <None Include="Modelos\dsNotasCreditoXProcesar.xsc">
       <DependentUpon>dsNotasCreditoXProcesar.xsd</DependentUpon>
@@ -309,7 +334,7 @@
     <None Include="Service References\ServicioEkomercio\SunttelInterfasFacturacionElectronica.ServicioEkomercio.WSRespuestaTimbrado.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus.wsdl" />
+    <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus1.wsdl" />
     <None Include="Service References\ServicioEmi\Service1.wsdl" />
     <None Include="Service References\ServicioEmi\Service6.xsd">
       <SubType>Designer</SubType>
@@ -405,9 +430,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\ServicioEkomercio\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -418,6 +440,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioEkomercio\WSCFDBuilderPlus1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -98,6 +98,8 @@ ControlaError:
 
         With Adaptador.SelectCommand
             .Connection = cnn
+            .CommandTimeout = 0
+
             If prmStrSQL.Length = 0 Then
                 If FlagOrderByNombre Then
                     .CommandText = "SELECT  ID, RTRIM(Nombre) AS Nombre  FROM " & prmTablaConsulta & " ORDER BY Nombre ASC"
@@ -115,7 +117,7 @@ ControlaError:
         Exit Sub
 ControlaError:
         Dim strError As String = Err.Description
-
+        MessageBox.Show(strError + ": " & prmStrSQL)
 
     End Sub
 
@@ -132,7 +134,7 @@ ControlaError:
             tmpNombreArchivo = prmDataTable.TableName
         End If
         tmpPathArchivo = prmDirectorio.Trim & "\" & tmpNombreArchivo.Trim & prmExtension
-        Dim Escritor As New StreamWriter(tmpPathArchivo, False, System.Text.Encoding.ASCII)
+        Dim Escritor As New StreamWriter(tmpPathArchivo, False, System.Text.Encoding.UTF8)
 
         Dim i As Integer = 0
         Dim j As Integer = 0
